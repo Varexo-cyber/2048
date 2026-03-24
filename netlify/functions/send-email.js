@@ -48,16 +48,17 @@ exports.handler = async (event, context) => {
     }
     .container { 
       max-width: 600px; 
-      margin: 0 auto; 
+      margin: 20px auto; 
       background: white;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
     }
     .header { 
       background: linear-gradient(135deg, #0047AB 0%, #003d8f 100%);
       color: white; 
       padding: 30px 20px; 
       text-align: center;
-      border-bottom: 4px solid #003d8f;
     }
     .header h1 { 
       font-size: 24px; 
@@ -87,8 +88,15 @@ exports.handler = async (event, context) => {
       grid-template-columns: 140px 1fr;
       gap: 15px;
       margin-bottom: 8px;
-      padding: 12px 0;
+      padding: 16px;
       border-bottom: 1px solid #e9ecef;
+      background: #f8f9fa;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+    }
+    .detail-grid:hover {
+      background: #e9ecef;
+      transform: translateY(-1px);
     }
     .detail-grid:last-child {
       border-bottom: none;
@@ -99,15 +107,17 @@ exports.handler = async (event, context) => {
       font-size: 14px;
     }
     .value {
-      color: #1a1a1a;
+      color: #2c3e50;
       font-size: 14px;
+      font-weight: 500;
     }
     .cta-section {
       text-align: center; 
       margin: 30px 0;
       padding: 25px;
-      background: #f8f9fa;
-      border-radius: 8px;
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      border-radius: 12px;
+      border: 1px solid #dee2e6;
     }
     .cta-button {
       display: inline-block;
@@ -115,15 +125,15 @@ exports.handler = async (event, context) => {
       color: white; 
       padding: 14px 28px; 
       text-decoration: none; 
-      border-radius: 6px;
+      border-radius: 8px;
       font-weight: 600;
       font-size: 15px;
       transition: all 0.3s ease;
-      box-shadow: 0 2px 4px rgba(0, 71, 171, 0.2);
+      box-shadow: 0 4px 8px rgba(0, 71, 171, 0.2);
     }
     .cta-button:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 4px 8px rgba(0, 71, 171, 0.3);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0, 71, 171, 0.3);
     }
     .footer { 
       text-align: center; 
