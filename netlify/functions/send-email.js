@@ -30,7 +30,7 @@ exports.handler = async (event, context) => {
     // Email opstellen
     const mailOptions = {
       from: '"Leegstandmeldpunt" <info@varexo.nl>',
-      to: 'mohammed81310@gmail.com',
+      to: ['mohammed81310@gmail.com', 'noemrawsingh@gmail.com'],
       subject: 'Nieuwe Vastgoed Melding - Leegstandmeldpunt.nl',
       html: `<!DOCTYPE html>
 <html>
