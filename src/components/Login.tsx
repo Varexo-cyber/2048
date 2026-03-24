@@ -190,9 +190,8 @@ const Login = ({ onClose }: LoginProps) => {
           fontSize: '0.75rem',
           color: 'var(--text-secondary)'
         }}>
-          <strong>Demo accounts:</strong><br />
-          Admin: admin / admin123<br />
-          User: demo / demo123
+          <strong>Beheerder toegang:</strong><br />
+          Neem contact op met de site beheerder voor inloggegevens.
         </div>
       </div>
     </div>

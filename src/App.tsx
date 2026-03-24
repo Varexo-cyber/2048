@@ -356,6 +356,36 @@ const ReportVacancyPage = () => {
     existing.unshift(melding)
     localStorage.setItem('leegstand_meldingen', JSON.stringify(existing))
     
+    // Send email notification to admins
+    const emailSubject = encodeURIComponent('🚨 Nieuwe Leegstand Melding - Leegstandmeldpunt.nl')
+    const emailBody = encodeURIComponent(`
+Hallo Admin,
+
+Er is een nieuwe leegstand melding binnengekomen!
+
+📋 MELDING DETAILS:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🏠 Adres: ${melding.address}
+🏢 Type: ${melding.type}
+⏰ Duur: ${melding.vacancyDuration || 'Onbekend'}
+👤 Melder: ${melding.reportType === 'anonymous' ? 'Anoniem' : melding.reporterName}
+📧 Email: ${melding.reporterEmail || 'Niet verstrekt'}
+📞 Telefoon: ${melding.reporterPhone || 'Niet verstrekt'}
+📝 Omschrijving: ${melding.description || 'Geen omschrijving'}
+📅 Datum: ${melding.date}
+🔢 ID: #${melding.id}
+
+🔗 BEKIJK IN PORTAAL:
+Ga naar: https://leegstandmeldpunt.nl/portaal
+Login met uw beheerders account.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Dit is een geautomatiseerde melding van Leegstandmeldpunt.nl
+    `.trim())
+    
+    // Open email client with notification (sends to both emails)
+    window.open(`mailto:mohammed81310@gmail.com,noemrawsingh@gmail.com?subject=${emailSubject}&body=${emailBody}`, '_blank')
+    
     setToast({ message: t.submitSuccess, type: 'success' })
     
     // Reset form

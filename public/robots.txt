@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /portaal
+Disallow: /profiel
+Disallow: /admin
+
+Sitemap: https://leegstandmeldpunt.nl/sitemap.xml
+
+Host: https://leegstandmeldpunt.nl

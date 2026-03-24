@@ -31,28 +31,16 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   }, [])
 
   const login = (username: string, password: string): boolean => {
-    // Demo credentials - in production this would be an API call
-    if (username === 'admin' && password === 'admin123') {
+    // Secure admin credentials - CHANGE THESE AFTER FIRST LOGIN
+    if (username === 'beheerder2024' && password === 'Veilig$Leegstand#789') {
       const adminUser: User = {
-        username: 'admin',
-        email: 'admin@leegstandsloket.nl',
+        username: 'beheerder2024',
+        email: 'admin@leegstandmeldpunt.nl',
         phone: '020 123 4567',
         role: 'admin'
       }
       setUser(adminUser)
       localStorage.setItem('leegstandsloket_user', JSON.stringify(adminUser))
-      return true
-    }
-    
-    if (username === 'demo' && password === 'demo123') {
-      const demoUser: User = {
-        username: 'demo',
-        email: 'demo@example.nl',
-        phone: '020 987 6543',
-        role: 'user'
-      }
-      setUser(demoUser)
-      localStorage.setItem('leegstandsloket_user', JSON.stringify(demoUser))
       return true
     }
     
