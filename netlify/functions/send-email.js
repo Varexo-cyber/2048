@@ -15,12 +15,20 @@ const transporter = nodemailer.createTransporter({
 })
 
 exports.handler = async (event, context) => {
+  console.log('Function called with:', event.httpMethod)
+  
   if (event.httpMethod !== 'POST') {
     return { statusCode: 405, body: 'Method Not Allowed' }
   }
 
   try {
     const melding = JSON.parse(event.body)
+    console.log('Melding data:', melding)
+    
+    // Test SMTP connection
+    console.log('Testing SMTP connection...')
+    await transporter.verify()
+    console.log('SMTP connection successful!')
     
     // Email opstellen
     const mailOptions = {
@@ -66,11 +74,17 @@ exports.handler = async (event, context) => {
     }
     
     // Email versturen
-    await transporter.sendMail(mailOptions)
+    console.log('Sending email...')
+    const result = await transporter.sendMail(mailOptions)
+    console.log('Email sent successfully:', result.messageId)
     
     return {
       statusCode: 200,
-      body: JSON.stringify({ success: true })
+      body: JSON.stringify({ 
+        success: true, 
+        message: 'Email verstuurd naar mohammed81310@gmail.com',
+        messageId: result.messageId
+      })
     }
   } catch (error) {
     return {
