@@ -139,17 +139,18 @@ exports.handler = async (event, context) => {
     }
     .cta-button {
       display: inline-block;
-      background: #0047AB;
-      color: white; 
+      background: #ffffff;
+      color: #0047AB; 
       padding: 14px 32px; 
       text-decoration: none; 
       border-radius: 8px;
       font-weight: 600;
       font-size: 15px;
       transition: all 0.2s ease;
+      border: 2px solid #0047AB;
     }
     .cta-button:hover {
-      background: #003d8f;
+      background: #f7fafc;
       transform: translateY(-1px);
     }
     .footer { 
@@ -247,7 +248,7 @@ exports.handler = async (event, context) => {
     
     <div class="footer">
       <p class="footer-brand">Leegstandmeldpunt.nl</p>
-      <p>Professioneel Vastgoed Platform Nederland</p>
+      <p>Leegstand Melden Platform</p>
       <p>© 2024 Alle rechten voorbehouden</p>
     </div>
   </div>
