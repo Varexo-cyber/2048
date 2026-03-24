@@ -1,16 +1,13 @@
 const nodemailer = require('nodemailer')
 
-// Nodemailer transporter configuratie voor varexo.nl
+// Nodemailer transporter configuratie voor Gmail
 const transporter = nodemailer.createTransport({
-  host: process.env.SMTP_HOST || 'mail.varexo.nl',
-  port: process.env.SMTP_PORT || 587,
+  host: 'smtp.gmail.com',
+  port: 587,
   secure: false,
   auth: {
     user: process.env.SMTP_USER || 'info@varexo.nl',
     pass: process.env.SMTP_PASSWORD
-  },
-  tls: {
-    rejectUnauthorized: false
   }
 })
 
