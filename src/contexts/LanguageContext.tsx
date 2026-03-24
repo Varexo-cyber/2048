@@ -175,8 +175,8 @@ const translations: Translations = {
     contact: 'Contact',
     
     // Hero
-    heroTitle: 'Samen Tegen Leegstand,',
-    heroSubtitle: 'Meld leegstaand vastgoed en help het woningtekort in Nederland op te lossen. Als melder ontvangt u een vergoeding van €100 wanneer uw melding leidt tot een succesvolle activering.',
+    heroTitle: 'Vastgoed Opportuniteiten Ontdekken,',
+    heroSubtitle: 'Wij identificeren en activeren leegstaand vastgoed voor vastgoedeigenaren en woningzoekers. Ontdek unieke kansen in de vastgoedmarkt met professionele begeleiding.',
     reportVacancyBtn: 'Leegstand Melden',
     viewDashboardBtn: 'Bekijk Dashboard',
     
@@ -188,17 +188,17 @@ const translations: Translations = {
     
     // Features
     whyLeegstandsloket: 'Waarom Leegstandmeldpunt?',
-    professionalPartner: 'Het officiële meldpunt voor leegstaand vastgoed in Nederland. Wij werken samen met gemeenten en vastgoedeigenaren om het woningtekort op te lossen.',
+    professionalPartner: 'Uw partner in vastgoedkansen. Wij identificeren ondergewaardeerde vastgoedmogelijkheden en brengen eigenaren en kopers samen voor win-win situaties.',
     discretion: 'Discretie & Vertrouwen',
     discretionDesc: 'Uw gegevens zijn veilig bij ons. We werken strikt vertrouwelijk en AVG-proof.',
-    expertise: 'Professionele Expertise',
-    expertiseDesc: 'Juridische, fiscale en vastgoedkundige kennis onder één dak voor optimale resultaten.',
+    expertise: 'Vastgoed Expertise',
+    expertiseDesc: 'Diepgaande marktanalyse en onderhandelingskracht voor de beste vastgoedeals. Wij kennen de lokale markt als geen ander.',
     resultOriented: 'Resultaatgericht',
-    resultOrientedDesc: 'We focussen op daadwerkelijke activering van vastgoed, niet op rapporteren.',
-    propertyOwnerHelp: 'Eigenaar? Wij Helpen!',
-    propertyOwnerHelpDesc: 'Heeft u een leegstaande woning? Wij helpen met verhuur, verkoop of tijdelijke bewoning. Snel en professioneel.',
-    reward100: '€100 Beloning',
-    reward100Desc: 'Meld leegstand en ontvang €100. Of als eigenaar: vind snel huurders/kopers en verdien terug!',
+    resultOrientedDesc: 'Wij richten ons op daadwerkelijke transacties. Geen rapporteren, maar doen.',
+    propertyOwnerHelp: 'Eigenaar? Verkoop Snel!',
+    propertyOwnerHelpDesc: 'Heeft u een leegstaande woning? Wij helpen met een snelle, winstgevende verkoop. Directe kopers en eerlijke prijzen.',
+    reward100: '€100 Melders Beloning',
+    reward100Desc: 'Help ons vastgoedmogelijkheden te vinden en ontvang €100 per succesvolle doorverwijzing.',
     
     // Process
     howItWorks: 'Hoe het Werkt',
@@ -213,14 +213,14 @@ const translations: Translations = {
     step4Desc: 'Het pand wordt bewoond, de buurt leefbaarder en het woningtekort verkleind.',
     
     // CTA
-    ctaTitle: 'Draag Bij aan een Leefbare Buurt',
-    ctaSubtitle: 'Samen kunnen we leegstand terugdringen en bijdragen aan meer beschikbare woningen in Nederland. Melders ontvangen een vergoeding van €100 bij succesvolle activering.',
+    ctaTitle: 'Ontdek Vastgoedkansen',
+    ctaSubtitle: 'Wij brengen vastgoedeigenaren en kopers samen. Vind unieke mogelijkheden in de vastgoedmarkt en verdien met ons samen.',
     reportVacancyCTA: 'Meld Leegstand',
     contactCTA: 'Neem Contact Op',
     
     // Report Form
-    reportTitle: 'Leegstand Melden',
-    reportSubtitle: 'Help leegstand terug te dringen en het woningtekort op te lossen. Meld anoniem of met uw contactgegevens. Melders ontvangen een vergoeding van €100 wanneer de melding leidt tot een succesvolle activering.',
+    reportTitle: 'Vastgoed Melden',
+    reportSubtitle: 'Kent u leegstaand vastgoed? Meld het en ontvang €100 bij een succesvolle transactie. Wij brengen u direct in contact met geïnteresseerde kopers.',
     address: 'Adres',
     propertyType: 'Type pand',
     vacancyDuration: 'Hoe lang staat het pand al leeg?',
@@ -228,7 +228,7 @@ const translations: Translations = {
     reportBtn: 'Leegstand Melden',
     
     // Footer
-    footerDescription: 'Samen tegen leegstand, voor meer woningen. Wij maken leegstaand vastgoed zichtbaar en activeren het voor bewoning. Melders ontvangen een vergoeding bij succesvolle activering.',
+    footerDescription: 'Uw partner in vastgoedeals. Wij identificeren kansen, brengen partijen samen en realiseren winstgevende transacties.',
     quickLinks: 'Snelle Links',
     services: 'Diensten',
     legalExpertise: 'Juridische Expertise',
@@ -268,11 +268,11 @@ const translations: Translations = {
     
     // About Page
     aboutTitle: 'Over Leegstandmeldpunt',
-    aboutSubtitle: 'Wij zijn het officiële meldpunt voor leegstaand vastgoed in Nederland. Met juridische, fiscale en vastgoedkundige expertise dragen we bij aan het oplossen van het woningtekort.',
+    aboutSubtitle: 'Wij zijn uw specialist in vastgoedeals. Met diepgaande marktanalyse en een uitgebreid netwerk brengen wij vastgoedeigenaren en kopers samen voor de beste transacties.',
     ourMission: 'Onze Missie',
-    ourMissionDesc: 'Leegstandmeldpunt is opgericht om het dubbele probleem van leegstand en woningtekort in Nederland aan te pakken. Wij ondersteunen melders met een vergoeding van €100 bij succesvolle activering.',
+    ourMissionDesc: 'Leegstandmeldpunt is opgericht om vastgoedeigenaren en kopers samen te brengen. Wij identificeren ondergewaardeerde vastgoedmogelijkheden en realiseren winstgevende deals.',
     ourVision: 'Onze Visie',
-    ourVisionDesc: 'Een Nederland zonder leegstand, waar elk vastgoed zijn functie vervult en bijdraagt aan leefbare buurten.',
+    ourVisionDesc: 'Een markt waarin elk vastgoed zijn maximale waarde bereikt en eigenaren directe toegang hebben tot serieuze kopers.',
     ourValues: 'Onze Waarden',
     ourValuesDesc: 'Discretie, vertrouwen, professionaliteit en resultaatgerichtheid staan bij ons centraal.',
     
@@ -324,7 +324,7 @@ const translations: Translations = {
     privacyText3: 'Lees onze volledige',
     privacyAgree: 'Ik ga akkoord met de privacyverklaring en algemene voorwaarden. Ik begrijp dat mijn gegevens worden verwerkt in overeenstemming met de AVG.',
     requiredFields: '* Verplichte velden',
-    submitSuccess: 'Leegstandmelding succesvol ingediend! We nemen zo spoedig mogelijk contact met u op. Bij succesvolle activering ontvangt u een vergoeding van €100.',
+    submitSuccess: 'Vastgoedmelding succesvol ingediend! We nemen direct contact met u op. Bij een succesvolle transactie ontvangt u een beloning van €100.',
   },
   
   en: {
@@ -336,8 +336,8 @@ const translations: Translations = {
     contact: 'Contact',
     
     // Hero
-    heroTitle: 'Together Against Vacancy,',
-    heroSubtitle: 'Report vacant property and help solve the housing shortage in the Netherlands. Reporters receive a €100 compensation when their report leads to successful activation.',
+    heroTitle: 'Real Estate Opportunities',
+    heroSubtitle: 'We identify and activate vacant properties for real estate owners and home seekers. Discover unique opportunities in the real estate market with professional guidance.',
     reportVacancyBtn: 'Report Vacancy',
     viewDashboardBtn: 'View Dashboard',
     
@@ -349,17 +349,17 @@ const translations: Translations = {
     
     // Features
     whyLeegstandsloket: 'Why Leegstandmeldpunt?',
-    professionalPartner: 'The official reporting point for vacant property in the Netherlands. We work with municipalities and property owners to solve the housing shortage.',
+    professionalPartner: 'Your partner in real estate opportunities. We identify undervalued real estate opportunities and bring owners and buyers together for win-win situations.',
     discretion: 'Discretion & Trust',
     discretionDesc: 'Your data is safe with us. We work strictly confidentially and GDPR-proof.',
-    expertise: 'Professional Expertise',
-    expertiseDesc: 'Legal, fiscal and real estate knowledge under one roof for optimal results.',
-    resultOriented: 'Result-Oriented',
-    resultOrientedDesc: 'We focus on actual activation of real estate, not just reporting.',
-    propertyOwnerHelp: 'Property Owner? We Help!',
-    propertyOwnerHelpDesc: 'Do you have a vacant property? We help with rental, sale or temporary occupation. Fast and professional.',
-    reward100: '€100 Reward',
-    reward100Desc: 'Report vacancy and receive €100. Or as owner: find tenants/buyers quickly and earn back!',
+    expertise: 'Real Estate Expertise',
+    expertiseDesc: 'Deep market analysis and negotiation power for the best real estate deals. We know the local market like no other.',
+    resultOriented: 'Result Oriented',
+    resultOrientedDesc: 'We focus on actual transactions. No reporting, but doing.',
+    propertyOwnerHelp: 'Owner? Sell Fast!',
+    propertyOwnerHelpDesc: 'Have a vacant property? We help with a quick, profitable sale. Direct buyers and fair prices.',
+    reward100: '€100 Reporter Reward',
+    reward100Desc: 'Help us find real estate opportunities and receive €100 per successful referral.',
     
     // Process
     howItWorks: 'How It Works',
@@ -374,14 +374,14 @@ const translations: Translations = {
     step4Desc: 'The property becomes occupied, the neighborhood more livable and the housing shortage reduced.',
     
     // CTA
-    ctaTitle: 'Contribute to a Livable Neighborhood',
-    ctaSubtitle: 'Together we can reduce vacancy and contribute to more available housing in the Netherlands. Reporters receive a €100 compensation upon successful activation.',
+    ctaTitle: 'Discover Real Estate Opportunities',
+    ctaSubtitle: 'We bring real estate owners and buyers together. Find unique opportunities in the real estate market and earn with us.',
     reportVacancyCTA: 'Report Vacancy',
     contactCTA: 'Contact Us',
     
     // Report Form
-    reportTitle: 'Report Vacancy',
-    reportSubtitle: 'Help reduce vacancy and solve the housing shortage. Report anonymously or with your contact details. Reporters receive a €100 compensation when the report leads to successful activation.',
+    reportTitle: 'Report Real Estate',
+    reportSubtitle: 'Do you know vacant real estate? Report it and receive €100 for a successful transaction. We connect you directly with interested buyers.',
     address: 'Address',
     propertyType: 'Property Type',
     vacancyDuration: 'How long has the property been vacant?',
@@ -389,7 +389,7 @@ const translations: Translations = {
     reportBtn: 'Report Vacancy',
     
     // Footer
-    footerDescription: 'Together against vacancy, for more housing. We make vacant properties visible and activate them for occupancy. Reporters receive a compensation upon successful activation.',
+    footerDescription: 'Your partner in real estate deals. We identify opportunities, bring parties together and realize profitable transactions.',
     quickLinks: 'Quick Links',
     services: 'Services',
     legalExpertise: 'Legal Expertise',
@@ -429,11 +429,11 @@ const translations: Translations = {
     
     // About Page
     aboutTitle: 'About Leegstandmeldpunt',
-    aboutSubtitle: 'We are the official reporting point for vacant property in the Netherlands. With legal, fiscal and real estate expertise, we contribute to solving the housing shortage.',
+    aboutSubtitle: 'We are your specialist in real estate deals. With deep market analysis and an extensive network, we bring real estate owners and buyers together for the best transactions.',
     ourMission: 'Our Mission',
-    ourMissionDesc: 'Leegstandmeldpunt was founded to tackle the dual problem of vacancy and housing shortage in the Netherlands. We support reporters with a €100 compensation upon successful activation.',
+    ourMissionDesc: 'Leegstandmeldpunt was founded to bring real estate owners and buyers together. We identify undervalued real estate opportunities and realize profitable deals.',
     ourVision: 'Our Vision',
-    ourVisionDesc: 'A Netherlands without vacancy, where every property fulfills its function and contributes to livable neighborhoods.',
+    ourVisionDesc: 'A market where every property reaches its maximum value and owners have direct access to serious buyers.',
     ourValues: 'Our Values',
     ourValuesDesc: 'Discretion, trust, professionalism and result-orientation are at our core.',
     
@@ -485,7 +485,7 @@ const translations: Translations = {
     privacyText3: 'Read our full',
     privacyAgree: 'I agree to the privacy statement and terms of service. I understand that my data will be processed in accordance with GDPR.',
     requiredFields: '* Required fields',
-    submitSuccess: 'Vacancy report submitted successfully! We will contact you as soon as possible. Upon successful activation, you will receive a €100 compensation.'
+    submitSuccess: 'Real estate report successfully submitted! We will contact you directly. For a successful transaction, you receive a €100 reward.',
   },
   
   de: {
@@ -497,8 +497,8 @@ const translations: Translations = {
     contact: 'Kontakt',
     
     // Hero
-    heroTitle: 'Gemeinsam Gegen Leerstand,',
-    heroSubtitle: 'Melden Sie leerstehende Immobilien und helfen Sie, das Wohnungsdefizit in den Niederlanden zu lösen. Melder erhalten eine Vergütung von €100, wenn ihre Meldung zu einer erfolgreichen Aktivierung führt.',
+    heroTitle: 'Immobilien Chancen Entdecken',
+    heroSubtitle: 'Wir identifizieren und aktivieren leerstehende Immobilien für Immobilieneigentümer und Wohnungssuchende. Entdecken Sie einzigartige Chancen auf dem Immobilienmarkt mit professioneller Begleitung.',
     reportVacancyBtn: 'Leerstand Melden',
     viewDashboardBtn: 'Dashboard Ansehen',
     
@@ -510,17 +510,17 @@ const translations: Translations = {
     
     // Features
     whyLeegstandsloket: 'Warum Leegstandmeldpunt?',
-    professionalPartner: 'Die offizielle Meldestelle für leerstehende Immobilien in den Niederlanden. Wir arbeiten mit Gemeinden und Immobilieneigentümern zusammen, um das Wohnungsdefizit zu lösen.',
+    professionalPartner: 'Ihr Partner für Immobilienchancen. Wir identifizieren unterbewertete Immobilienmöglichkeiten und bringen Eigentümer und Käufer für Win-Win-Situationen zusammen.',
     discretion: 'Diskretion & Vertrauen',
     discretionDesc: 'Ihre Daten sind bei uns sicher. Wir arbeiten streng vertraulich und DSGVO-konform.',
-    expertise: 'Professionelle Expertise',
-    expertiseDesc: 'Rechtliche, steuerliche und immobilienwirtschaftliche Kenntnisse unter einem Dach für optimale Ergebnisse.',
+    expertise: 'Immobilien Expertise',
+    expertiseDesc: 'Tiefgehende Marktanalyse und Verhandlungsmacht für die besten Immobiliendeals. Wir kennen den lokalen Markt wie kein anderer.',
     resultOriented: 'Ergebnisorientiert',
-    resultOrientedDesc: 'Wir konzentrieren uns auf die tatsächliche Aktivierung von Immobilien, nicht nur auf Berichterstattung.',
-    propertyOwnerHelp: 'Eigentümer? Wir Helfen!',
-    propertyOwnerHelpDesc: 'Haben Sie eine leerstehende Immobilie? Wir helfen bei Vermietung, Verkauf oder vorübergehender Bewohnung. Schnell und professionell.',
-    reward100: '€100 Vergütung',
-    reward100Desc: 'Leerstand melden und €100 erhalten. Oder als Eigentümer: Mieter/Käufer schnell finden und zurückverdienen!',
+    resultOrientedDesc: 'Wir konzentrieren uns auf tatsächliche Transaktionen. Kein Berichten, sondern Handeln.',
+    propertyOwnerHelp: 'Eigentümer? Schnell Verkaufen!',
+    propertyOwnerHelpDesc: 'Haben Sie eine leerstehende Immobilie? Wir helfen mit einem schnellen, profitablen Verkauf. Direkte Käufer und faire Preise.',
+    reward100: '€100 Melder Belohnung',
+    reward100Desc: 'Helfen Sie uns Immobilienmöglichkeiten zu finden und erhalten Sie €100 pro erfolgreicher Weiterleitung.',
     
     // Process
     howItWorks: 'Wie Es Funktioniert',
@@ -535,14 +535,14 @@ const translations: Translations = {
     step4Desc: 'Die Immobilie wird bewohnt, der Nachbarschaft lebenswerter und das Wohnungsdefizit reduziert.',
     
     // CTA
-    ctaTitle: 'Tragen Sie zu einem Lebenswerten Viertel Bei',
-    ctaSubtitle: 'Gemeinsam können wir Leerstand reduzieren und zu mehr verfügbaren Wohnungen in den Niederlanden beitragen. Melder erhalten bei erfolgreicher Aktivierung eine Vergütung von €100.',
+    ctaTitle: 'Immobilien Chancen Entdecken',
+    ctaSubtitle: 'Wir bringen Immobilieneigentümer und Käufer zusammen. Finden Sie einzigartige Möglichkeiten auf dem Immobilienmarkt und verdienen Sie mit uns.',
     reportVacancyCTA: 'Leerstand Melden',
     contactCTA: 'Kontaktieren Sie Uns',
     
     // Report Form
-    reportTitle: 'Leerstand Melden',
-    reportSubtitle: 'Helfen Sie, Leerstand zu reduzieren und das Wohnungsdefizit zu lösen. Melden Sie anonym oder mit Ihren Kontaktdaten. Melder erhalten eine Vergütung von €100, wenn die Meldung zu einer erfolgreichen Aktivierung führt.',
+    reportTitle: 'Immobilien Melden',
+    reportSubtitle: 'Kenn Sie leerstehende Immobilien? Melden Sie es und erhalten Sie €100 bei einer erfolgreichen Transaktion. Wir verbinden Sie direkt mit interessierten Käufern.',
     address: 'Adresse',
     propertyType: 'Immobilientyp',
     vacancyDuration: 'Wie lange steht die Immobilie leer?',
@@ -550,7 +550,7 @@ const translations: Translations = {
     reportBtn: 'Leerstand Melden',
     
     // Footer
-    footerDescription: 'Gemeinsam gegen Leerstand, für mehr Wohnungen. Wir machen leerstehende Immobilien sichtbar und aktivieren sie für Bewohnung. Melder erhalten bei erfolgreicher Aktivierung eine Vergütung.',
+    footerDescription: 'Ihr Partner für Immobiliendeals. Wir identifizieren Chancen, bringen Parteien zusammen und realisieren profitablle Transaktionen.',
     quickLinks: 'Schnelle Links',
     services: 'Dienstleistungen',
     legalExpertise: 'Rechtliche Expertise',
@@ -590,11 +590,11 @@ const translations: Translations = {
     
     // About Page
     aboutTitle: 'Über Leegstandmeldpunt',
-    aboutSubtitle: 'Wir sind die offizielle Meldestelle für leerstehende Immobilien in den Niederlanden. Mit rechtlicher, steuerlicher und immobilienwirtschaftlicher Expertise tragen wir zur Lösung des Wohnungsdefizits bei.',
+    aboutSubtitle: 'Wir sind Ihr Spezialist für Immobiliendeals. Mit tiefgehender Marktanalyse und einem umfangreichen Netzwerk bringen wir Immobilieneigentümer und Käufer für die besten Transaktionen zusammen.',
     ourMission: 'Unsere Mission',
-    ourMissionDesc: 'Leegstandmeldpunt wurde gegründet, um das doppelte Problem von Leerstand und Wohnungsmangel in den Niederlanden anzugehen. Wir unterstützen Melder mit einer Vergütung von €100 bei erfolgreicher Aktivierung.',
+    ourMissionDesc: 'Leegstandmeldpunt wurde gegründet, um Immobilieneigentümer und Käufer zusammenzubringen. Wir identifizieren unterbewertete Immobilienmöglichkeiten und realisieren profitablle Deals.',
     ourVision: 'Unsere Vision',
-    ourVisionDesc: 'Ein Niederlande ohne Leerstand, wo jede Immobilie ihre Funktion erfüllt und zu lebenswerten Nachbarschaften beiträgt.',
+    ourVisionDesc: 'Ein Markt, in dem jede Immobilie ihren maximalen Wert erreicht und Eigentümer direkten Zugang zu ernsthaften Käufern haben.',
     ourValues: 'Unsere Werte',
     ourValuesDesc: 'Diskretion, Vertrauen, Professionalität und Ergebnisorientierung stehen bei uns im Mittelpunkt.',
     
@@ -646,7 +646,7 @@ const translations: Translations = {
     privacyText3: 'Lesen Sie unsere vollständige',
     privacyAgree: 'Ich stimme der Datenschutzerklärung und den AGB zu. Ich verstehe, dass meine Daten in Übereinstimmung mit der DSGVO verarbeitet werden.',
     requiredFields: '* Pflichtfelder',
-    submitSuccess: 'Leerstandsmeldung erfolgreich eingereicht! Wir werden Sie so schnell wie möglich kontaktieren. Bei erfolgreicher Aktivierung erhalten Sie eine Vergütung von €100.'
+    submitSuccess: 'Immobilienmeldung erfolgreich eingereicht! Wir nehmen direkt Kontakt mit Ihnen auf. Bei einer erfolgreichen Transaktion erhalten Sie eine €100 Belohnung.',
   }
 }
 
