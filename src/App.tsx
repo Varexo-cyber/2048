@@ -285,6 +285,8 @@ const ReportVacancyPage = () => {
     address: '',
     propertyType: 'Woning',
     vacancyDuration: '',
+    postalCode: '',
+    city: '',
     description: '',
     
     // Reporting type
@@ -346,6 +348,8 @@ const ReportVacancyPage = () => {
       reporterEmail: formData.reporterEmail || '',
       reporterPhone: formData.reporterPhone || '',
       vacancyDuration: formData.vacancyDuration,
+      postalCode: formData.postalCode,
+      city: formData.city,
       description: formData.description,
       attachments: attachmentData,
       createdAt: new Date().toISOString()
@@ -366,6 +370,8 @@ Er is een nieuwe leegstand melding binnengekomen!
 📋 MELDING DETAILS:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 🏠 Adres: ${melding.address}
+📍 Postcode: ${melding.postalCode || 'Niet verstrekt'}
+🏙️ Plaats: ${melding.city || 'Niet verstrekt'}
 🏢 Type: ${melding.type}
 ⏰ Duur: ${melding.vacancyDuration || 'Onbekend'}
 👤 Melder: ${melding.reportType === 'anonymous' ? 'Anoniem' : melding.reporterName}
@@ -383,8 +389,8 @@ Login met uw beheerders account.
 Dit is een geautomatiseerde melding van Leegstandmeldpunt.nl
     `.trim())
     
-    // Open email client with notification (sends to both emails)
-    window.open(`mailto:mohammed81310@gmail.com,noemrawsingh@gmail.com?subject=${emailSubject}&body=${emailBody}`, '_blank')
+    // Open email client with notification (sends to single email)
+    window.open(`mailto:mohammed81310@gmail.com?subject=${emailSubject}&body=${emailBody}`, '_blank')
     
     setToast({ message: t.submitSuccess, type: 'success' })
     
@@ -393,6 +399,8 @@ Dit is een geautomatiseerde melding van Leegstandmeldpunt.nl
       address: '',
       propertyType: 'Woning',
       vacancyDuration: '',
+      postalCode: '',
+      city: '',
       description: '',
       reportType: 'anonymous',
       reporterName: '',
@@ -540,7 +548,70 @@ Dit is een geautomatiseerde melding van Leegstandmeldpunt.nl
                     <option value="6-12 maanden">{t.duration6to12}</option>
                     <option value="1-2 jaar">{t.duration1to2y}</option>
                     <option value="Meer dan 2 jaar">{t.durationOver2y}</option>
+                    <option value="Ik weet het niet">{t.durationUnknown}</option>
                   </select>
+                </div>
+
+                <div>
+                  <label style={{ 
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    marginBottom: '0.75rem', 
+                    fontWeight: '600', 
+                    color: 'var(--text-primary)',
+                    fontSize: '0.95rem'
+                  }}>
+                    <MapPin size={16} style={{ marginRight: '6px', color: 'var(--accent-primary)' }} />
+                    {t.postalCodeLabel} *
+                  </label>
+                  <input 
+                    type="text" 
+                    placeholder={t.postalCodePlaceholder}
+                    value={formData.postalCode}
+                    onChange={(e) => handleInputChange('postalCode', e.target.value)}
+                    required
+                    style={{ 
+                      width: '100%', 
+                      padding: '0.875rem', 
+                      border: '2px solid var(--border-color)', 
+                      borderRadius: '8px',
+                      fontSize: '0.95rem',
+                      backgroundColor: 'var(--bg-primary)',
+                      color: 'var(--text-primary)',
+                      transition: 'all 0.2s'
+                    }}
+                  />
+                </div>
+
+                <div>
+                  <label style={{ 
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    marginBottom: '0.75rem', 
+                    fontWeight: '600', 
+                    color: 'var(--text-primary)',
+                    fontSize: '0.95rem'
+                  }}>
+                    <Building size={16} style={{ marginRight: '6px', color: 'var(--accent-primary)' }} />
+                    {t.cityLabel} *
+                  </label>
+                  <input 
+                    type="text" 
+                    placeholder={t.cityPlaceholder}
+                    value={formData.city}
+                    onChange={(e) => handleInputChange('city', e.target.value)}
+                    required
+                    style={{ 
+                      width: '100%', 
+                      padding: '0.875rem', 
+                      border: '2px solid var(--border-color)', 
+                      borderRadius: '8px',
+                      fontSize: '0.95rem',
+                      backgroundColor: 'var(--bg-primary)',
+                      color: 'var(--text-primary)',
+                      transition: 'all 0.2s'
+                    }}
+                  />
                 </div>
 
                 <div style={{ marginTop: '1.5rem' }}>

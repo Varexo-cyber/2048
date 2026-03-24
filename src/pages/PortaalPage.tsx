@@ -14,6 +14,8 @@ interface Attachment {
 interface Melding {
   id: number
   address: string
+  postalCode?: string
+  city?: string
   type: string
   status: string
   date: string
@@ -380,6 +382,12 @@ const PortaalPage = () => {
               <div>
                 <p style={{ margin: '0 0 0.25rem', fontSize: '0.8rem', color: 'var(--text-secondary)', fontWeight: '600' }}>ADRES</p>
                 <p style={{ margin: '0 0 1rem', color: 'var(--text-primary)', fontWeight: '500' }}>{selectedMelding.address}</p>
+                
+                <p style={{ margin: '0 0 0.25rem', fontSize: '0.8rem', color: 'var(--text-secondary)', fontWeight: '600' }}>POSTCODE</p>
+                <p style={{ margin: '0 0 1rem', color: 'var(--text-primary)' }}>{selectedMelding.postalCode || 'Niet verstrekt'}</p>
+                
+                <p style={{ margin: '0 0 0.25rem', fontSize: '0.8rem', color: 'var(--text-secondary)', fontWeight: '600' }}>PLAATS</p>
+                <p style={{ margin: '0 0 1rem', color: 'var(--text-primary)' }}>{selectedMelding.city || 'Niet verstrekt'}</p>
                 
                 <p style={{ margin: '0 0 0.25rem', fontSize: '0.8rem', color: 'var(--text-secondary)', fontWeight: '600' }}>TYPE VASTGOED</p>
                 <p style={{ margin: '0 0 1rem', color: 'var(--text-primary)' }}>{selectedMelding.type}</p>

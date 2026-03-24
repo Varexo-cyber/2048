@@ -131,6 +131,11 @@ type Translations = {
     duration6to12: string
     duration1to2y: string
     durationOver2y: string
+    durationUnknown: string
+    postalCodeLabel: string
+    postalCodePlaceholder: string
+    cityLabel: string
+    cityPlaceholder: string
     descriptionLabel: string
     descriptionPlaceholder: string
     reportTypeTitle: string
@@ -289,6 +294,11 @@ const translations: Translations = {
     duration6to12: '6-12 maanden',
     duration1to2y: '1-2 jaar',
     durationOver2y: 'Meer dan 2 jaar',
+    durationUnknown: 'Ik weet het niet',
+    postalCodeLabel: 'Postcode',
+    postalCodePlaceholder: '1234 AB',
+    cityLabel: 'Plaats',
+    cityPlaceholder: 'Amsterdam',
     descriptionLabel: 'Omschrijving (optioneel)',
     descriptionPlaceholder: 'Geef extra informatie over de situatie...',
     reportTypeTitle: 'Melding Type',
@@ -445,6 +455,11 @@ const translations: Translations = {
     duration6to12: '6-12 months',
     duration1to2y: '1-2 years',
     durationOver2y: 'More than 2 years',
+    durationUnknown: "I don't know",
+    postalCodeLabel: 'Postal Code',
+    postalCodePlaceholder: '1234 AB',
+    cityLabel: 'City',
+    cityPlaceholder: 'Amsterdam',
     descriptionLabel: 'Description (optional)',
     descriptionPlaceholder: 'Provide additional information about the situation...',
     reportTypeTitle: 'Report Type',
@@ -601,6 +616,11 @@ const translations: Translations = {
     duration6to12: '6-12 Monate',
     duration1to2y: '1-2 Jahre',
     durationOver2y: 'Mehr als 2 Jahre',
+    durationUnknown: 'Ich weiß es nicht',
+    postalCodeLabel: 'Postleitzahl',
+    postalCodePlaceholder: '12345',
+    cityLabel: 'Stadt',
+    cityPlaceholder: 'Berlin',
     descriptionLabel: 'Beschreibung (optional)',
     descriptionPlaceholder: 'Geben Sie zusätzliche Informationen zur Situation an...',
     reportTypeTitle: 'Meldungstyp',
