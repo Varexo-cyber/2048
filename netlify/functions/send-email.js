@@ -1,7 +1,7 @@
 const nodemailer = require('nodemailer')
 
 // Nodemailer transporter configuratie voor varexo.nl
-const transporter = nodemailer.createTransporter({
+const transporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST || 'mail.varexo.nl',
   port: process.env.SMTP_PORT || 587,
   secure: false,
