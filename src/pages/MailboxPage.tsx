@@ -303,17 +303,17 @@ const MailboxPage = () => {
       
       <div style={{
         display: 'grid',
-        gridTemplateColumns: '260px 1fr',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
         gap: '0',
         background: 'var(--bg-primary)',
         overflow: 'hidden',
         borderRadius: '12px',
         boxShadow: 'var(--shadow-md)',
-        height: 'calc(100vh - 180px)'
+        minHeight: 'calc(100vh - 180px)'
       }}>
         
-        {/* ============ SIDEBAR ============ */}
-        <div style={{
+        {/* ========== SIDEBAR ========== */}
+        <div className="mailbox-sidebar" style={{
           background: 'var(--bg-secondary)',
           borderRight: '1px solid var(--border)',
           display: 'flex',
@@ -543,10 +543,9 @@ const MailboxPage = () => {
                       borderBottom: '1px solid var(--border)',
                       cursor: 'pointer',
                       background: msg.isRead ? 'var(--bg-primary)' : 'var(--accent-primary-light)',
-                      display: 'grid',
-                      gridTemplateColumns: '200px 1fr auto',
-                      gap: '1rem',
-                      alignItems: 'center',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      gap: '0.5rem',
                       transition: 'background 0.15s'
                     }}
                     onMouseEnter={e => {
@@ -761,9 +760,10 @@ const MailboxPage = () => {
       {showCompose && (
         <div style={{
           position: 'fixed',
-          bottom: '2rem',
-          right: '2rem',
-          width: '520px',
+          bottom: '1rem',
+          right: '1rem',
+          width: 'min(520px, calc(100vw - 2rem))',
+          maxWidth: '100%',
           background: 'var(--bg-primary)',
           borderRadius: '12px',
           boxShadow: '0 20px 60px rgba(0,0,0,0.3)',

@@ -248,7 +248,15 @@ const VastgoedCalculatorPage = () => {
       
       <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
         {/* Tabs */}
-        <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '2rem', borderBottom: '2px solid var(--border)' }}>
+        <div style={{ 
+          display: 'flex', 
+          gap: '0.5rem', 
+          marginBottom: '2rem', 
+          borderBottom: '2px solid var(--border)',
+          overflowX: 'auto',
+          flexWrap: 'nowrap',
+          WebkitOverflowScrolling: 'touch'
+        }}>
           {[
             { id: 'calculator', icon: Calculator, label: 'Calculator' },
             { id: 'dossiers', icon: FolderOpen, label: `Dossiers (${dossiers.length})` }
@@ -299,7 +307,7 @@ const VastgoedCalculatorPage = () => {
 
         {/* Calculator View */}
         {currentView === 'calculator' && (
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 400px', gap: '2rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2rem' }}>
             <div style={{ background: 'var(--bg-primary)', padding: '2rem', borderRadius: '12px', boxShadow: 'var(--shadow-md)' }}>
               <h2 style={{ fontSize: '1.5rem', fontWeight: '700', marginBottom: '1.5rem' }}>
                 <Calculator size={24} style={{ marginRight: '0.5rem', verticalAlign: 'middle' }} />
@@ -315,7 +323,7 @@ const VastgoedCalculatorPage = () => {
               </div>
 
               <h3 style={{ fontSize: '1.125rem', fontWeight: '600', marginBottom: '1rem' }}>Basis Gegevens</h3>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '2rem' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1rem', marginBottom: '2rem' }}>
                 <InputField label="Aankoopprijs (€)" value={inputs.aankoopprijs} onChange={(e: any) => setInputs({ ...inputs, aankoopprijs: parseFloat(e.target.value) || 0 })} />
                 <InputField label="Woonoppervlakte (m²)" value={inputs.m2} onChange={(e: any) => setInputs({ ...inputs, m2: parseFloat(e.target.value) || 0 })} />
                 <InputField label="Verkoopprijs per m² (€)" value={inputs.verkoop_m2} onChange={(e: any) => setInputs({ ...inputs, verkoop_m2: parseFloat(e.target.value) || 0 })} />
@@ -325,7 +333,7 @@ const VastgoedCalculatorPage = () => {
               </div>
 
               <h3 style={{ fontSize: '1.125rem', fontWeight: '600', marginBottom: '1rem' }}>Grond & VvE</h3>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '2rem' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1rem', marginBottom: '2rem' }}>
                 <div>
                   <label style={{ display: 'block', fontWeight: '500', marginBottom: '0.5rem', fontSize: '0.875rem' }}>Grondvorm</label>
                   <select value={inputs.grondvorm} onChange={(e) => setInputs({ ...inputs, grondvorm: e.target.value as any })} style={{ width: '100%', padding: '0.75rem', border: '2px solid var(--border)', borderRadius: '8px', background: 'var(--bg-secondary)', color: 'var(--text-primary)' }}>
@@ -347,7 +355,7 @@ const VastgoedCalculatorPage = () => {
               {investType === 'flip' ? (
                 <>
                   <h3 style={{ fontSize: '1.125rem', fontWeight: '600', marginBottom: '1rem' }}>Financiering & Kosten</h3>
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1rem' }}>
                     <InputField label="Notaris + Overige (€)" value={inputs.notaris} onChange={(e: any) => setInputs({ ...inputs, notaris: parseFloat(e.target.value) || 0 })} />
                     <InputField label="Makelaarskosten (%)" value={inputs.makelaar_perc} onChange={(e: any) => setInputs({ ...inputs, makelaar_perc: parseFloat(e.target.value) || 0 })} step="0.1" />
                     <InputField label="Rente op lening (%/jaar)" value={inputs.rente_perc} onChange={(e: any) => setInputs({ ...inputs, rente_perc: parseFloat(e.target.value) || 0 })} step="0.1" />
@@ -357,7 +365,7 @@ const VastgoedCalculatorPage = () => {
               ) : (
                 <>
                   <h3 style={{ fontSize: '1.125rem', fontWeight: '600', marginBottom: '1rem' }}>Verhuur Gegevens</h3>
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1rem' }}>
                     <InputField label="Marktwaarde (€)" value={inputs.marktwaarde} onChange={(e: any) => setInputs({ ...inputs, marktwaarde: parseFloat(e.target.value) || 0 })} />
                     <InputField label="Loan to Value (%)" value={inputs.ltv_perc} onChange={(e: any) => setInputs({ ...inputs, ltv_perc: parseFloat(e.target.value) || 0 })} step="0.1" />
                     <InputField label="Hypotheekrente (%/jaar)" value={inputs.hypotheek_rente} onChange={(e: any) => setInputs({ ...inputs, hypotheek_rente: parseFloat(e.target.value) || 0 })} step="0.1" />
@@ -509,7 +517,7 @@ const VastgoedCalculatorPage = () => {
                 Dossier: {currentDossier.name}
               </h2>
 
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem' }}>
                 <div>
                   <h3 style={{ fontSize: '1.125rem', fontWeight: '600', marginBottom: '1rem' }}>Bijlagen & Bestanden</h3>
                   <div style={{ border: '2px dashed var(--border)', borderRadius: '8px', padding: '2rem', textAlign: 'center', background: 'var(--bg-secondary)', marginBottom: '1rem', cursor: 'pointer' }} onClick={() => document.getElementById('file-upload')?.click()}>

@@ -160,7 +160,17 @@ const PortaalPage = () => {
           </div>
 
           {/* Tabs */}
-          <div style={{ display: 'flex', gap: '0.5rem', borderBottom: '2px solid var(--border)', marginTop: '2rem' }}>
+          <div style={{ 
+            display: 'flex', 
+            gap: '0.5rem', 
+            borderBottom: '2px solid var(--border)', 
+            marginTop: '2rem',
+            overflowX: 'auto',
+            flexWrap: 'nowrap',
+            WebkitOverflowScrolling: 'touch',
+            scrollbarWidth: 'none',
+            msOverflowStyle: 'none'
+          }}>
             <button
               onClick={() => setActiveTab('dashboard')}
               style={{
@@ -378,7 +388,7 @@ const PortaalPage = () => {
                 ✕ Sluiten
               </button>
             </div>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem' }}>
               <div>
                 <p style={{ margin: '0 0 0.25rem', fontSize: '0.8rem', color: 'var(--text-secondary)', fontWeight: '600' }}>ADRES</p>
                 <p style={{ margin: '0 0 1rem', color: 'var(--text-primary)', fontWeight: '500' }}>{selectedMelding.address}</p>
@@ -437,7 +447,7 @@ const PortaalPage = () => {
               </div>
             )}
 
-            <div style={{ display: 'flex', gap: '0.75rem', marginTop: '1rem' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
               <select
                 value={selectedMelding.status}
                 onChange={(e) => updateStatus(selectedMelding.id, e.target.value)}
@@ -493,7 +503,7 @@ const PortaalPage = () => {
                 </tr>
               </thead>
               <tbody>
-                {meldingen.map((report) => (
+                  {meldingen.map((report) => (
                   <tr 
                     key={report.id}
                     onClick={() => setSelectedMelding(report)}
@@ -501,7 +511,8 @@ const PortaalPage = () => {
                       borderBottom: '1px solid var(--border-color)',
                       transition: 'background 0.2s',
                       cursor: 'pointer',
-                      background: selectedMelding?.id === report.id ? 'var(--accent-primary-light)' : 'transparent'
+                      background: selectedMelding?.id === report.id ? 'var(--accent-primary-light)' : 'transparent',
+                      display: 'table-row'
                     }}
                     onMouseEnter={(e) => { if (selectedMelding?.id !== report.id) e.currentTarget.style.background = 'var(--bg-secondary)' }}
                     onMouseLeave={(e) => { if (selectedMelding?.id !== report.id) e.currentTarget.style.background = 'transparent' }}
@@ -613,7 +624,7 @@ const PortaalPage = () => {
                     Sluiten
                   </button>
                 </div>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem', marginBottom: '1.5rem' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem', marginBottom: '1.5rem' }}>
                   <div>
                     <p style={{ margin: '0 0 0.25rem', fontSize: '0.8rem', color: 'var(--text-secondary)', fontWeight: '600' }}>NAAM</p>
                     <p style={{ margin: '0 0 1rem', color: 'var(--text-primary)', fontWeight: '500' }}>{selectedBericht.name}</p>
@@ -666,27 +677,28 @@ const PortaalPage = () => {
                         borderBottom: '1px solid var(--border-color)',
                         cursor: 'pointer',
                         background: selectedBericht?.id === bericht.id ? 'var(--accent-primary-light)' : bericht.read ? 'transparent' : 'var(--accent-primary-light)',
-                        display: 'grid',
-                        gridTemplateColumns: '1fr 2fr auto',
-                        gap: '1rem',
-                        alignItems: 'center',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        gap: '0.5rem',
                         transition: 'background 0.15s'
                       }}
                       onMouseEnter={e => { if (selectedBericht?.id !== bericht.id) e.currentTarget.style.background = 'var(--bg-secondary)' }}
                       onMouseLeave={e => { e.currentTarget.style.background = selectedBericht?.id === bericht.id ? 'var(--accent-primary-light)' : bericht.read ? 'transparent' : 'var(--accent-primary-light)' }}
                     >
-                      <div>
-                        <p style={{ margin: 0, fontWeight: bericht.read ? '400' : '700', color: 'var(--text-primary)', fontSize: '0.9rem' }}>{bericht.name}</p>
-                        <p style={{ margin: 0, fontSize: '0.8rem', color: 'var(--text-secondary)' }}>{bericht.email}</p>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                        <div>
+                          <p style={{ margin: 0, fontWeight: bericht.read ? '400' : '700', color: 'var(--text-primary)', fontSize: '0.9rem' }}>{bericht.name}</p>
+                          <p style={{ margin: 0, fontSize: '0.8rem', color: 'var(--text-secondary)' }}>{bericht.email}</p>
+                        </div>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexShrink: 0 }}>
+                          <span style={{ padding: '0.2rem 0.5rem', background: `${bericht.category === 'Samenwerking' ? 'var(--accent-secondary)' : 'var(--accent-primary)'}20`, color: bericht.category === 'Samenwerking' ? 'var(--accent-secondary)' : 'var(--accent-primary)', fontSize: '0.7rem', fontWeight: '600', borderRadius: '4px' }}>{bericht.category}</span>
+                          <span style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', whiteSpace: 'nowrap' }}>{bericht.date}</span>
+                          {!bericht.read && <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: 'var(--accent-primary)', flexShrink: 0 }} />}
+                        </div>
                       </div>
                       <div style={{ overflow: 'hidden' }}>
                         <span style={{ fontWeight: bericht.read ? '400' : '600', color: 'var(--text-primary)', fontSize: '0.9rem' }}>{bericht.subject}</span>
                         <span style={{ color: 'var(--text-secondary)', fontSize: '0.85rem' }}> — {bericht.message.substring(0, 60)}{bericht.message.length > 60 ? '...' : ''}</span>
-                      </div>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexShrink: 0 }}>
-                        <span style={{ padding: '0.2rem 0.5rem', background: `${bericht.category === 'Samenwerking' ? 'var(--accent-secondary)' : 'var(--accent-primary)'}20`, color: bericht.category === 'Samenwerking' ? 'var(--accent-secondary)' : 'var(--accent-primary)', fontSize: '0.7rem', fontWeight: '600', borderRadius: '4px' }}>{bericht.category}</span>
-                        <span style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', whiteSpace: 'nowrap' }}>{bericht.date}</span>
-                        {!bericht.read && <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: 'var(--accent-primary)', flexShrink: 0 }} />}
                       </div>
                     </div>
                   ))}

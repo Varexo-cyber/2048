@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { MessageCircle, X, Home, Building, Users, FileText, Phone, ChevronDown, ChevronUp, Mail } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
@@ -51,9 +51,30 @@ const faqData: FAQItem[] = [
 const HelpWidget = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [expandedId, setExpandedId] = useState<string | null>(null)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+
+  useEffect(() => {
+    // Check if mobile menu is open by looking for the mobile menu element
+    const checkMobileMenu = () => {
+      const mobileMenu = document.querySelector('[data-mobile-menu="true"]')
+      setIsMobileMenuOpen(!!mobileMenu)
+    }
+
+    // Check initially and on mutations
+    checkMobileMenu()
+    const observer = new MutationObserver(checkMobileMenu)
+    observer.observe(document.body, { childList: true, subtree: true })
+
+    return () => observer.disconnect()
+  }, [])
 
   const toggleQuestion = (id: string) => {
     setExpandedId(expandedId === id ? null : id)
+  }
+
+  // Hide widget when mobile menu is open
+  if (isMobileMenuOpen) {
+    return null
   }
 
   return (

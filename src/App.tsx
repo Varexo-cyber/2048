@@ -92,25 +92,8 @@ const HomePage = () => {
       {/* Hero Section */}
       <section className="hero">
         <div className="hero-content">
-          {/* €100 Badge */}
-          <div style={{
-            position: 'absolute',
-            top: '2rem',
-            right: '3rem',
-            width: '140px',
-            height: '140px',
-            background: 'linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #FF8C00 100%)',
-            borderRadius: '50%',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-            boxShadow: '0 8px 30px rgba(255, 165, 0, 0.4), inset 0 -4px 10px rgba(0,0,0,0.1)',
-            border: '4px solid #fff',
-            transform: 'rotate(15deg)',
-            zIndex: 10,
-            animation: 'pulse 2s ease-in-out infinite'
-          }}>
+          {/* €100 Badge - Hidden on mobile */}
+          <div className="hero-badge">
             <span style={{
               fontSize: '2.2rem',
               fontWeight: '800',
@@ -679,23 +662,8 @@ const ReportVacancyPage = () => {
                       position: 'relative'
                     }}
                   >
-                    {/* €100 Badge */}
-                    <div style={{
-                      position: 'absolute',
-                      top: '-8px',
-                      right: '-8px',
-                      width: '60px',
-                      height: '60px',
-                      background: 'linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #FF8C00 100%)',
-                      borderRadius: '50%',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      boxShadow: '0 4px 15px rgba(255, 165, 0, 0.3)',
-                      border: '3px solid white',
-                      transform: 'rotate(15deg)',
-                      zIndex: 10
-                    }}>
+                    {/* €100 Badge - Hidden on small mobile */}
+                    <div className="reward-badge-mobile">
                       <span style={{
                         fontSize: '1rem',
                         fontWeight: '800',

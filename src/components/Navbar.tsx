@@ -200,6 +200,7 @@ const Navbar = () => {
       {/* Mobile Menu Overlay */}
       {isMobile && isMenuOpen && (
         <div 
+          data-mobile-menu="true"
           style={{
             position: 'fixed',
             top: '64px',
