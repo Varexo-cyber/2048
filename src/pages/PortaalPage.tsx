@@ -38,12 +38,21 @@ const PortaalPage = () => {
   const [selectedMelding, setSelectedMelding] = useState<Melding | null>(null)
   const [berichten, setBerichten] = useState<any[]>([])
   const [selectedBericht, setSelectedBericht] = useState<any | null>(null)
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    if (!isAdmin) {
+    // Wait a moment for auth to initialize from localStorage
+    const timer = setTimeout(() => {
+      setIsLoading(false)
+    }, 100)
+    return () => clearTimeout(timer)
+  }, [])
+
+  useEffect(() => {
+    if (!isLoading && !isAdmin) {
       navigate('/')
     }
-  }, [isAdmin, navigate])
+  }, [isAdmin, isLoading, navigate])
 
   // Load meldingen and berichten from localStorage
   useEffect(() => {

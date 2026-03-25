@@ -175,8 +175,8 @@ const translations: Translations = {
     contact: 'Contact',
     
     // Hero
-    heroTitle: 'Vastgoed Opportuniteiten Ontdekken,',
-    heroSubtitle: 'Wij identificeren en activeren leegstaand vastgoed voor vastgoedeigenaren en woningzoekers. Ontdek unieke kansen in de vastgoedmarkt met professionele begeleiding.',
+    heroTitle: 'Samen Tegen Leegstand,',
+    heroSubtitle: 'Het nationaal meldpunt voor leegstaande woningen en panden. Meld anoniem of met beloning, samen brengen we leegstand in kaart en helpen we het woningtekort te verkleinen.',
     reportVacancyBtn: 'Leegstand Melden',
     viewDashboardBtn: 'Bekijk Dashboard',
     
@@ -188,15 +188,15 @@ const translations: Translations = {
     
     // Features
     whyLeegstandsloket: 'Waarom Leegstandmeldpunt?',
-    professionalPartner: 'Uw partner in vastgoedkansen. Wij identificeren ondergewaardeerde vastgoedmogelijkheden en brengen eigenaren en kopers samen voor win-win situaties.',
+    professionalPartner: 'Een initiatief van de overheid om leegstand tegen te gaan. Wij brengen leegstaande woningen in kaart en werken samen met gemeenten om deze weer bewoonbaar te maken.',
     discretion: 'Discretie & Vertrouwen',
     discretionDesc: 'Uw gegevens zijn veilig bij ons. We werken strikt vertrouwelijk en AVG-proof.',
-    expertise: 'Vastgoed Expertise',
-    expertiseDesc: 'Diepgaande marktanalyse en onderhandelingskracht voor de beste vastgoedeals. Wij kennen de lokale markt als geen ander.',
-    resultOriented: 'Resultaatgericht',
-    resultOrientedDesc: 'Wij richten ons op daadwerkelijke transacties. Geen rapporteren, maar doen.',
-    propertyOwnerHelp: 'Eigenaar? Verkoop Snel!',
-    propertyOwnerHelpDesc: 'Heeft u een leegstaande woning? Wij helpen met een snelle, winstgevende verkoop. Directe kopers en eerlijke prijzen.',
+    expertise: 'Marktkennis & Analyse',
+    expertiseDesc: 'Onze experts analyseren leegstandspatronen en werken samen met woningcorporaties en gemeenten om oplossingen te creëren voor het woningtekort.',
+    resultOriented: 'Maatschappelijk Impact',
+    resultOrientedDesc: 'Wij richten ons op het daadwerkelijk verminderen van leegstand. Elke melding draagt bij aan een betere woon situatie voor iedereen.',
+    propertyOwnerHelp: 'Eigenaar? Meld Leegstand',
+    propertyOwnerHelpDesc: 'Heeft u een leegstaande woning? Meld deze via ons meldpunt. Wij helpen bij het vinden van geschikte huurders of kopers en dragen bij aan een leefbare buurt.',
     reward100: '€100 Melders Beloning',
     reward100Desc: 'Help ons vastgoedmogelijkheden te vinden en ontvang €100 per succesvolle doorverwijzing.',
     

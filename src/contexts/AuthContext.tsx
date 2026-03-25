@@ -33,6 +33,18 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const login = (username: string, password: string): boolean => {
     // Secure admin credentials - CHANGE THESE AFTER FIRST LOGIN
     if (username === 'beheerder2024' && password === 'Veilig$Leegstand#789') {
+      // Check if user already exists with saved profile data
+      const savedUser = localStorage.getItem('leegstandsloket_user')
+      if (savedUser) {
+        const existingUser = JSON.parse(savedUser)
+        // Only update if it's the same user
+        if (existingUser.username === username) {
+          setUser(existingUser)
+          return true
+        }
+      }
+      
+      // Create new admin user with default values
       const adminUser: User = {
         username: 'beheerder2024',
         email: 'admin@leegstandmeldpunt.nl',

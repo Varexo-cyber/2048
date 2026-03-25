@@ -249,7 +249,7 @@ exports.handler = async (event, context) => {
     <div class="footer">
       <p class="footer-brand">Leegstandmeldpunt.nl</p>
       <p>Leegstand Melden Platform</p>
-      <p>© 2024 Alle rechten voorbehouden</p>
+      <p>© 2026 Alle rechten voorbehouden</p>
     </div>
   </div>
 </body>
