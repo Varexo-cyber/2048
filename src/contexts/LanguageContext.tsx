@@ -198,7 +198,7 @@ const translations: Translations = {
     propertyOwnerHelp: 'Eigenaar? Meld Leegstand',
     propertyOwnerHelpDesc: 'Heeft u een leegstaande woning? Meld deze via ons meldpunt. Wij helpen bij het vinden van geschikte huurders of kopers en dragen bij aan een leefbare buurt.',
     reward100: '€100 Melders Beloning',
-    reward100Desc: 'Help ons vastgoedmogelijkheden te vinden en ontvang €100 per succesvolle doorverwijzing.',
+    reward100Desc: 'Help ons leegstaande woningen in kaart te brengen en ontvang €100 als uw melding leidt tot een bewoonde woning.',
     
     // Process
     howItWorks: 'Hoe het Werkt',
@@ -213,22 +213,20 @@ const translations: Translations = {
     step4Desc: 'Het pand wordt bewoond, de buurt leefbaarder en het woningtekort verkleind.',
     
     // CTA
-    ctaTitle: 'Ontdek Vastgoedkansen',
-    ctaSubtitle: 'Wij brengen vastgoedeigenaren en kopers samen. Vind unieke mogelijkheden in de vastgoedmarkt en verdien met ons samen.',
+    ctaTitle: 'Doe Mee aan de Aanpak van Leegstand',
+    ctaSubtitle: 'Samen met gemeenten en woningcorporaties brengen wij leegstaande panden weer in gebruik. Elke melding helpt om het woningtekort te verkleinen.',
     reportVacancyCTA: 'Meld Leegstand',
     contactCTA: 'Neem Contact Op',
     
     // Report Form
-    reportTitle: 'Vastgoed Melden',
-    reportSubtitle: 'Kent u leegstaand vastgoed? Meld het en ontvang €100 bij een succesvolle transactie. Wij brengen u direct in contact met geïnteresseerde kopers.',
+    reportTitle: 'Leegstand Melden',
+    reportSubtitle: 'Kent u een leegstaande woning of pand? Meld dit anoniem of met contactgegevens. Wij onderzoeken elke melding en werken samen met gemeenten om passende oplossingen te vinden.',
     address: 'Adres',
     propertyType: 'Type pand',
     vacancyDuration: 'Hoe lang staat het pand al leeg?',
     description: 'Omschrijving (optioneel)',
     reportBtn: 'Leegstand Melden',
-    
-    // Footer
-    footerDescription: 'Uw partner in vastgoedeals. Wij identificeren kansen, brengen partijen samen en realiseren winstgevende transacties.',
+    footerDescription: 'Een nationaal initiatief ter bestrijding van leegstand. Wij werken samen met overheden, woningcorporaties en maatschappelijke partners om leegstaande woningen weer bewoonbaar te maken.',
     quickLinks: 'Snelle Links',
     services: 'Diensten',
     legalExpertise: 'Juridische Expertise',
@@ -240,7 +238,7 @@ const translations: Translations = {
     
     // Contact
     contactTitle: 'Neem Contact Op',
-    contactSubtitle: 'Heeft u vragen over leegstand, wilt u vastgoed melden of zoekt u samenwerking? We staan klaar om u te helpen.',
+    contactSubtitle: 'Heeft u vragen over leegstand of wilt u een leegstaande woning melden? We staan klaar om u te helpen.',
     contactData: 'Contactgegevens',
     sendMessage: 'Stuur ons een bericht',
     name: 'Uw naam',
@@ -268,13 +266,13 @@ const translations: Translations = {
     
     // About Page
     aboutTitle: 'Over Leegstandmeldpunt',
-    aboutSubtitle: 'Wij zijn uw specialist in vastgoedeals. Met diepgaande marktanalyse en een uitgebreid netwerk brengen wij vastgoedeigenaren en kopers samen voor de beste transacties.',
+    aboutSubtitle: 'Een nationaal initiatief in de strijd tegen leegstand. Wij brengen leegstaande woningen en panden in kaart en werken samen met overheden, woningcorporaties en maatschappelijke partners om deze weer bewoonbaar te maken.',
     ourMission: 'Onze Missie',
-    ourMissionDesc: 'Leegstandmeldpunt is opgericht om vastgoedeigenaren en kopers samen te brengen. Wij identificeren ondergewaardeerde vastgoedmogelijkheden en realiseren winstgevende deals.',
+    ourMissionDesc: 'Leegstandmeldpunt is opgericht om leegstand structureel aan te pakken. Wij identificeren leegstaande panden, analyseren de situatie en brengen eigenaren in contact met partijen die deze woningen weer beschikbaar kunnen maken voor woningzoekers.',
     ourVision: 'Onze Visie',
-    ourVisionDesc: 'Een markt waarin elk vastgoed zijn maximale waarde bereikt en eigenaren directe toegang hebben tot serieuze kopers.',
+    ourVisionDesc: 'Een Nederland waarin elk huis zijn bestemming krijgt en waarin leegstand geen onnodig maatschappelijk probleem meer vormt.',
     ourValues: 'Onze Waarden',
-    ourValuesDesc: 'Discretie, vertrouwen, professionaliteit en resultaatgerichtheid staan bij ons centraal.',
+    ourValuesDesc: 'Transparantie, betrouwbaarheid, samenwerking en maatschappelijk engagement staan bij ons centraal.',
     
     // Report Page Extra
     propertyDetails: 'Eigendomsgegevens',
@@ -324,7 +322,7 @@ const translations: Translations = {
     privacyText3: 'Lees onze volledige',
     privacyAgree: 'Ik ga akkoord met de privacyverklaring en algemene voorwaarden. Ik begrijp dat mijn gegevens worden verwerkt in overeenstemming met de AVG.',
     requiredFields: '* Verplichte velden',
-    submitSuccess: 'Vastgoedmelding succesvol ingediend! We nemen direct contact met u op. Bij een succesvolle transactie ontvangt u een beloning van €100.',
+    submitSuccess: 'Melding succesvol ingediend! We nemen zo spoedig mogelijk contact met u op.',
   },
   
   en: {
