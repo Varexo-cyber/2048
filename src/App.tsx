@@ -1421,6 +1421,9 @@ const Footer = () => {
         
         <div className="footer-bottom">
           <p>&copy; 2026 Leegstandmeldpunt. Alle rechten voorbehouden.</p>
+          <p style={{ fontSize: '0.75rem', opacity: 0.6, marginTop: '0.5rem' }}>
+            Medemogelijk gemaakt door <a href="https://www.varexo.nl" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'underline' }}>Varexo</a>
+          </p>
         </div>
       </div>
     </footer>
