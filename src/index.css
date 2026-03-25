@@ -792,21 +792,100 @@ body {
   }
   
   .hero h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
+    line-height: 1.2;
   }
   
   .hero p {
-    font-size: 1.125rem;
+    font-size: 1rem;
   }
   
   .hero-buttons {
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
+    gap: 1rem;
+  }
+  
+  .hero-buttons button,
+  .hero-buttons a {
+    width: 100%;
+    justify-content: center;
   }
   
   .stats-grid,
   .features-grid,
   .process-grid {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  /* Prevent layout shifts */
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  /* Better touch targets */
+  button, 
+  a,
+  input,
+  select,
+  textarea {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Mobile form improvements */
+  input,
+  select,
+  textarea {
+    font-size: 16px !important; /* Prevent zoom on iOS */
+  }
+  
+  /* Prevent horizontal scroll */
+  body {
+    overflow-x: hidden;
+  }
+  
+  /* Better mobile images */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Mobile typography */
+  h1 { font-size: 1.875rem !important; }
+  h2 { font-size: 1.5rem !important; }
+  h3 { font-size: 1.25rem !important; }
+  p { font-size: 1rem !important; }
+}
+
+/* Tablet breakpoint */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .stats-grid,
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+}
+
+/* Prevent flickering during transitions */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Fix for mobile menu animation */
+@media (max-width: 1024px) {
+  .mobile-menu {
+    will-change: transform, opacity;
+    backface-visibility: hidden;
   }
 }
