@@ -162,6 +162,16 @@ const Footer = () => {
             <span>🏛️ Rijksoverheid</span>
             <span>🇳🇱 Nederland</span>
           </div>
+          
+          {/* Varexo Credit */}
+          <div style={{ 
+            textAlign: 'center',
+            fontSize: '0.75rem',
+            color: 'var(--neutral-600)',
+            marginTop: '0.5rem'
+          }}>
+            Medemogelijk gemaakt door <a href="https://www.varexo.nl" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--neutral-400)', textDecoration: 'none' }}>Varexo</a>
+          </div>
         </div>
       </div>
     </footer>
