@@ -337,6 +337,7 @@ const ReportVacancyPage = () => {
       postalCode: formData.postalCode,
       city: formData.city,
       description: formData.description,
+      gpsLocation: formData.gpsLocation,
       attachments: attachmentData,
       createdAt: new Date().toISOString()
     }
@@ -596,12 +597,36 @@ const ReportVacancyPage = () => {
                       onClick={() => {
                         if (navigator.geolocation) {
                           navigator.geolocation.getCurrentPosition(
-                            (position) => {
-                              handleInputChange('gpsLocation', {
-                                lat: position.coords.latitude,
-                                lng: position.coords.longitude
-                              })
-                              alert(`Locatie opgeslagen: ${position.coords.latitude.toFixed(4)}, ${position.coords.longitude.toFixed(4)}`)
+                            async (position) => {
+                              const lat = position.coords.latitude
+                              const lng = position.coords.longitude
+                              handleInputChange('gpsLocation', { lat, lng })
+                              
+                              // Try to reverse geocode to get address
+                              try {
+                                const response = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}&zoom=18&addressdetails=1`)
+                                const data = await response.json()
+                                if (data && data.address) {
+                                  const addr = data.address
+                                  // Auto-fill fields if empty
+                                  if (!formData.address && (addr.road || addr.house_number)) {
+                                    const street = addr.road || ''
+                                    const number = addr.house_number || ''
+                                    handleInputChange('address', `${street} ${number}`.trim())
+                                  }
+                                  if (!formData.postalCode && addr.postcode) {
+                                    handleInputChange('postalCode', addr.postcode)
+                                  }
+                                  if (!formData.city && (addr.city || addr.town || addr.village)) {
+                                    handleInputChange('city', addr.city || addr.town || addr.village)
+                                  }
+                                  alert(`Locatie gevonden: ${addr.road || ''} ${addr.house_number || ''}, ${addr.postcode || ''} ${addr.city || addr.town || ''}`.trim())
+                                } else {
+                                  alert(`Locatie opgeslagen: ${lat.toFixed(4)}, ${lng.toFixed(4)}`)
+                                }
+                              } catch (error) {
+                                alert(`Locatie opgeslagen: ${lat.toFixed(4)}, ${lng.toFixed(4)}`)
+                              }
                             },
                             () => alert('Locatie niet beschikbaar. Controleer uw instellingen.')
                           )

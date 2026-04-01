@@ -1,7 +1,40 @@
 import { Link } from 'react-router-dom'
+import { useState } from 'react'
 import { Home, Mail, Phone, MapPin, Shield, Users, FileText, BarChart3, Building } from 'lucide-react'
 
 const Footer = () => {
+  const [expandedService, setExpandedService] = useState<string | null>(null)
+
+  const services = [
+    {
+      id: 'juridisch',
+      icon: Shield,
+      title: 'Juridische Expertise',
+      shortDesc: 'Begeleiding bij leegstandswetgeving en regelgeving voor eigenaren en gemeenten.',
+      fullDesc: 'Onze juridische experts bieden uitgebreide begeleiding bij alle aspecten van leegstandswetgeving. Dit includes:\n\n• Advies over de Leegstandswet en bestemmingsplannen\n• Begeleiding bij het opstellen van huurovereenkomsten\n• Ondersteuning bij geschillen met huurders of eigenaren\n• Juridische risico-analyse voor vastgoedbezitters\n• Consultatie over anti-kraak maatregelen\n• Opzegging van huurovereenkomsten conform wetgeving'
+    },
+    {
+      id: 'fiscaal',
+      icon: FileText,
+      title: 'Fiscale Kennis',
+      shortDesc: 'Advies over belastingvoordelen en fiscale aspecten van leegstand en herbestemming.',
+      fullDesc: 'Onze fiscale specialisten adviseren over alle fiscale aspecten van leegstand:\n\n• BTW-vrijstellingen bij herbestemming\n• Fiscale voordelen van anti-kraak bewoning\n• Belastingaftrek voor onderhoudskosten\n• WOZ-waarde optimalisatie\n• Investeringsaftrek en subsidies\n• Fiscale structurering van vastgoedportefeuilles'
+    },
+    {
+      id: 'vastgoed',
+      icon: Building,
+      title: 'Vastgoedbeheer',
+      shortDesc: 'Professioneel beheer van leegstaande panden tot ze weer bewoond worden.',
+      fullDesc: 'Professioneel vastgoedbeheer voor leegstaande panden:\n\n• Periodieke inspecties en onderhoud\n• Coördinatie van reparaties en renovaties\n• Verzekeringsbeheer en schadeafhandeling\n• Relatiebeheer met buren en gemeente\n• Voorbereiding op nieuwe verhuur\n• Energieprestatie optimalisatie'
+    },
+    {
+      id: 'leegstandsbeheer',
+      icon: Home,
+      title: 'Leegstandsbeheer',
+      shortDesc: 'Bewaking, onderhoud en beveiliging van leegstaande panden tegen kraken en verval.',
+      fullDesc: 'Compleet leegstandsbeheer om uw pand veilig te houden:\n\n• 24/7 bewaking en alarmmonitoring\n• Anti-kraak bewoning regeling\n• Wekelijkse rondes en inspecties\n• Directe melding bij calamiteiten\n• Onderhoud van tuin en buitenruimtes\n• Voorbereiding op herverhuur of verkoop'
+    }
+  ]
   return (
     <footer style={{ 
       background: 'var(--neutral-900)', 
@@ -103,30 +136,53 @@ const Footer = () => {
           <div>
             <h3 style={{ fontSize: '1.125rem', fontWeight: '600', marginBottom: '1rem', color: 'white' }}>Diensten</h3>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-              <li style={{ marginBottom: '0.5rem' }}>
-                <span style={{ color: 'var(--neutral-300)', fontSize: '0.875rem' }}>
-                  <Shield className="w-4 h-4 inline mr-2" />
-                  <strong>Juridische Expertise:</strong> Begeleiding bij leegstandswetgeving en regelgeving voor eigenaren en gemeenten.
-                </span>
-              </li>
-              <li style={{ marginBottom: '0.5rem' }}>
-                <span style={{ color: 'var(--neutral-300)', fontSize: '0.875rem' }}>
-                  <FileText className="w-4 h-4 inline mr-2" />
-                  <strong>Fiscale Kennis:</strong> Advies over belastingvoordelen en fiscale aspecten van leegstand en herbestemming.
-                </span>
-              </li>
-              <li style={{ marginBottom: '0.5rem' }}>
-                <span style={{ color: 'var(--neutral-300)', fontSize: '0.875rem' }}>
-                  <Building className="w-4 h-4 inline mr-2" />
-                  <strong>Vastgoedbeheer:</strong> Professioneel beheer van leegstaande panden tot ze weer bewoond worden.
-                </span>
-              </li>
-              <li style={{ marginBottom: '0.5rem' }}>
-                <span style={{ color: 'var(--neutral-300)', fontSize: '0.875rem' }}>
-                  <Home className="w-4 h-4 inline mr-2" />
-                  <strong>Leegstandsbeheer:</strong> Bewaking, onderhoud en beveiliging van leegstaande panden tegen kraken en verval.
-                </span>
-              </li>
+              {services.map((service) => {
+                const Icon = service.icon
+                const isExpanded = expandedService === service.id
+                return (
+                  <li key={service.id} style={{ marginBottom: '0.75rem' }}>
+                    <button
+                      onClick={() => setExpandedService(isExpanded ? null : service.id)}
+                      style={{
+                        background: isExpanded ? 'var(--neutral-800)' : 'transparent',
+                        border: '1px solid var(--neutral-700)',
+                        borderRadius: '8px',
+                        padding: '0.75rem',
+                        width: '100%',
+                        textAlign: 'left',
+                        cursor: 'pointer',
+                        transition: 'all 0.2s'
+                      }}
+                    >
+                      <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem' }}>
+                        <Icon className="w-4 h-4 inline flex-shrink-0" style={{ color: 'var(--accent-primary)', marginTop: '2px' }} />
+                        <div style={{ flex: 1 }}>
+                          <strong style={{ color: 'white', fontSize: '0.875rem' }}>{service.title}</strong>
+                          <p style={{ color: 'var(--neutral-300)', fontSize: '0.8rem', margin: '0.25rem 0 0', lineHeight: '1.4' }}>
+                            {service.shortDesc}
+                          </p>
+                          {isExpanded && (
+                            <div style={{ 
+                              marginTop: '0.75rem', 
+                              padding: '0.75rem', 
+                              background: 'var(--neutral-900)', 
+                              borderRadius: '6px',
+                              borderLeft: '3px solid var(--accent-primary)'
+                            }}>
+                              <p style={{ color: 'var(--neutral-300)', fontSize: '0.8rem', margin: 0, lineHeight: '1.6', whiteSpace: 'pre-line' }}>
+                                {service.fullDesc}
+                              </p>
+                            </div>
+                          )}
+                          <span style={{ color: 'var(--accent-primary)', fontSize: '0.75rem', marginTop: '0.5rem', display: 'inline-block' }}>
+                            {isExpanded ? '▼ Minder info' : '▶ Meer info'}
+                          </span>
+                        </div>
+                      </div>
+                    </button>
+                  </li>
+                )
+              })}
             </ul>
           </div>
 

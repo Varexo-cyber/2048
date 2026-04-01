@@ -26,6 +26,7 @@ interface Melding {
   reporterPhone?: string
   vacancyDuration?: string
   description?: string
+  gpsLocation?: { lat: number; lng: number }
   attachments?: Attachment[]
   createdAt?: string
 }
@@ -413,6 +414,24 @@ const PortaalPage = () => {
                 
                 <p style={{ margin: '0 0 0.25rem', fontSize: '0.8rem', color: 'var(--text-secondary)', fontWeight: '600' }}>DUUR LEEGSTAND</p>
                 <p style={{ margin: '0 0 1rem', color: 'var(--text-primary)' }}>{selectedMelding.vacancyDuration || 'Niet opgegeven'}</p>
+                
+                {selectedMelding.gpsLocation && (
+                  <>
+                    <p style={{ margin: '0 0 0.25rem', fontSize: '0.8rem', color: 'var(--text-secondary)', fontWeight: '600' }}>GPS LOCATIE</p>
+                    <p style={{ margin: '0 0 1rem', color: 'var(--text-primary)', fontSize: '0.85rem' }}>
+                      📍 {selectedMelding.gpsLocation.lat.toFixed(6)}, {selectedMelding.gpsLocation.lng.toFixed(6)}
+                      <br />
+                      <a 
+                        href={`https://www.google.com/maps?q=${selectedMelding.gpsLocation.lat},${selectedMelding.gpsLocation.lng}`} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        style={{ color: 'var(--accent-primary)', fontSize: '0.8rem' }}
+                      >
+                        Bekijk op Google Maps →
+                      </a>
+                    </p>
+                  </>
+                )}
               </div>
               <div>
                 <p style={{ margin: '0 0 0.25rem', fontSize: '0.8rem', color: 'var(--text-secondary)', fontWeight: '600' }}>MELDER</p>
