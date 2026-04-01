@@ -280,6 +280,9 @@ const ReportVacancyPage = () => {
     reporterEmail: '',
     reporterPhone: '',
     
+    // Location
+    gpsLocation: null as { lat: number; lng: number } | null,
+    
     // Privacy
     privacyAgreed: false,
     
@@ -368,6 +371,7 @@ const ReportVacancyPage = () => {
       reporterName: '',
       reporterEmail: '',
       reporterPhone: '',
+      gpsLocation: null,
       privacyAgreed: false,
       attachments: []
     })
@@ -524,14 +528,13 @@ const ReportVacancyPage = () => {
                     fontSize: '0.95rem'
                   }}>
                     <MapPin size={16} style={{ marginRight: '6px', color: 'var(--accent-primary)' }} />
-                    {t.postalCodeLabel} *
+                    {t.postalCodeLabel}
                   </label>
                   <input 
                     type="text" 
                     placeholder={t.postalCodePlaceholder}
                     value={formData.postalCode}
                     onChange={(e) => handleInputChange('postalCode', e.target.value)}
-                    required
                     style={{ 
                       width: '100%', 
                       padding: '0.875rem', 
@@ -555,14 +558,13 @@ const ReportVacancyPage = () => {
                     fontSize: '0.95rem'
                   }}>
                     <Building size={16} style={{ marginRight: '6px', color: 'var(--accent-primary)' }} />
-                    {t.cityLabel} *
+                    {t.cityLabel}
                   </label>
                   <input 
                     type="text" 
                     placeholder={t.cityPlaceholder}
                     value={formData.city}
                     onChange={(e) => handleInputChange('city', e.target.value)}
-                    required
                     style={{ 
                       width: '100%', 
                       padding: '0.875rem', 
@@ -574,6 +576,82 @@ const ReportVacancyPage = () => {
                       transition: 'all 0.2s'
                     }}
                   />
+                </div>
+
+                <div style={{ marginTop: '1.5rem' }}>
+                  <label style={{ 
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    marginBottom: '0.75rem', 
+                    fontWeight: '600', 
+                    color: 'var(--text-primary)',
+                    fontSize: '0.95rem'
+                  }}>
+                    <MapPin size={16} style={{ marginRight: '6px', color: 'var(--accent-primary)' }} />
+                    Locatie delen (optioneel)
+                  </label>
+                  <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        if (navigator.geolocation) {
+                          navigator.geolocation.getCurrentPosition(
+                            (position) => {
+                              handleInputChange('gpsLocation', {
+                                lat: position.coords.latitude,
+                                lng: position.coords.longitude
+                              })
+                              alert(`Locatie opgeslagen: ${position.coords.latitude.toFixed(4)}, ${position.coords.longitude.toFixed(4)}`)
+                            },
+                            () => alert('Locatie niet beschikbaar. Controleer uw instellingen.')
+                          )
+                        }
+                      }}
+                      style={{
+                        padding: '0.75rem 1.5rem',
+                        backgroundColor: formData.gpsLocation ? '#10b981' : 'var(--accent-primary)',
+                        color: 'white',
+                        border: 'none',
+                        borderRadius: '8px',
+                        cursor: 'pointer',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '0.5rem'
+                      }}
+                    >
+                      <MapPin size={18} />
+                      {formData.gpsLocation ? 'Locatie opgeslagen' : 'Deel mijn locatie'}
+                    </button>
+                    
+                    <input
+                      type="file"
+                      accept="image/*"
+                      capture="environment"
+                      onChange={handleFileChange}
+                      style={{ display: 'none' }}
+                      id="camera-capture"
+                    />
+                    <label
+                      htmlFor="camera-capture"
+                      style={{
+                        padding: '0.75rem 1.5rem',
+                        backgroundColor: '#3b82f6',
+                        color: 'white',
+                        border: 'none',
+                        borderRadius: '8px',
+                        cursor: 'pointer',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '0.5rem'
+                      }}
+                    >
+                      <FileText size={18} />
+                      Maak foto
+                    </label>
+                  </div>
+                  <p style={{ fontSize: '0.875rem', color: 'var(--text-secondary)', marginTop: '0.5rem' }}>
+                    Tip: Deel uw locatie en maak een foto van het pand, zelfs als u het exacte adres niet weet.
+                  </p>
                 </div>
 
                 <div style={{ marginTop: '1.5rem' }}>
@@ -927,8 +1005,8 @@ const ReportVacancyPage = () => {
                     {t.privacyText2}
                   </p>
                   <p style={{ color: '#0c4a6e', fontSize: '0.875rem' }}>
-                    {t.privacyText3} <a href="#" style={{ color: '#0369a1', textDecoration: 'underline' }}>privacy</a> & 
-                    <a href="#" style={{ color: '#0369a1', textDecoration: 'underline', marginLeft: '0.25rem' }}>terms</a>.
+                    {t.privacyText3} <Link to="/privacy" style={{ color: '#0369a1', textDecoration: 'underline' }}>privacybeleid</Link> & 
+                    <Link to="/algemene-voorwaarden" style={{ color: '#0369a1', textDecoration: 'underline', marginLeft: '0.25rem' }}>algemene voorwaarden</Link>.
                   </p>
                 </div>
                 
@@ -1310,7 +1388,7 @@ const ContactPage = () => {
                   </div>
                   <div>
                     <p style={{ margin: '0', fontWeight: '600', color: 'var(--text-primary)', fontSize: '1.125rem' }}>E-mail</p>
-                    <p style={{ margin: '0', color: 'var(--text-secondary)' }}>noemrawsingh@gmail.com</p>
+                    <p style={{ margin: '0', color: 'var(--text-secondary)' }}>info@leegstandmeldpunt.nl</p>
                   </div>
                 </div>
                 
@@ -1329,7 +1407,7 @@ const ContactPage = () => {
                   </div>
                   <div>
                     <p style={{ margin: '0', fontWeight: '600', color: 'var(--text-primary)', fontSize: '1.125rem' }}>{t.phone}</p>
-                    <p style={{ margin: '0', color: 'var(--text-secondary)' }}>+31 6 41375900</p>
+                    <p style={{ margin: '0', color: 'var(--text-secondary)' }}>+31 85 XXX XXXX</p>
                   </div>
                 </div>
                 
@@ -1403,7 +1481,7 @@ const Footer = () => {
           <div className="footer-links">
             <h3>Snelle Links</h3>
             <ul>
-              <li><Link to="/melden">Leegstand Melden</Link></li>
+              <li>                  <Link to="/melden" style={{ color: 'var(--accent-primary)', textDecoration: 'underline' }}>Leegstand Melden</Link></li>
               <li><Link to="/over-ons">Over Ons</Link></li>
               <li><Link to="/contact">Contact</Link></li>
             </ul>
@@ -1430,6 +1508,91 @@ const Footer = () => {
   )
 }
 
+const PrivacyPage = () => (
+  <div style={{ minHeight: '100vh', backgroundColor: 'var(--bg-secondary)', padding: '4rem 0' }}>
+    <div className="container" style={{ maxWidth: '800px' }}>
+      <h1 style={{ fontSize: '2.5rem', fontWeight: '700', marginBottom: '2rem', color: 'var(--text-primary)' }}>
+        Privacybeleid
+      </h1>
+      <div style={{ background: 'var(--bg-primary)', padding: '3rem', borderRadius: '16px', boxShadow: 'var(--shadow-md)' }}>
+        <h2 style={{ fontSize: '1.5rem', fontWeight: '600', marginBottom: '1rem', color: 'var(--text-primary)' }}>
+          1. Gegevensverwerking
+        </h2>
+        <p style={{ color: 'var(--text-secondary)', lineHeight: '1.6', marginBottom: '1.5rem' }}>
+          Leegstandmeldpunt verwerkt uw persoonsgegevens in overeenstemming met de Algemene Verordening Gegevensbescherming (AVG). 
+          Wij verwerken alleen gegevens die noodzakelijk zijn voor het doel van onze dienstverlening.
+        </p>
+        
+        <h2 style={{ fontSize: '1.5rem', fontWeight: '600', marginBottom: '1rem', color: 'var(--text-primary)' }}>
+          2. Welke gegevens verzamelen wij?
+        </h2>
+        <p style={{ color: 'var(--text-secondary)', lineHeight: '1.6', marginBottom: '1.5rem' }}>
+          Wij verzamelen: naam, e-mailadres, telefoonnummer (optioneel), adresgegevens van gemelde panden, 
+          en GPS-locatie (optioneel). Anonieme meldingen slaan geen persoonlijke gegevens op.
+        </p>
+        
+        <h2 style={{ fontSize: '1.5rem', fontWeight: '600', marginBottom: '1rem', color: 'var(--text-primary)' }}>
+          3. Bewaartermijn
+        </h2>
+        <p style={{ color: 'var(--text-secondary)', lineHeight: '1.6', marginBottom: '1.5rem' }}>
+          Wij bewaren uw gegevens maximaal 2 jaar na de laatste activiteit. Daarna worden ze automatisch verwijderd, 
+          tenzij een langere bewaartermijn wettelijk verplicht is.
+        </p>
+        
+        <h2 style={{ fontSize: '1.5rem', fontWeight: '600', marginBottom: '1rem', color: 'var(--text-primary)' }}>
+          4. Uw rechten
+        </h2>
+        <p style={{ color: 'var(--text-secondary)', lineHeight: '1.6', marginBottom: '1.5rem' }}>
+          U heeft recht op inzage, correctie en verwijdering van uw gegevens. Ook kunt u bezwaar maken tegen verwerking 
+          of verzoeken om gegevensoverdraagbaarheid. Neem hiervoor contact op via info@leegstandmeldpunt.nl.
+        </p>
+      </div>
+    </div>
+  </div>
+)
+
+const TermsPage = () => (
+  <div style={{ minHeight: '100vh', backgroundColor: 'var(--bg-secondary)', padding: '4rem 0' }}>
+    <div className="container" style={{ maxWidth: '800px' }}>
+      <h1 style={{ fontSize: '2.5rem', fontWeight: '700', marginBottom: '2rem', color: 'var(--text-primary)' }}>
+        Algemene Voorwaarden
+      </h1>
+      <div style={{ background: 'var(--bg-primary)', padding: '3rem', borderRadius: '16px', boxShadow: 'var(--shadow-md)' }}>
+        <h2 style={{ fontSize: '1.5rem', fontWeight: '600', marginBottom: '1rem', color: 'var(--text-primary)' }}>
+          1. Dienstverlening
+        </h2>
+        <p style={{ color: 'var(--text-secondary)', lineHeight: '1.6', marginBottom: '1.5rem' }}>
+          Leegstandmeldpunt faciliteert het melden van leegstaande panden en brengt melders in contact met 
+          eigenaren en/of gemeenten. Wij zijn een onafhankelijk platform en geen onderdeel van de overheid.
+        </p>
+        
+        <h2 style={{ fontSize: '1.5rem', fontWeight: '600', marginBottom: '1rem', color: 'var(--text-primary)' }}>
+          2. €100 Vergoeding
+        </h2>
+        <p style={{ color: 'var(--text-secondary)', lineHeight: '1.6', marginBottom: '1.5rem' }}>
+          De €100 vergoeding wordt uitgekeerd na verificatie van de melding en wanneer de melding daadwerkelijk 
+          leidt tot bewoning of herbestemming van het pand. Anonieme meldingen komen niet in aanmerking voor de vergoeding.
+        </p>
+        
+        <h2 style={{ fontSize: '1.5rem', fontWeight: '600', marginBottom: '1rem', color: 'var(--text-primary)' }}>
+          3. Aansprakelijkheid
+        </h2>
+        <p style={{ color: 'var(--text-secondary)', lineHeight: '1.6', marginBottom: '1.5rem' }}>
+          Leegstandmeldpunt is niet aansprakelijk voor de juistheid van meldingen of de gevolgen van het gebruik 
+          van onze diensten. Gebruikers zijn zelf verantwoordelijk voor de juistheid van verstrekte informatie.
+        </p>
+        
+        <h2 style={{ fontSize: '1.5rem', fontWeight: '600', marginBottom: '1rem', color: 'var(--text-primary)' }}>
+          4. Contact
+        </h2>
+        <p style={{ color: 'var(--text-secondary)', lineHeight: '1.6' }}>
+          Voor vragen over deze voorwaarden kunt u contact opnemen via info@leegstandmeldpunt.nl.
+        </p>
+      </div>
+    </div>
+  </div>
+)
+
 function App() {
   const [showIncentivePopup, setShowIncentivePopup] = useState(true)
   
@@ -1449,6 +1612,8 @@ function App() {
                   <Route path="/contact" element={<ContactPage />} />
                   <Route path="/profiel" element={<ProfilePage />} />
                   <Route path="/portaal" element={<PortaalPage />} />
+                  <Route path="/privacy" element={<PrivacyPage />} />
+                  <Route path="/algemene-voorwaarden" element={<TermsPage />} />
                 </Routes>
               </main>
               <Footer />

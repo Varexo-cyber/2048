@@ -188,7 +188,7 @@ const translations: Translations = {
     
     // Features
     whyLeegstandsloket: 'Waarom Leegstandmeldpunt?',
-    professionalPartner: 'Een initiatief van de overheid om leegstand tegen te gaan. Wij brengen leegstaande woningen in kaart en werken samen met gemeenten om deze weer bewoonbaar te maken.',
+    professionalPartner: 'Een initiatief om leegstand tegen te gaan. Wij brengen leegstaande woningen in kaart en werken samen met gemeenten om deze weer bewoonbaar te maken.',
     discretion: 'Discretie & Vertrouwen',
     discretionDesc: 'Uw gegevens zijn veilig bij ons. We werken strikt vertrouwelijk en AVG-proof.',
     expertise: 'Marktkennis & Analyse',
@@ -198,7 +198,7 @@ const translations: Translations = {
     propertyOwnerHelp: 'Eigenaar? Meld Leegstand',
     propertyOwnerHelpDesc: 'Heeft u een leegstaande woning? Meld deze via ons meldpunt. Wij helpen bij het vinden van geschikte huurders of kopers en dragen bij aan een leefbare buurt.',
     reward100: '€100 Melders Beloning',
-    reward100Desc: 'Help ons leegstaande woningen in kaart te brengen en ontvang €100 als uw melding leidt tot een bewoonde woning.',
+    reward100Desc: 'Help ons leegstaande woningen in kaart te brengen en ontvang €100 als uw melding leidt tot een nieuwe bewoner.',
     
     // Process
     howItWorks: 'Hoe het Werkt',
@@ -214,7 +214,7 @@ const translations: Translations = {
     
     // CTA
     ctaTitle: 'Doe Mee aan de Aanpak van Leegstand',
-    ctaSubtitle: 'Samen met gemeenten en woningcorporaties brengen wij leegstaande panden weer in gebruik. Elke melding helpt om het woningtekort te verkleinen.',
+    ctaSubtitle: 'Samen met u, gemeenten en woningcorporaties brengen wij leegstaande panden weer in gebruik. Elke melding helpt om het woningtekort te verkleinen.',
     reportVacancyCTA: 'Meld Leegstand',
     contactCTA: 'Neem Contact Op',
     

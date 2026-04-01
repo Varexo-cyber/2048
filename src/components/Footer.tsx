@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Home, Mail, Phone, MapPin, Shield, Users, FileText, BarChart3 } from 'lucide-react'
+import { Home, Mail, Phone, MapPin, Shield, Users, FileText, BarChart3, Building } from 'lucide-react'
 
 const Footer = () => {
   return (
@@ -85,10 +85,47 @@ const Footer = () => {
                 </Link>
               </li>
               <li style={{ marginBottom: '0.5rem' }}>
+                <Link to="/admin" style={{ color: 'var(--accent-primary)', textDecoration: 'none', transition: 'color 0.2s', fontWeight: 500 }}>
+                  <Building className="w-4 h-4 inline mr-2" />
+                  Inloggen Overheden
+                </Link>
+              </li>
+              <li style={{ marginBottom: '0.5rem' }}>
                 <Link to="/contact" style={{ color: 'var(--neutral-300)', textDecoration: 'none', transition: 'color 0.2s' }}>
                   <Phone className="w-4 h-4 inline mr-2" />
                   Contact
                 </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Diensten */}
+          <div>
+            <h3 style={{ fontSize: '1.125rem', fontWeight: '600', marginBottom: '1rem', color: 'white' }}>Diensten</h3>
+            <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+              <li style={{ marginBottom: '0.5rem' }}>
+                <span style={{ color: 'var(--neutral-300)', fontSize: '0.875rem' }}>
+                  <Shield className="w-4 h-4 inline mr-2" />
+                  <strong>Juridische Expertise:</strong> Begeleiding bij leegstandswetgeving en regelgeving voor eigenaren en gemeenten.
+                </span>
+              </li>
+              <li style={{ marginBottom: '0.5rem' }}>
+                <span style={{ color: 'var(--neutral-300)', fontSize: '0.875rem' }}>
+                  <FileText className="w-4 h-4 inline mr-2" />
+                  <strong>Fiscale Kennis:</strong> Advies over belastingvoordelen en fiscale aspecten van leegstand en herbestemming.
+                </span>
+              </li>
+              <li style={{ marginBottom: '0.5rem' }}>
+                <span style={{ color: 'var(--neutral-300)', fontSize: '0.875rem' }}>
+                  <Building className="w-4 h-4 inline mr-2" />
+                  <strong>Vastgoedbeheer:</strong> Professioneel beheer van leegstaande panden tot ze weer bewoond worden.
+                </span>
+              </li>
+              <li style={{ marginBottom: '0.5rem' }}>
+                <span style={{ color: 'var(--neutral-300)', fontSize: '0.875rem' }}>
+                  <Home className="w-4 h-4 inline mr-2" />
+                  <strong>Leegstandsbeheer:</strong> Bewaking, onderhoud en beveiliging van leegstaande panden tegen kraken en verval.
+                </span>
               </li>
             </ul>
           </div>
@@ -98,16 +135,16 @@ const Footer = () => {
             <h3 style={{ fontSize: '1.125rem', fontWeight: '600', marginBottom: '1rem', color: 'white' }}>Wetgeving & Beleid</h3>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
               <li style={{ marginBottom: '0.5rem' }}>
-                <a href="#" style={{ color: 'var(--neutral-300)', textDecoration: 'none', transition: 'color 0.2s' }}>
+                <Link to="/privacy" style={{ color: 'var(--neutral-300)', textDecoration: 'none', transition: 'color 0.2s' }}>
                   <Shield className="w-4 h-4 inline mr-2" />
                   Privacybeleid
-                </a>
+                </Link>
               </li>
               <li style={{ marginBottom: '0.5rem' }}>
-                <a href="#" style={{ color: 'var(--neutral-300)', textDecoration: 'none', transition: 'color 0.2s' }}>
+                <Link to="/algemene-voorwaarden" style={{ color: 'var(--neutral-300)', textDecoration: 'none', transition: 'color 0.2s' }}>
                   <FileText className="w-4 h-4 inline mr-2" />
                   Algemene Voorwaarden
-                </a>
+                </Link>
               </li>
               <li style={{ marginBottom: '0.5rem' }}>
                 <a href="#" style={{ color: 'var(--neutral-300)', textDecoration: 'none', transition: 'color 0.2s' }}>
@@ -163,6 +200,22 @@ const Footer = () => {
             <span>🇳🇱 Nederland</span>
           </div>
           
+          {/* Disclaimer */}
+          <div style={{ 
+            background: 'var(--neutral-800)', 
+            padding: '1rem', 
+            borderRadius: '8px', 
+            marginTop: '1rem',
+            border: '1px solid var(--neutral-700)'
+          }}>
+            <p style={{ fontSize: '0.75rem', color: 'var(--neutral-400)', margin: 0, lineHeight: '1.5' }}>
+              <strong>Disclaimer:</strong> Leegstandmeldpunt is een onafhankelijk initiatief en geen onderdeel van de Nederlandse overheid. 
+              Wij werken wel samen met gemeenten en woningcorporaties om leegstand tegen te gaan. 
+              De informatie op deze website is met zorg samengesteld, maar we kunnen geen garantie geven over de volledigheid of juistheid. 
+              Voor juridisch bindende informatie verwijzen wij u naar de officiële overheidsinstanties.
+            </p>
+          </div>
+
           {/* Varexo Credit */}
           <div style={{ 
             textAlign: 'center',
