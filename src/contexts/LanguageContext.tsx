@@ -71,9 +71,32 @@ type Translations = {
     legalExpertise: string
     fiscalKnowledge: string
     propertyManagement: string
-    rights: string
     privacy: string
     cookies: string
+    rights: string
+    // Footer Services
+    legalExpertiseShort: string
+    legalExpertiseFull: string
+    fiscalKnowledgeShort: string
+    fiscalKnowledgeFull: string
+    propertyManagementShort: string
+    propertyManagementFull: string
+    vacancyManagement: string
+    vacancyManagementShort: string
+    vacancyManagementFull: string
+    showMore: string
+    showLess: string
+    
+    // Footer Links
+    governmentLogin: string
+    legalPolicy: string
+    terms: string
+    gdprCompliance: string
+    policyDocs: string
+    
+    // Disclaimer
+    disclaimerTitle: string
+    disclaimerText: string
     
     // Contact
     contactTitle: string
@@ -232,9 +255,27 @@ const translations: Translations = {
     legalExpertise: 'Juridische Expertise',
     fiscalKnowledge: 'Fiscale Kennis',
     propertyManagement: 'Vastgoedbeheer',
-    rights: 'Alle rechten voorbehouden.',
     privacy: 'Privacybeleid',
     cookies: 'Cookiebeleid',
+    legalExpertiseShort: 'Begeleiding bij leegstandswetgeving en regelgeving voor eigenaren en gemeenten.',
+    legalExpertiseFull: 'Onze juridische experts bieden uitgebreide begeleiding bij alle aspecten van leegstandswetgeving. Dit omvat:\n\n• Advies over de Leegstandswet en bestemmingsplannen\n• Begeleiding bij het opstellen van huurovereenkomsten\n• Ondersteuning bij geschillen met huurders of eigenaren\n• Juridische risico-analyse voor vastgoedbezitters\n• Consultatie over anti-kraak maatregelen\n• Opzegging van huurovereenkomsten conform wetgeving',
+    fiscalKnowledgeShort: 'Advies over belastingvoordelen en fiscale aspecten van leegstand en herbestemming.',
+    fiscalKnowledgeFull: 'Onze fiscale specialisten adviseren over alle fiscale aspecten van leegstand:\n\n• BTW-vrijstellingen bij herbestemming\n• Fiscale voordelen van anti-kraak bewoning\n• Belastingaftrek voor onderhoudskosten\n• WOZ-waarde optimalisatie\n• Investeringsaftrek en subsidies\n• Fiscale structurering van vastgoedportefeuilles',
+    propertyManagementShort: 'Professioneel beheer van leegstaande panden tot ze weer bewoond worden.',
+    propertyManagementFull: 'Professioneel vastgoedbeheer voor leegstaande panden:\n\n• Periodieke inspecties en onderhoud\n• Coördinatie van reparaties en renovaties\n• Verzekeringsbeheer en schadeafhandeling\n• Relatiebeheer met buren en gemeente\n• Voorbereiding op nieuwe verhuur\n• Energieprestatie optimalisatie',
+    vacancyManagement: 'Leegstandsbeheer',
+    vacancyManagementShort: 'Bewaking, onderhoud en beveiliging van leegstaande panden tegen kraken en verval.',
+    vacancyManagementFull: 'Compleet leegstandsbeheer om uw pand veilig te houden:\n\n• 24/7 bewaking en alarmmonitoring\n• Anti-kraak bewoning regeling\n• Wekelijkse rondes en inspecties\n• Directe melding bij calamiteiten\n• Onderhoud van tuin en buitenruimtes\n• Voorbereiding op herverhuur of verkoop',
+    showMore: '▶ Meer info',
+    showLess: '▼ Minder info',
+    governmentLogin: 'Inloggen Overheden',
+    legalPolicy: 'Wetgeving & Beleid',
+    terms: 'Algemene Voorwaarden',
+    gdprCompliance: 'AVG Compliance',
+    policyDocs: 'Beleidsdocumenten',
+    disclaimerTitle: 'Disclaimer:',
+    disclaimerText: 'Leegstandmeldpunt is een onafhankelijk initiatief en geen onderdeel van de Nederlandse overheid. Wij werken wel samen met gemeenten en woningcorporaties om leegstand tegen te gaan. De informatie op deze website is met zorg samengesteld, maar we kunnen geen garantie geven over de volledigheid of juistheid. Voor juridisch bindende informatie verwijzen wij u naar de officiële overheidsinstanties.',
+    rights: 'Alle rechten voorbehouden.',
     
     // Contact
     contactTitle: 'Neem Contact Op',
@@ -334,8 +375,8 @@ const translations: Translations = {
     contact: 'Contact',
     
     // Hero
-    heroTitle: 'Real Estate Opportunities',
-    heroSubtitle: 'We identify and activate vacant properties for real estate owners and home seekers. Discover unique opportunities in the real estate market with professional guidance.',
+    heroTitle: 'Together Against Vacancy,',
+    heroSubtitle: 'The national reporting point for vacant homes and properties. Report anonymously or with reward, together we map vacancy and help reduce the housing shortage.',
     reportVacancyBtn: 'Report Vacancy',
     viewDashboardBtn: 'View Dashboard',
     
@@ -347,17 +388,17 @@ const translations: Translations = {
     
     // Features
     whyLeegstandsloket: 'Why Leegstandmeldpunt?',
-    professionalPartner: 'Your partner in real estate opportunities. We identify undervalued real estate opportunities and bring owners and buyers together for win-win situations.',
+    professionalPartner: 'An initiative to combat vacancy. We map vacant homes and work with municipalities to make them habitable again.',
     discretion: 'Discretion & Trust',
-    discretionDesc: 'Your data is safe with us. We work strictly confidentially and GDPR-proof.',
-    expertise: 'Real Estate Expertise',
-    expertiseDesc: 'Deep market analysis and negotiation power for the best real estate deals. We know the local market like no other.',
-    resultOriented: 'Result Oriented',
-    resultOrientedDesc: 'We focus on actual transactions. No reporting, but doing.',
-    propertyOwnerHelp: 'Owner? Sell Fast!',
-    propertyOwnerHelpDesc: 'Have a vacant property? We help with a quick, profitable sale. Direct buyers and fair prices.',
+    discretionDesc: 'Your data is safe with us. We work strictly confidentially and GDPR-compliant.',
+    expertise: 'Market Knowledge & Analysis',
+    expertiseDesc: 'Our experts analyze vacancy patterns and work with housing associations and municipalities to create solutions for the housing shortage.',
+    resultOriented: 'Social Impact',
+    resultOrientedDesc: 'We focus on actually reducing vacancy. Every report contributes to a better housing situation for everyone.',
+    propertyOwnerHelp: 'Owner? Report Vacancy',
+    propertyOwnerHelpDesc: 'Do you have a vacant home? Report it through our reporting point. We help find suitable tenants or buyers and contribute to a livable neighborhood.',
     reward100: '€100 Reporter Reward',
-    reward100Desc: 'Help us find real estate opportunities and receive €100 per successful referral.',
+    reward100Desc: 'Help us map vacant homes and receive €100 if your report leads to a new resident.',
     
     // Process
     howItWorks: 'How It Works',
@@ -372,22 +413,22 @@ const translations: Translations = {
     step4Desc: 'The property becomes occupied, the neighborhood more livable and the housing shortage reduced.',
     
     // CTA
-    ctaTitle: 'Discover Real Estate Opportunities',
-    ctaSubtitle: 'We bring real estate owners and buyers together. Find unique opportunities in the real estate market and earn with us.',
+    ctaTitle: 'Join the Fight Against Vacancy',
+    ctaSubtitle: 'Together with you, municipalities and housing associations, we bring vacant properties back into use. Every report helps reduce the housing shortage.',
     reportVacancyCTA: 'Report Vacancy',
     contactCTA: 'Contact Us',
     
     // Report Form
-    reportTitle: 'Report Real Estate',
-    reportSubtitle: 'Do you know vacant real estate? Report it and receive €100 for a successful transaction. We connect you directly with interested buyers.',
+    reportTitle: 'Report Vacancy',
+    reportSubtitle: 'Do you know a vacant home or property? Report this anonymously or with contact details. We investigate every report and work with municipalities to find appropriate solutions.',
     address: 'Address',
     propertyType: 'Property Type',
     vacancyDuration: 'How long has the property been vacant?',
     description: 'Description (optional)',
-    reportBtn: 'Report Vacancy',
+    reportBtn: 'Submit Report',
     
     // Footer
-    footerDescription: 'Your partner in real estate deals. We identify opportunities, bring parties together and realize profitable transactions.',
+    footerDescription: 'A national initiative against vacancy. We work with governments, housing associations and social partners to make vacant homes habitable again.',
     quickLinks: 'Quick Links',
     services: 'Services',
     legalExpertise: 'Legal Expertise',
@@ -396,6 +437,24 @@ const translations: Translations = {
     rights: 'All rights reserved.',
     privacy: 'Privacy Policy',
     cookies: 'Cookie Policy',
+    legalExpertiseShort: 'Guidance on vacancy legislation and regulations for owners and municipalities.',
+    legalExpertiseFull: 'Our legal experts provide comprehensive guidance on all aspects of vacancy legislation:\n\n• Advice on the Vacancy Act and zoning plans\n• Assistance with drafting lease agreements\n• Support in disputes with tenants or owners\n• Legal risk analysis for property owners\n• Consultation on anti-squatting measures\n• Termination of lease agreements in accordance with the law',
+    fiscalKnowledgeShort: 'Advice on tax benefits and fiscal aspects of vacancy and repurposing.',
+    fiscalKnowledgeFull: 'Our fiscal specialists advise on all fiscal aspects of vacancy:\n\n• VAT exemptions for repurposing\n• Tax benefits of anti-squatting occupancy\n• Tax deduction for maintenance costs\n• WOZ value optimization\n• Investment deduction and subsidies\n• Fiscal structuring of real estate portfolios',
+    propertyManagementShort: 'Professional management of vacant properties until they are inhabited again.',
+    propertyManagementFull: 'Professional real estate management for vacant properties:\n\n• Periodic inspections and maintenance\n• Coordination of repairs and renovations\n• Insurance management and damage handling\n• Relationship management with neighbors and municipality\n• Preparation for new rental\n• Energy performance optimization',
+    vacancyManagement: 'Vacancy Management',
+    vacancyManagementShort: 'Security, maintenance and protection of vacant properties against squatting and decay.',
+    vacancyManagementFull: 'Complete vacancy management to keep your property safe:\n\n• 24/7 security and alarm monitoring\n• Anti-squatting occupancy arrangement\n• Weekly rounds and inspections\n• Immediate notification in case of emergencies\n• Maintenance of garden and outdoor spaces\n• Preparation for re-rental or sale',
+    showMore: '▶ More info',
+    showLess: '▼ Less info',
+    governmentLogin: 'Government Login',
+    legalPolicy: 'Legislation & Policy',
+    terms: 'Terms of Service',
+    gdprCompliance: 'GDPR Compliance',
+    policyDocs: 'Policy Documents',
+    disclaimerTitle: 'Disclaimer:',
+    disclaimerText: 'Leegstandmeldpunt is an independent initiative and not part of the Dutch government. We do work with municipalities and housing associations to combat vacancy. The information on this website has been compiled with care, but we cannot guarantee its completeness or accuracy. For legally binding information, please refer to official government agencies.',
     
     // Contact
     contactTitle: 'Contact Us',
@@ -427,13 +486,13 @@ const translations: Translations = {
     
     // About Page
     aboutTitle: 'About Leegstandmeldpunt',
-    aboutSubtitle: 'We are your specialist in real estate deals. With deep market analysis and an extensive network, we bring real estate owners and buyers together for the best transactions.',
+    aboutSubtitle: 'A national initiative in the fight against vacancy. We map vacant homes and properties and work with governments, housing associations and social partners to make them habitable again.',
     ourMission: 'Our Mission',
-    ourMissionDesc: 'Leegstandmeldpunt was founded to bring real estate owners and buyers together. We identify undervalued real estate opportunities and realize profitable deals.',
+    ourMissionDesc: 'Leegstandmeldpunt was founded to structurally address vacancy. We identify vacant properties, analyze the situation and connect owners with parties that can make these homes available to home seekers.',
     ourVision: 'Our Vision',
-    ourVisionDesc: 'A market where every property reaches its maximum value and owners have direct access to serious buyers.',
+    ourVisionDesc: 'A Netherlands where every home gets its purpose and where vacancy no longer forms an unnecessary social problem.',
     ourValues: 'Our Values',
-    ourValuesDesc: 'Discretion, trust, professionalism and result-orientation are at our core.',
+    ourValuesDesc: 'Transparency, reliability, cooperation and social engagement are central to us.',
     
     // Report Page Extra
     propertyDetails: 'Property Details',
@@ -483,7 +542,7 @@ const translations: Translations = {
     privacyText3: 'Read our full',
     privacyAgree: 'I agree to the privacy statement and terms of service. I understand that my data will be processed in accordance with GDPR.',
     requiredFields: '* Required fields',
-    submitSuccess: 'Real estate report successfully submitted! We will contact you directly. For a successful transaction, you receive a €100 reward.',
+    submitSuccess: 'Report successfully submitted! We will contact you as soon as possible.',
   },
   
   de: {
@@ -495,8 +554,8 @@ const translations: Translations = {
     contact: 'Kontakt',
     
     // Hero
-    heroTitle: 'Immobilien Chancen Entdecken',
-    heroSubtitle: 'Wir identifizieren und aktivieren leerstehende Immobilien für Immobilieneigentümer und Wohnungssuchende. Entdecken Sie einzigartige Chancen auf dem Immobilienmarkt mit professioneller Begleitung.',
+    heroTitle: 'Gemeinsam Gegen Leerstand,',
+    heroSubtitle: 'Die nationale Meldestelle für leerstehende Wohnungen und Immobilien. Melden Sie anonym oder mit Belohnung, gemeinsam erfassen wir Leerstand und helfen, den Wohnungsmangel zu verringern.',
     reportVacancyBtn: 'Leerstand Melden',
     viewDashboardBtn: 'Dashboard Ansehen',
     
@@ -508,17 +567,17 @@ const translations: Translations = {
     
     // Features
     whyLeegstandsloket: 'Warum Leegstandmeldpunt?',
-    professionalPartner: 'Ihr Partner für Immobilienchancen. Wir identifizieren unterbewertete Immobilienmöglichkeiten und bringen Eigentümer und Käufer für Win-Win-Situationen zusammen.',
+    professionalPartner: 'Eine Initiative gegen Leerstand. Wir erfassen leerstehende Wohnungen und arbeiten mit Gemeinden zusammen, um diese wieder bewohnbar zu machen.',
     discretion: 'Diskretion & Vertrauen',
     discretionDesc: 'Ihre Daten sind bei uns sicher. Wir arbeiten streng vertraulich und DSGVO-konform.',
-    expertise: 'Immobilien Expertise',
-    expertiseDesc: 'Tiefgehende Marktanalyse und Verhandlungsmacht für die besten Immobiliendeals. Wir kennen den lokalen Markt wie kein anderer.',
-    resultOriented: 'Ergebnisorientiert',
-    resultOrientedDesc: 'Wir konzentrieren uns auf tatsächliche Transaktionen. Kein Berichten, sondern Handeln.',
-    propertyOwnerHelp: 'Eigentümer? Schnell Verkaufen!',
-    propertyOwnerHelpDesc: 'Haben Sie eine leerstehende Immobilie? Wir helfen mit einem schnellen, profitablen Verkauf. Direkte Käufer und faire Preise.',
+    expertise: 'Marktkenntnisse & Analyse',
+    expertiseDesc: 'Unsere Experten analysieren Leerstandsmuster und arbeiten mit Wohnungsbaugesellschaften und Gemeinden zusammen, um Lösungen für den Wohnungsmangel zu schaffen.',
+    resultOriented: 'Gesellschaftliche Wirkung',
+    resultOrientedDesc: 'Wir konzentrieren uns auf die tatsächliche Verringerung von Leerstand. Jede Meldung trägt zu einer besseren Wohnsituation für alle bei.',
+    propertyOwnerHelp: 'Eigentümer? Melden Sie Leerstand',
+    propertyOwnerHelpDesc: 'Haben Sie eine leerstehende Wohnung? Melden Sie diese über unsere Meldestelle. Wir helfen bei der Suche nach geeigneten Mietern oder Käufern und tragen zu einem lebenswerten Viertel bei.',
     reward100: '€100 Melder Belohnung',
-    reward100Desc: 'Helfen Sie uns Immobilienmöglichkeiten zu finden und erhalten Sie €100 pro erfolgreicher Weiterleitung.',
+    reward100Desc: 'Helfen Sie uns, leerstehende Wohnungen zu erfassen, und erhalten Sie €100, wenn Ihre Meldung zu einem neuen Bewohner führt.',
     
     // Process
     howItWorks: 'Wie Es Funktioniert',
@@ -533,22 +592,22 @@ const translations: Translations = {
     step4Desc: 'Die Immobilie wird bewohnt, der Nachbarschaft lebenswerter und das Wohnungsdefizit reduziert.',
     
     // CTA
-    ctaTitle: 'Immobilien Chancen Entdecken',
-    ctaSubtitle: 'Wir bringen Immobilieneigentümer und Käufer zusammen. Finden Sie einzigartige Möglichkeiten auf dem Immobilienmarkt und verdienen Sie mit uns.',
+    ctaTitle: 'Machen Sie Mit bei der Bekämpfung von Leerstand',
+    ctaSubtitle: 'Gemeinsam mit Ihnen, Gemeinden und Wohnungsbaugesellschaften bringen wir leerstehende Immobilien wieder in Nutzung. Jede Meldung hilft, den Wohnungsmangel zu verringern.',
     reportVacancyCTA: 'Leerstand Melden',
     contactCTA: 'Kontaktieren Sie Uns',
     
     // Report Form
-    reportTitle: 'Immobilien Melden',
-    reportSubtitle: 'Kenn Sie leerstehende Immobilien? Melden Sie es und erhalten Sie €100 bei einer erfolgreichen Transaktion. Wir verbinden Sie direkt mit interessierten Käufern.',
+    reportTitle: 'Leerstand Melden',
+    reportSubtitle: 'Kennen Sie eine leerstehende Wohnung oder Immobilie? Melden Sie dies anonym oder mit Kontaktdaten. Wir untersuchen jede Meldung und arbeiten mit Gemeinden zusammen, um passende Lösungen zu finden.',
     address: 'Adresse',
     propertyType: 'Immobilientyp',
     vacancyDuration: 'Wie lange steht die Immobilie leer?',
     description: 'Beschreibung (optional)',
-    reportBtn: 'Leerstand Melden',
+    reportBtn: 'Meldung Absenden',
     
     // Footer
-    footerDescription: 'Ihr Partner für Immobiliendeals. Wir identifizieren Chancen, bringen Parteien zusammen und realisieren profitablle Transaktionen.',
+    footerDescription: 'Eine nationale Initiative gegen Leerstand. Wir arbeiten mit Regierungen, Wohnungsbaugesellschaften und sozialen Partnern zusammen, um leerstehende Wohnungen wieder bewohnbar zu machen.',
     quickLinks: 'Schnelle Links',
     services: 'Dienstleistungen',
     legalExpertise: 'Rechtliche Expertise',
@@ -557,6 +616,24 @@ const translations: Translations = {
     rights: 'Alle Rechte vorbehalten.',
     privacy: 'Datenschutzerklärung',
     cookies: 'Cookie-Richtlinie',
+    legalExpertiseShort: 'Beratung zu Leerstandsrecht und Vorschriften für Eigentümer und Gemeinden.',
+    legalExpertiseFull: 'Unsere Rechtsexperten bieten umfassende Beratung zu allen Aspekten des Leerstandsrechts:\n\n• Beratung zum Leerstandsgesetz und Bebauungsplänen\n• Unterstützung bei der Erstellung von Mietverträgen\n• Unterstützung bei Streitigkeiten mit Mietern oder Eigentümern\n• Rechtliche Risikoanalyse für Immobilieneigentümer\n• Beratung zu Anti-Squatting-Maßnahmen\n• Kündigung von Mietverträgen in Übereinstimmung mit dem Gesetz',
+    fiscalKnowledgeShort: 'Beratung zu Steuervorteilen und steuerlichen Aspekten von Leerstand und Zweckänderung.',
+    fiscalKnowledgeFull: 'Unsere Steuerfachleute beraten zu allen steuerlichen Aspekten von Leerstand:\n\n• Mehrwertsteuerbefreiung bei Zweckänderung\n• Steuervorteile der Anti-Squatting-Nutzung\n• Steuerabzug für Instandhaltungskosten\n• WOZ-Wertoptimierung\n• Investitionsabzug und Subventionen\n• Steuerliche Strukturierung von Immobilienportfolios',
+    propertyManagementShort: 'Professionelle Verwaltung von leerstehenden Immobilien bis sie wieder bewohnt werden.',
+    propertyManagementFull: 'Professionelles Immobilienmanagement für leerstehende Immobilien:\n\n• Periodische Inspektionen und Wartung\n• Koordinierung von Reparaturen und Renovierungen\n• Versicherungsmanagement und Schadensregulierung\n• Beziehungsmanagement mit Nachbarn und Gemeinde\n• Vorbereitung auf neue Vermietung\n• Energieleistungsoptimierung',
+    vacancyManagement: 'Leerstandsmanagement',
+    vacancyManagementShort: 'Überwachung, Wartung und Schutz von leerstehenden Immobilien gegen Hausbesetzung und Verfall.',
+    vacancyManagementFull: 'Komplettes Leerstandsmanagement, um Ihre Immobilie sicher zu halten:\n\n• 24/7 Überwachung und Alarmüberwachung\n• Anti-Squatting-Nutzungsregelung\n• Wöchentliche Runden und Inspektionen\n• Sofortige Benachrichtigung bei Notfällen\n• Wartung von Garten und Außenbereichen\n• Vorbereitung auf Neuvermietung oder Verkauf',
+    showMore: '▶ Mehr Infos',
+    showLess: '▼ Weniger Infos',
+    governmentLogin: 'Behörden Login',
+    legalPolicy: 'Gesetzgebung & Politik',
+    terms: 'Allgemeine Geschäftsbedingungen',
+    gdprCompliance: 'DSGVO Compliance',
+    policyDocs: 'Richtlinien',
+    disclaimerTitle: 'Haftungsausschluss:',
+    disclaimerText: 'Leegstandmeldpunt ist eine unabhängige Initiative und kein Teil der niederländischen Regierung. Wir arbeiten jedoch mit Gemeinden und Wohnungsbaugesellschaften zusammen, um Leerstand zu bekämpfen. Die Informationen auf dieser Website wurden mit Sorgfalt zusammengestellt, aber wir können keine Garantie für ihre Vollständigkeit oder Richtigkeit übernehmen. Für rechtlich bindende Informationen verweisen wir auf die offiziellen Regierungsstellen.',
     
     // Contact
     contactTitle: 'Kontakt',
@@ -588,13 +665,13 @@ const translations: Translations = {
     
     // About Page
     aboutTitle: 'Über Leegstandmeldpunt',
-    aboutSubtitle: 'Wir sind Ihr Spezialist für Immobiliendeals. Mit tiefgehender Marktanalyse und einem umfangreichen Netzwerk bringen wir Immobilieneigentümer und Käufer für die besten Transaktionen zusammen.',
+    aboutSubtitle: 'Eine nationale Initiative im Kampf gegen Leerstand. Wir erfassen leerstehende Wohnungen und Immobilien und arbeiten mit Regierungen, Wohnungsbaugesellschaften und sozialen Partnern zusammen, um diese wieder bewohnbar zu machen.',
     ourMission: 'Unsere Mission',
-    ourMissionDesc: 'Leegstandmeldpunt wurde gegründet, um Immobilieneigentümer und Käufer zusammenzubringen. Wir identifizieren unterbewertete Immobilienmöglichkeiten und realisieren profitablle Deals.',
+    ourMissionDesc: 'Leegstandmeldpunt wurde gegründet, um Leerstand strukturell anzugehen. Wir identifizieren leerstehende Immobilien, analysieren die Situation und bringen Eigentümer mit Parteien zusammen, die diese Wohnungen wieder für Wohnungssuchende verfügbar machen können.',
     ourVision: 'Unsere Vision',
-    ourVisionDesc: 'Ein Markt, in dem jede Immobilie ihren maximalen Wert erreicht und Eigentümer direkten Zugang zu ernsthaften Käufern haben.',
+    ourVisionDesc: 'Ein Niederlande, in dem jedes Zuhause seine Bestimmung erhält und in dem Leerstand kein unnötiges gesellschaftliches Problem mehr darstellt.',
     ourValues: 'Unsere Werte',
-    ourValuesDesc: 'Diskretion, Vertrauen, Professionalität und Ergebnisorientierung stehen bei uns im Mittelpunkt.',
+    ourValuesDesc: 'Transparenz, Zuverlässigkeit, Zusammenarbeit und gesellschaftliches Engagement stehen bei uns im Mittelpunkt.',
     
     // Report Page Extra
     propertyDetails: 'Immobiliendetails',
@@ -644,7 +721,7 @@ const translations: Translations = {
     privacyText3: 'Lesen Sie unsere vollständige',
     privacyAgree: 'Ich stimme der Datenschutzerklärung und den AGB zu. Ich verstehe, dass meine Daten in Übereinstimmung mit der DSGVO verarbeitet werden.',
     requiredFields: '* Pflichtfelder',
-    submitSuccess: 'Immobilienmeldung erfolgreich eingereicht! Wir nehmen direkt Kontakt mit Ihnen auf. Bei einer erfolgreichen Transaktion erhalten Sie eine €100 Belohnung.',
+    submitSuccess: 'Meldung erfolgreich eingereicht! Wir werden Sie so schnell wie möglich kontaktieren.',
   }
 }
 

@@ -1,38 +1,40 @@
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import { Home, Mail, Phone, MapPin, Shield, Users, FileText, BarChart3, Building } from 'lucide-react'
+import { useLanguage } from '../contexts/LanguageContext'
 
 const Footer = () => {
+  const { t } = useLanguage()
   const [expandedService, setExpandedService] = useState<string | null>(null)
 
   const services = [
     {
       id: 'juridisch',
       icon: Shield,
-      title: 'Juridische Expertise',
-      shortDesc: 'Begeleiding bij leegstandswetgeving en regelgeving voor eigenaren en gemeenten.',
-      fullDesc: 'Onze juridische experts bieden uitgebreide begeleiding bij alle aspecten van leegstandswetgeving. Dit includes:\n\n• Advies over de Leegstandswet en bestemmingsplannen\n• Begeleiding bij het opstellen van huurovereenkomsten\n• Ondersteuning bij geschillen met huurders of eigenaren\n• Juridische risico-analyse voor vastgoedbezitters\n• Consultatie over anti-kraak maatregelen\n• Opzegging van huurovereenkomsten conform wetgeving'
+      title: t.legalExpertise,
+      shortDesc: t.legalExpertiseShort,
+      fullDesc: t.legalExpertiseFull
     },
     {
       id: 'fiscaal',
       icon: FileText,
-      title: 'Fiscale Kennis',
-      shortDesc: 'Advies over belastingvoordelen en fiscale aspecten van leegstand en herbestemming.',
-      fullDesc: 'Onze fiscale specialisten adviseren over alle fiscale aspecten van leegstand:\n\n• BTW-vrijstellingen bij herbestemming\n• Fiscale voordelen van anti-kraak bewoning\n• Belastingaftrek voor onderhoudskosten\n• WOZ-waarde optimalisatie\n• Investeringsaftrek en subsidies\n• Fiscale structurering van vastgoedportefeuilles'
+      title: t.fiscalKnowledge,
+      shortDesc: t.fiscalKnowledgeShort,
+      fullDesc: t.fiscalKnowledgeFull
     },
     {
       id: 'vastgoed',
       icon: Building,
-      title: 'Vastgoedbeheer',
-      shortDesc: 'Professioneel beheer van leegstaande panden tot ze weer bewoond worden.',
-      fullDesc: 'Professioneel vastgoedbeheer voor leegstaande panden:\n\n• Periodieke inspecties en onderhoud\n• Coördinatie van reparaties en renovaties\n• Verzekeringsbeheer en schadeafhandeling\n• Relatiebeheer met buren en gemeente\n• Voorbereiding op nieuwe verhuur\n• Energieprestatie optimalisatie'
+      title: t.propertyManagement,
+      shortDesc: t.propertyManagementShort,
+      fullDesc: t.propertyManagementFull
     },
     {
       id: 'leegstandsbeheer',
       icon: Home,
-      title: 'Leegstandsbeheer',
-      shortDesc: 'Bewaking, onderhoud en beveiliging van leegstaande panden tegen kraken en verval.',
-      fullDesc: 'Compleet leegstandsbeheer om uw pand veilig te houden:\n\n• 24/7 bewaking en alarmmonitoring\n• Anti-kraak bewoning regeling\n• Wekelijkse rondes en inspecties\n• Directe melding bij calamiteiten\n• Onderhoud van tuin en buitenruimtes\n• Voorbereiding op herverhuur of verkoop'
+      title: t.vacancyManagement,
+      shortDesc: t.vacancyManagementShort,
+      fullDesc: t.vacancyManagementFull
     }
   ]
   return (
@@ -97,36 +99,36 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 style={{ fontSize: '1.125rem', fontWeight: '600', marginBottom: '1rem', color: 'white' }}>Dienstverlening</h3>
+            <h3 style={{ fontSize: '1.125rem', fontWeight: '600', marginBottom: '1rem', color: 'white' }}>{t.quickLinks}</h3>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
               <li style={{ marginBottom: '0.5rem' }}>
                 <Link to="/melden" style={{ color: 'var(--neutral-300)', textDecoration: 'none', transition: 'color 0.2s' }}>
                   <FileText className="w-4 h-4 inline mr-2" />
-                  Leegstand Melden
+                  {t.reportVacancy}
                 </Link>
               </li>
               <li style={{ marginBottom: '0.5rem' }}>
                 <Link to="/dashboard" style={{ color: 'var(--neutral-300)', textDecoration: 'none', transition: 'color 0.2s' }}>
                   <BarChart3 className="w-4 h-4 inline mr-2" />
-                  Dashboard
+                  {t.dashboard}
                 </Link>
               </li>
               <li style={{ marginBottom: '0.5rem' }}>
                 <Link to="/over-ons" style={{ color: 'var(--neutral-300)', textDecoration: 'none', transition: 'color 0.2s' }}>
                   <Users className="w-4 h-4 inline mr-2" />
-                  Over Ons
+                  {t.about}
                 </Link>
               </li>
               <li style={{ marginBottom: '0.5rem' }}>
                 <Link to="/admin" style={{ color: 'var(--accent-primary)', textDecoration: 'none', transition: 'color 0.2s', fontWeight: 500 }}>
                   <Building className="w-4 h-4 inline mr-2" />
-                  Inloggen Overheden
+                  {t.governmentLogin || 'Inloggen Overheden'}
                 </Link>
               </li>
               <li style={{ marginBottom: '0.5rem' }}>
                 <Link to="/contact" style={{ color: 'var(--neutral-300)', textDecoration: 'none', transition: 'color 0.2s' }}>
                   <Phone className="w-4 h-4 inline mr-2" />
-                  Contact
+                  {t.contact}
                 </Link>
               </li>
             </ul>
@@ -134,7 +136,7 @@ const Footer = () => {
 
           {/* Diensten */}
           <div>
-            <h3 style={{ fontSize: '1.125rem', fontWeight: '600', marginBottom: '1rem', color: 'white' }}>Diensten</h3>
+            <h3 style={{ fontSize: '1.125rem', fontWeight: '600', marginBottom: '1rem', color: 'white' }}>{t.services}</h3>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
               {services.map((service) => {
                 const Icon = service.icon
@@ -142,10 +144,14 @@ const Footer = () => {
                 return (
                   <li key={service.id} style={{ marginBottom: '0.75rem' }}>
                     <button
-                      onClick={() => setExpandedService(isExpanded ? null : service.id)}
+                      type="button"
+                      onClick={() => {
+                        console.log('Clicked service:', service.id)
+                        setExpandedService(isExpanded ? null : service.id)
+                      }}
                       style={{
                         background: isExpanded ? 'var(--neutral-800)' : 'transparent',
-                        border: '1px solid var(--neutral-700)',
+                        border: '1px solid var(--neutral-600)',
                         borderRadius: '8px',
                         padding: '0.75rem',
                         width: '100%',
@@ -153,14 +159,23 @@ const Footer = () => {
                         cursor: 'pointer',
                         transition: 'all 0.2s'
                       }}
+                      onMouseEnter={(e) => {
+                        if (!isExpanded) e.currentTarget.style.background = 'var(--neutral-800)'
+                      }}
+                      onMouseLeave={(e) => {
+                        if (!isExpanded) e.currentTarget.style.background = 'transparent'
+                      }}
                     >
                       <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem' }}>
-                        <Icon className="w-4 h-4 inline flex-shrink-0" style={{ color: 'var(--accent-primary)', marginTop: '2px' }} />
-                        <div style={{ flex: 1 }}>
+                        <Icon className="w-4 h-4 inline" style={{ color: 'var(--accent-primary)', marginTop: '2px', flexShrink: 0 }} />
+                        <div style={{ flex: 1, minWidth: 0 }}>
                           <strong style={{ color: 'white', fontSize: '0.875rem' }}>{service.title}</strong>
                           <p style={{ color: 'var(--neutral-300)', fontSize: '0.8rem', margin: '0.25rem 0 0', lineHeight: '1.4' }}>
                             {service.shortDesc}
                           </p>
+                          <span style={{ color: 'var(--accent-primary)', fontSize: '0.75rem', marginTop: '0.5rem', display: 'inline-block', fontWeight: 500 }}>
+                            {isExpanded ? (t.showLess || '▼ Minder info') : (t.showMore || '▶ Meer info')}
+                          </span>
                           {isExpanded && (
                             <div style={{ 
                               marginTop: '0.75rem', 
@@ -174,9 +189,6 @@ const Footer = () => {
                               </p>
                             </div>
                           )}
-                          <span style={{ color: 'var(--accent-primary)', fontSize: '0.75rem', marginTop: '0.5rem', display: 'inline-block' }}>
-                            {isExpanded ? '▼ Minder info' : '▶ Meer info'}
-                          </span>
                         </div>
                       </div>
                     </button>
@@ -188,30 +200,30 @@ const Footer = () => {
 
           {/* Legal & Government */}
           <div>
-            <h3 style={{ fontSize: '1.125rem', fontWeight: '600', marginBottom: '1rem', color: 'white' }}>Wetgeving & Beleid</h3>
+            <h3 style={{ fontSize: '1.125rem', fontWeight: '600', marginBottom: '1rem', color: 'white' }}>{t.legalPolicy || 'Wetgeving & Beleid'}</h3>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
               <li style={{ marginBottom: '0.5rem' }}>
                 <Link to="/privacy" style={{ color: 'var(--neutral-300)', textDecoration: 'none', transition: 'color 0.2s' }}>
                   <Shield className="w-4 h-4 inline mr-2" />
-                  Privacybeleid
+                  {t.privacy}
                 </Link>
               </li>
               <li style={{ marginBottom: '0.5rem' }}>
                 <Link to="/algemene-voorwaarden" style={{ color: 'var(--neutral-300)', textDecoration: 'none', transition: 'color 0.2s' }}>
                   <FileText className="w-4 h-4 inline mr-2" />
-                  Algemene Voorwaarden
+                  {t.terms || 'Algemene Voorwaarden'}
                 </Link>
               </li>
               <li style={{ marginBottom: '0.5rem' }}>
                 <a href="#" style={{ color: 'var(--neutral-300)', textDecoration: 'none', transition: 'color 0.2s' }}>
                   <Shield className="w-4 h-4 inline mr-2" />
-                  AVG Compliance
+                  {t.gdprCompliance || 'AVG Compliance'}
                 </a>
               </li>
               <li style={{ marginBottom: '0.5rem' }}>
                 <a href="#" style={{ color: 'var(--neutral-300)', textDecoration: 'none', transition: 'color 0.2s' }}>
                   <MapPin className="w-4 h-4 inline mr-2" />
-                  Beleidsdocumenten
+                  {t.policyDocs || 'Beleidsdocumenten'}
                 </a>
               </li>
             </ul>
@@ -265,10 +277,7 @@ const Footer = () => {
             border: '1px solid var(--neutral-700)'
           }}>
             <p style={{ fontSize: '0.75rem', color: 'var(--neutral-400)', margin: 0, lineHeight: '1.5' }}>
-              <strong>Disclaimer:</strong> Leegstandmeldpunt is een onafhankelijk initiatief en geen onderdeel van de Nederlandse overheid. 
-              Wij werken wel samen met gemeenten en woningcorporaties om leegstand tegen te gaan. 
-              De informatie op deze website is met zorg samengesteld, maar we kunnen geen garantie geven over de volledigheid of juistheid. 
-              Voor juridisch bindende informatie verwijzen wij u naar de officiële overheidsinstanties.
+              <strong>{t.disclaimerTitle || 'Disclaimer:'}</strong> {t.disclaimerText || 'Leegstandmeldpunt is een onafhankelijk initiatief en geen onderdeel van de Nederlandse overheid. Wij werken wel samen met gemeenten en woningcorporaties om leegstand tegen te gaan. De informatie op deze website is met zorg samengesteld, maar we kunnen geen garantie geven over de volledigheid of juistheid. Voor juridisch bindende informatie verwijzen wij u naar de officiële overheidsinstanties.'}
             </p>
           </div>
 
