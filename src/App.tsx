@@ -21,6 +21,7 @@ import Navbar from './components/Navbar'
 import ScrollReveal from './components/ScrollReveal'
 import ProfilePage from './pages/ProfilePage'
 import PortaalPage from './pages/PortaalPage'
+import ServicesPage from './pages/ServicesPage'
 import Toast from './components/Toast'
 import HelpWidget from './components/HelpWidget'
 import IncentivePopup from './components/IncentivePopup'
@@ -135,7 +136,7 @@ const HomePage = () => {
               style={{ fontSize: '1.1rem', padding: '1rem 2rem' }}
             >
               <Building size={22} style={{ marginRight: '8px' }} />
-              Eigenaar? Neem Contact Op
+              {t.propertyOwnerHelp || 'Eigenaar? Neem Contact Op'}
             </button>
           </div>
         </div>
@@ -620,15 +621,16 @@ const ReportVacancyPage = () => {
                                   if (!formData.city && (addr.city || addr.town || addr.village)) {
                                     handleInputChange('city', addr.city || addr.town || addr.village)
                                   }
-                                  alert(`Locatie gevonden: ${addr.road || ''} ${addr.house_number || ''}, ${addr.postcode || ''} ${addr.city || addr.town || ''}`.trim())
+                                  const locationText = `${addr.road || ''} ${addr.house_number || ''}, ${addr.postcode || ''} ${addr.city || addr.town || ''}`.trim()
+                                  setToast({ message: `Locatie gevonden: ${locationText}`, type: 'success' })
                                 } else {
-                                  alert(`Locatie opgeslagen: ${lat.toFixed(4)}, ${lng.toFixed(4)}`)
+                                  setToast({ message: `Locatie opgeslagen: ${lat.toFixed(4)}, ${lng.toFixed(4)}`, type: 'info' })
                                 }
                               } catch (error) {
-                                alert(`Locatie opgeslagen: ${lat.toFixed(4)}, ${lng.toFixed(4)}`)
+                                setToast({ message: `Locatie opgeslagen: ${lat.toFixed(4)}, ${lng.toFixed(4)}`, type: 'info' })
                               }
                             },
-                            () => alert('Locatie niet beschikbaar. Controleer uw instellingen.')
+                            () => setToast({ message: 'Locatie niet beschikbaar. Controleer uw instellingen.', type: 'error' })
                           )
                         }
                       }}
@@ -1637,6 +1639,7 @@ function App() {
                   <Route path="/contact" element={<ContactPage />} />
                   <Route path="/profiel" element={<ProfilePage />} />
                   <Route path="/portaal" element={<PortaalPage />} />
+                  <Route path="/diensten" element={<ServicesPage />} />
                   <Route path="/privacy" element={<PrivacyPage />} />
                   <Route path="/algemene-voorwaarden" element={<TermsPage />} />
                 </Routes>

@@ -1,50 +1,19 @@
 import { Link } from 'react-router-dom'
-import { useState } from 'react'
-import { Home, Mail, Phone, MapPin, Shield, Users, FileText, BarChart3, Building } from 'lucide-react'
+import { Home, Mail, Phone, MapPin, Shield, Users, FileText, BarChart3, Building, Star } from 'lucide-react'
 import { useLanguage } from '../contexts/LanguageContext'
 
 const Footer = () => {
   const { t } = useLanguage()
-  const [expandedService, setExpandedService] = useState<string | null>(null)
-
-  const services = [
-    {
-      id: 'juridisch',
-      icon: Shield,
-      title: t.legalExpertise,
-      shortDesc: t.legalExpertiseShort,
-      fullDesc: t.legalExpertiseFull
-    },
-    {
-      id: 'fiscaal',
-      icon: FileText,
-      title: t.fiscalKnowledge,
-      shortDesc: t.fiscalKnowledgeShort,
-      fullDesc: t.fiscalKnowledgeFull
-    },
-    {
-      id: 'vastgoed',
-      icon: Building,
-      title: t.propertyManagement,
-      shortDesc: t.propertyManagementShort,
-      fullDesc: t.propertyManagementFull
-    },
-    {
-      id: 'leegstandsbeheer',
-      icon: Home,
-      title: t.vacancyManagement,
-      shortDesc: t.vacancyManagementShort,
-      fullDesc: t.vacancyManagementFull
-    }
-  ]
   return (
     <footer style={{ 
       background: 'var(--neutral-900)', 
       color: 'white',
-      borderTop: '4px solid var(--accent-primary)'
+      borderTop: '4px solid var(--accent-primary)',
+      position: 'relative',
+      zIndex: 100
     }}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12" style={{ pointerEvents: 'auto' }}>
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8" style={{ pointerEvents: 'auto' }}>
           {/* Government Info */}
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center space-x-3 mb-4">
@@ -108,6 +77,12 @@ const Footer = () => {
                 </Link>
               </li>
               <li style={{ marginBottom: '0.5rem' }}>
+                <Link to="/diensten" style={{ color: 'var(--neutral-300)', textDecoration: 'none', transition: 'color 0.2s' }}>
+                  <Star className="w-4 h-4 inline mr-2" />
+                  {t.services}
+                </Link>
+              </li>
+              <li style={{ marginBottom: '0.5rem' }}>
                 <Link to="/dashboard" style={{ color: 'var(--neutral-300)', textDecoration: 'none', transition: 'color 0.2s' }}>
                   <BarChart3 className="w-4 h-4 inline mr-2" />
                   {t.dashboard}
@@ -134,67 +109,26 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Diensten */}
+          {/* Contact Info */}
           <div>
-            <h3 style={{ fontSize: '1.125rem', fontWeight: '600', marginBottom: '1rem', color: 'white' }}>{t.services}</h3>
+            <h3 style={{ fontSize: '1.125rem', fontWeight: '600', marginBottom: '1rem', color: 'white' }}>{t.contactData}</h3>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-              {services.map((service) => {
-                const Icon = service.icon
-                const isExpanded = expandedService === service.id
-                return (
-                  <li key={service.id} style={{ marginBottom: '0.75rem' }}>
-                    <button
-                      type="button"
-                      onClick={() => {
-                        console.log('Clicked service:', service.id)
-                        setExpandedService(isExpanded ? null : service.id)
-                      }}
-                      style={{
-                        background: isExpanded ? 'var(--neutral-800)' : 'transparent',
-                        border: '1px solid var(--neutral-600)',
-                        borderRadius: '8px',
-                        padding: '0.75rem',
-                        width: '100%',
-                        textAlign: 'left',
-                        cursor: 'pointer',
-                        transition: 'all 0.2s'
-                      }}
-                      onMouseEnter={(e) => {
-                        if (!isExpanded) e.currentTarget.style.background = 'var(--neutral-800)'
-                      }}
-                      onMouseLeave={(e) => {
-                        if (!isExpanded) e.currentTarget.style.background = 'transparent'
-                      }}
-                    >
-                      <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem' }}>
-                        <Icon className="w-4 h-4 inline" style={{ color: 'var(--accent-primary)', marginTop: '2px', flexShrink: 0 }} />
-                        <div style={{ flex: 1, minWidth: 0 }}>
-                          <strong style={{ color: 'white', fontSize: '0.875rem' }}>{service.title}</strong>
-                          <p style={{ color: 'var(--neutral-300)', fontSize: '0.8rem', margin: '0.25rem 0 0', lineHeight: '1.4' }}>
-                            {service.shortDesc}
-                          </p>
-                          <span style={{ color: 'var(--accent-primary)', fontSize: '0.75rem', marginTop: '0.5rem', display: 'inline-block', fontWeight: 500 }}>
-                            {isExpanded ? (t.showLess || '▼ Minder info') : (t.showMore || '▶ Meer info')}
-                          </span>
-                          {isExpanded && (
-                            <div style={{ 
-                              marginTop: '0.75rem', 
-                              padding: '0.75rem', 
-                              background: 'var(--neutral-900)', 
-                              borderRadius: '6px',
-                              borderLeft: '3px solid var(--accent-primary)'
-                            }}>
-                              <p style={{ color: 'var(--neutral-300)', fontSize: '0.8rem', margin: 0, lineHeight: '1.6', whiteSpace: 'pre-line' }}>
-                                {service.fullDesc}
-                              </p>
-                            </div>
-                          )}
-                        </div>
-                      </div>
-                    </button>
-                  </li>
-                )
-              })}
+              <li style={{ marginBottom: '0.75rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <Phone className="w-4 h-4" style={{ color: 'var(--accent-primary)' }} />
+                <span style={{ color: 'var(--neutral-300)', fontSize: '0.875rem' }}>+31 (0) XX XXX XXXX</span>
+              </li>
+              <li style={{ marginBottom: '0.75rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <Mail className="w-4 h-4" style={{ color: 'var(--accent-primary)' }} />
+                <span style={{ color: 'var(--neutral-300)', fontSize: '0.875rem' }}>info@voorbeeld.nl</span>
+              </li>
+              <li style={{ marginBottom: '0.75rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <MapPin className="w-4 h-4" style={{ color: 'var(--accent-primary)' }} />
+                <span style={{ color: 'var(--neutral-300)', fontSize: '0.875rem' }}>Straatnaam 1, 1234 AB Plaats</span>
+              </li>
+              <li style={{ marginBottom: '0.5rem', paddingTop: '0.5rem', borderTop: '1px solid var(--neutral-700)' }}>
+                <div style={{ color: 'var(--neutral-400)', fontSize: '0.75rem', marginBottom: '0.25rem' }}>KVK: XXXXXXXX</div>
+                <div style={{ color: 'var(--neutral-400)', fontSize: '0.75rem' }}>BTW: NLXXXXXXXXXXB01</div>
+              </li>
             </ul>
           </div>
 

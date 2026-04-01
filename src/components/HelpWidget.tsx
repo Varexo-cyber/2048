@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { MessageCircle, X, Home, Building, Users, FileText, Phone, ChevronDown, ChevronUp, Mail } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { useLanguage } from '../contexts/LanguageContext'
 
 interface FAQItem {
   id: string
@@ -9,49 +10,52 @@ interface FAQItem {
   answer: string
 }
 
-const faqData: FAQItem[] = [
+const getFaqData = (t: any): FAQItem[] => [
   {
     id: '1',
     icon: <Home size={20} />,
-    question: 'Wat is Leegstandmeldpunt?',
-    answer: 'Leegstandmeldpunt is het officiële meldpunt voor leegstaand vastgoed in Nederland. Wij werken samen met gemeenten, vastgoedeigenaren en woningzoekers om het woningtekort te verminderen door leegstand te signaleren en te activeren voor bewoning.'
+    question: t.faq1Question || 'Wat is Leegstandmeldpunt?',
+    answer: t.faq1Answer || 'Leegstandmeldpunt is het officiële meldpunt voor leegstaand vastgoed in Nederland. Wij werken samen met gemeenten, vastgoedeigenaren en woningzoekers om het woningtekort te verminderen door leegstand te signaleren en te activeren voor bewoning.'
   },
   {
     id: '2',
     icon: <Building size={20} />,
-    question: 'Hoe meld ik een leegstaande woning of pand?',
-    answer: 'U kunt eenvoudig een melding doen via ons online formulier. Vul het adres in, geef aan hoe lang het pand leegstaat, en voeg eventueel foto\'s toe. Dit kan anoniem of met uw contactgegevens. Onze experts analyseren de melding en nemen zo nodig contact op met de eigenaar.'
+    question: t.faq2Question || 'Hoe meld ik een leegstaande woning of pand?',
+    answer: t.faq2Answer || 'U kunt eenvoudig een melding doen via ons online formulier. Vul het adres in, geef aan hoe lang het pand leegstaat, en voeg eventueel foto\'s toe. Dit kan anoniem of met uw contactgegevens. Onze experts analyseren de melding en nemen zo nodig contact op met de eigenaar.'
   },
   {
     id: '3',
     icon: <Users size={20} />,
-    question: 'Hoe helpt dit mijn buurt?',
-    answer: 'Door leegstand te melden en activeren, brengen we meer woningen terug op de markt. Dit betekent minder huisjagers, meer levendigheid in de straat, en minder kans op vandalisme of criminaliteit in leegstaande panden. U helpt mee aan leefbare buurten en oplossing van het woningtekort.'
+    question: t.faq3Question || 'Hoe helpt dit mijn buurt?',
+    answer: t.faq3Answer || 'Door leegstand te melden en activeren, brengen we meer woningen terug op de markt. Dit betekent minder huisjagers, meer levendigheid in de straat, en minder kans op vandalisme of criminaliteit in leegstaande panden. U helpt mee aan leefbare buurten en oplossing van het woningtekort.'
   },
   {
     id: '4',
     icon: <FileText size={20} />,
-    question: 'Wordt er een vergoeding gegeven voor meldingen?',
-    answer: 'Ja, als melder ontvangt u een vergoeding van €100 wanneer uw melding leidt tot een succesvolle activering van het pand. Deze vergoeding wordt uitgekeerd nadat het project daadwerkelijk is gestart en de bewoning is gerealiseerd.'
+    question: t.faq4Question || 'Wordt er een vergoeding gegeven voor meldingen?',
+    answer: t.faq4Answer || 'Ja, als melder ontvangt u een vergoeding van €100 wanneer uw melding leidt tot een succesvolle activering van het pand. Deze vergoeding wordt uitgekeerd nadat het project daadwerkelijk is gestart en de bewoning is gerealiseerd.'
   },
   {
     id: '5',
     icon: <Home size={20} />,
-    question: 'Wat gebeurt er na het melden van leegstand?',
-    answer: 'Na uw melding analyseren wij de situatie binnen 2-4 weken. We controleren de eigendomssituatie en beoordelen de mogelijkheden voor activering. Bij een geschikte melding nemen we contact op met de eigenaar om een plan te bespreken voor verhuur, renovatie of herbestemming.'
+    question: t.faq5Question || 'Wat gebeurt er na het melden van leegstand?',
+    answer: t.faq5Answer || 'Na uw melding analyseren wij de situatie binnen 2-4 weken. We controleren de eigendomssituatie en beoordelen de mogelijkheden voor activering. Bij een geschikte melding nemen we contact op met de eigenaar om een plan te bespreken voor verhuur, renovatie of herbestemming.'
   },
   {
     id: '6',
     icon: <Building size={20} />,
-    question: 'Welke type panden kunnen worden gemeld?',
-    answer: 'Alle soorten vastgoed kunnen worden gemeld: woningen, appartementen, winkelpanden, kantoren, bedrijfsruimtes, en zelfs grond. Zolang het pand leegstaat en potentieel heeft voor bewoning of herbestemming, nemen wij de melding in behandeling.'
+    question: t.faq6Question || 'Welke type panden kunnen worden gemeld?',
+    answer: t.faq6Answer || 'Alle soorten vastgoed kunnen worden gemeld: woningen, appartementen, winkelpanden, kantoren, bedrijfsruimtes, en zelfs grond. Zolang het pand leegstaat en potentieel heeft voor bewoning of herbestemming, nemen wij de melding in behandeling.'
   }
 ]
 
 const HelpWidget = () => {
+  const { t } = useLanguage()
   const [isOpen, setIsOpen] = useState(false)
   const [expandedId, setExpandedId] = useState<string | null>(null)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+
+  const faqData = getFaqData(t)
 
   useEffect(() => {
     // Check if mobile menu is open by looking for the mobile menu element
@@ -152,7 +156,7 @@ const HelpWidget = () => {
           }}
         >
           <MessageCircle size={20} />
-          Hulp nodig?
+          {t.helpNeeded || 'Hulp nodig?'}
         </button>
       )}
 
@@ -188,7 +192,7 @@ const HelpWidget = () => {
           >
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
               <MessageCircle size={22} />
-              <span style={{ fontSize: '18px', fontWeight: '600' }}>Hulp nodig?</span>
+              <span style={{ fontSize: '18px', fontWeight: '600' }}>{t.helpNeeded || 'Hulp nodig?'}</span>
             </div>
             <button
               onClick={() => setIsOpen(false)}
@@ -204,7 +208,7 @@ const HelpWidget = () => {
                 fontSize: '14px'
               }}
             >
-              Verkleinen
+              {t.minimize || 'Verkleinen'}
               <X size={18} />
             </button>
           </div>
@@ -218,7 +222,7 @@ const HelpWidget = () => {
               marginBottom: '16px',
               lineHeight: '1.4'
             }}>
-              Waarover wilt u meer informatie?
+              {t.helpQuestion || 'Waarover wilt u meer informatie?'}
             </h3>
 
             {/* FAQ List */}
@@ -284,11 +288,11 @@ const HelpWidget = () => {
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '12px' }}>
                 <Phone size={20} style={{ color: '#2563eb' }} />
                 <span style={{ fontWeight: '600', color: '#1e40af', fontSize: '15px' }}>
-                  Komt u er niet uit?
+                  {t.needHelp || 'Komt u er niet uit?'}
                 </span>
               </div>
               <p style={{ color: '#4b5563', fontSize: '14px', marginBottom: '16px', lineHeight: '1.5' }}>
-                Neem direct contact met ons op. We helpen u graag persoonlijk met uw vragen over leegstand of vastgoed.
+                {t.helpContact || 'Neem direct contact met ons op. We helpen u graag persoonlijk met uw vragen over leegstand of vastgoed.'}
               </p>
               <Link
                 to="/contact"
@@ -314,7 +318,7 @@ const HelpWidget = () => {
                 }}
               >
                 <Mail size={16} />
-                Neem contact op
+                {t.contactUs || 'Neem contact op'}
               </Link>
             </div>
           </div>

@@ -185,6 +185,55 @@ type Translations = {
     privacyAgree: string
     requiredFields: string
     submitSuccess: string
+    
+    // Help Widget
+    helpNeeded: string
+    minimize: string
+    helpQuestion: string
+    needHelp: string
+    helpContact: string
+    contactUs: string
+    faq1Question: string
+    faq1Answer: string
+    faq2Question: string
+    faq2Answer: string
+    faq3Question: string
+    faq3Answer: string
+    faq4Question: string
+    faq4Answer: string
+    faq5Question: string
+    faq5Answer: string
+    faq6Question: string
+    faq6Answer: string
+    
+    // Admin Portal
+    adminPortal: string
+    welcomeBack: string
+    totalReports: string
+    inProgress: string
+    completed: string
+    propertyCalculator: string
+    mailbox: string
+    messages: string
+    allReports: string
+    noReports: string
+    reportDetails: string
+    close: string
+    viewOnGoogleMaps: string
+    reporter: string
+    notProvided: string
+    noDescription: string
+    markUrgent: string
+    totalMessages: string
+    unread: string
+    reply: string
+    
+    // Navbar
+    login: string
+    closeMenu: string
+    openMenu: string
+    language: string
+    theme: string
   }
 }
 
@@ -364,6 +413,55 @@ const translations: Translations = {
     privacyAgree: 'Ik ga akkoord met de privacyverklaring en algemene voorwaarden. Ik begrijp dat mijn gegevens worden verwerkt in overeenstemming met de AVG.',
     requiredFields: '* Verplichte velden',
     submitSuccess: 'Melding succesvol ingediend! We nemen zo spoedig mogelijk contact met u op.',
+    
+    // Help Widget
+    helpNeeded: 'Hulp nodig?',
+    minimize: 'Verkleinen',
+    helpQuestion: 'Waarover wilt u meer informatie?',
+    needHelp: 'Komt u er niet uit?',
+    helpContact: 'Neem direct contact met ons op. We helpen u graag persoonlijk met uw vragen over leegstand of vastgoed.',
+    contactUs: 'Neem contact op',
+    faq1Question: 'Wat is Leegstandmeldpunt?',
+    faq1Answer: 'Leegstandmeldpunt is het officiële meldpunt voor leegstaand vastgoed in Nederland. Wij werken samen met gemeenten, vastgoedeigenaren en woningzoekers om het woningtekort te verminderen door leegstand te signaleren en te activeren voor bewoning.',
+    faq2Question: 'Hoe meld ik een leegstaande woning of pand?',
+    faq2Answer: 'U kunt eenvoudig een melding doen via ons online formulier. Vul het adres in, geef aan hoe lang het pand leegstaat, en voeg eventueel foto\'s toe. Dit kan anoniem of met uw contactgegevens. Onze experts analyseren de melding en nemen zo nodig contact op met de eigenaar.',
+    faq3Question: 'Hoe helpt dit mijn buurt?',
+    faq3Answer: 'Door leegstand te melden en activeren, brengen we meer woningen terug op de markt. Dit betekent minder huisjagers, meer levendigheid in de straat, en minder kans op vandalisme of criminaliteit in leegstaande panden. U helpt mee aan leefbare buurten en oplossing van het woningtekort.',
+    faq4Question: 'Wordt er een vergoeding gegeven voor meldingen?',
+    faq4Answer: 'Ja, als melder ontvangt u een vergoeding van €100 wanneer uw melding leidt tot een succesvolle activering van het pand. Deze vergoeding wordt uitgekeerd nadat het project daadwerkelijk is gestart en de bewoning is gerealiseerd.',
+    faq5Question: 'Wat gebeurt er na het melden van leegstand?',
+    faq5Answer: 'Na uw melding analyseren wij de situatie binnen 2-4 weken. We controleren de eigendomssituatie en beoordelen de mogelijkheden voor activering. Bij een geschikte melding nemen we contact op met de eigenaar om een plan te bespreken voor verhuur, renovatie of herbestemming.',
+    faq6Question: 'Welke type panden kunnen worden gemeld?',
+    faq6Answer: 'Alle soorten vastgoed kunnen worden gemeld: woningen, appartementen, winkelpanden, kantoren, bedrijfsruimtes, en zelfs grond. Zolang het pand leegstaat en potentieel heeft voor bewoning of herbestemming, nemen wij de melding in behandeling.',
+    
+    // Admin Portal
+    adminPortal: 'Admin Portaal',
+    welcomeBack: 'Welkom terug',
+    totalReports: 'Totaal Meldingen',
+    inProgress: 'In Behandeling',
+    completed: 'Afgehandeld',
+    propertyCalculator: 'Vastgoed Calculator',
+    mailbox: 'Mailbox',
+    messages: 'Berichten',
+    allReports: 'Alle Meldingen',
+    noReports: 'Geen Meldingen',
+    reportDetails: 'Melding Details',
+    close: 'Sluiten',
+    viewOnGoogleMaps: 'Bekijk op Google Maps',
+    reporter: 'Melder',
+    notProvided: 'Niet verstrekt',
+    noDescription: 'Geen beschrijving',
+    markUrgent: 'Markeer Urgent',
+    totalMessages: 'Totaal Berichten',
+    unread: 'Ongelezen',
+    reply: 'Beantwoorden',
+    
+    // Navbar
+    login: 'Inloggen',
+    closeMenu: 'Menu sluiten',
+    openMenu: 'Menu openen',
+    language: 'Taal',
+    theme: 'Thema',
   },
   
   en: {
@@ -543,6 +641,55 @@ const translations: Translations = {
     privacyAgree: 'I agree to the privacy statement and terms of service. I understand that my data will be processed in accordance with GDPR.',
     requiredFields: '* Required fields',
     submitSuccess: 'Report successfully submitted! We will contact you as soon as possible.',
+    
+    // Help Widget
+    helpNeeded: 'Need help?',
+    minimize: 'Minimize',
+    helpQuestion: 'What would you like more information about?',
+    needHelp: "Can't figure it out?",
+    helpContact: 'Contact us directly. We are happy to help you personally with your questions about vacancy or real estate.',
+    contactUs: 'Contact us',
+    faq1Question: 'What is Leegstandmeldpunt?',
+    faq1Answer: 'Leegstandmeldpunt is the official reporting point for vacant real estate in the Netherlands. We work together with municipalities, property owners and home seekers to reduce the housing shortage by signaling and activating vacancy for occupancy.',
+    faq2Question: 'How do I report a vacant home or property?',
+    faq2Answer: 'You can easily make a report via our online form. Enter the address, indicate how long the property has been vacant, and add photos if desired. This can be done anonymously or with your contact details. Our experts analyze the report and contact the owner if necessary.',
+    faq3Question: 'How does this help my neighborhood?',
+    faq3Answer: 'By reporting and activating vacancy, we bring more homes back to the market. This means fewer house hunters, more liveliness in the street, and less chance of vandalism or crime in vacant properties. You help create livable neighborhoods and solve the housing shortage.',
+    faq4Question: 'Is there a reward for reports?',
+    faq4Answer: 'Yes, as a reporter you receive a reward of €100 when your report leads to a successful activation of the property. This reward is paid out after the project has actually started and the occupancy has been realized.',
+    faq5Question: 'What happens after reporting vacancy?',
+    faq5Answer: 'After your report, we analyze the situation within 2-4 weeks. We check the ownership situation and assess the possibilities for activation. For a suitable report, we contact the owner to discuss a plan for rental, renovation or repurposing.',
+    faq6Question: 'What types of properties can be reported?',
+    faq6Answer: 'All types of real estate can be reported: homes, apartments, retail spaces, offices, business premises, and even land. As long as the property is vacant and has potential for occupancy or repurposing, we will handle the report.',
+    
+    // Admin Portal
+    adminPortal: 'Admin Portal',
+    welcomeBack: 'Welcome back',
+    totalReports: 'Total Reports',
+    inProgress: 'In Progress',
+    completed: 'Completed',
+    propertyCalculator: 'Property Calculator',
+    mailbox: 'Mailbox',
+    messages: 'Messages',
+    allReports: 'All Reports',
+    noReports: 'No Reports',
+    reportDetails: 'Report Details',
+    close: 'Close',
+    viewOnGoogleMaps: 'View on Google Maps',
+    reporter: 'Reporter',
+    notProvided: 'Not provided',
+    noDescription: 'No description',
+    markUrgent: 'Mark Urgent',
+    totalMessages: 'Total Messages',
+    unread: 'Unread',
+    reply: 'Reply',
+    
+    // Navbar
+    login: 'Login',
+    closeMenu: 'Close Menu',
+    openMenu: 'Open Menu',
+    language: 'Language',
+    theme: 'Theme',
   },
   
   de: {
@@ -722,6 +869,55 @@ const translations: Translations = {
     privacyAgree: 'Ich stimme der Datenschutzerklärung und den AGB zu. Ich verstehe, dass meine Daten in Übereinstimmung mit der DSGVO verarbeitet werden.',
     requiredFields: '* Pflichtfelder',
     submitSuccess: 'Meldung erfolgreich eingereicht! Wir werden Sie so schnell wie möglich kontaktieren.',
+    
+    // Help Widget
+    helpNeeded: 'Hilfe benötigt?',
+    minimize: 'Minimieren',
+    helpQuestion: 'Worum möchten Sie mehr erfahren?',
+    needHelp: 'Kommen Sie nicht weiter?',
+    helpContact: 'Nehmen Sie direkt Kontakt mit uns auf. Wir helfen Ihnen gerne persönlich bei Ihren Fragen zu Leerstand oder Immobilien.',
+    contactUs: 'Kontaktieren Sie uns',
+    faq1Question: 'Was ist Leegstandmeldpunt?',
+    faq1Answer: 'Leegstandmeldpunt ist die offizielle Meldestelle für leerstehendes Immobilien in den Niederlanden. Wir arbeiten zusammen mit Gemeinden, Immobilieneigentümern und Wohnungssuchenden, um den Wohnungsmangel zu verringern, indem wir Leerstand signalisieren und für Bewohnung aktivieren.',
+    faq2Question: 'Wie melde ich eine leerstehende Wohnung oder Immobilie?',
+    faq2Answer: 'Sie können einfach eine Meldung über unser Online-Formular machen. Geben Sie die Adresse ein, geben Sie an, wie lange die Immobilie leersteht, und fügen Sie bei Bedarf Fotos hinzu. Dies kann anonym oder mit Ihren Kontaktdaten erfolgen. Unsere Experten analysieren die Meldung und kontaktieren bei Bedarf den Eigentümer.',
+    faq3Question: 'Wie hilft das meinem Viertel?',
+    faq3Answer: 'Durch die Meldung und Aktivierung von Leerstand bringen wir mehr Wohnungen zurück auf den Markt. Dies bedeutet weniger Wohnungssuchende, mehr Lebendigkeit in der Straße und weniger Chance auf Vandalismus oder Kriminalität in leerstehenden Immobilien. Sie helfen mit, lebenswerte Viertel zu schaffen und den Wohnungsmangel zu lösen.',
+    faq4Question: 'Gibt es eine Belohnung für Meldungen?',
+    faq4Answer: 'Ja, als Melder erhalten Sie eine Belohnung von €100, wenn Ihre Meldung zu einer erfolgreichen Aktivierung der Immobilie führt. Diese Belohnung wird ausgezahlt, nachdem das Projekt tatsächlich gestartet und die Bewohnung realisiert wurde.',
+    faq5Question: 'Was passiert nach der Meldung von Leerstand?',
+    faq5Answer: 'Nach Ihrer Meldung analysieren wir die Situation innerhalb von 2-4 Wochen. Wir überprüfen die Eigentumssituation und bewerten die Möglichkeiten für Aktivierung. Bei einer geeigneten Meldung kontaktieren wir den Eigentümer, um einen Plan für Vermietung, Renovierung oder Zweckänderung zu besprechen.',
+    faq6Question: 'Welche Arten von Immobilien können gemeldet werden?',
+    faq6Answer: 'Alle Arten von Immobilien können gemeldet werden: Wohnungen, Wohnhäuser, Einzelhandelsräume, Büros, Gewerberäume und sogar Grundstücke. Solange die Immobilie leersteht und Potenzial für Bewohnung oder Zweckänderung hat, werden wir die Meldung bearbeiten.',
+    
+    // Admin Portal
+    adminPortal: 'Admin Portal',
+    welcomeBack: 'Willkommen zurück',
+    totalReports: 'Gesamt Meldungen',
+    inProgress: 'In Bearbeitung',
+    completed: 'Abgeschlossen',
+    propertyCalculator: 'Immobilien Rechner',
+    mailbox: 'Posteingang',
+    messages: 'Nachrichten',
+    allReports: 'Alle Meldungen',
+    noReports: 'Keine Meldungen',
+    reportDetails: 'Meldungsdetails',
+    close: 'Schließen',
+    viewOnGoogleMaps: 'Auf Google Maps ansehen',
+    reporter: 'Melder',
+    notProvided: 'Nicht angegeben',
+    noDescription: 'Keine Beschreibung',
+    markUrgent: 'Als Dringend markieren',
+    totalMessages: 'Gesamtnachrichten',
+    unread: 'Ungelesen',
+    reply: 'Antworten',
+    
+    // Navbar
+    login: 'Anmelden',
+    closeMenu: 'Menü schließen',
+    openMenu: 'Menü öffnen',
+    language: 'Sprache',
+    theme: 'Thema',
   }
 }
 

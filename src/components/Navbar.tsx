@@ -1,7 +1,8 @@
 import { Link, useLocation } from 'react-router-dom'
 import { useState, useEffect } from 'react'
-import { Menu, X, Home, FileText, Users, Phone, LogIn } from 'lucide-react'
+import { Menu, X, Home, FileText, Users, Phone, LogIn, Star } from 'lucide-react'
 import { useAuth } from '../contexts/AuthContext'
+import { useLanguage } from '../contexts/LanguageContext'
 import UserDropdown from './UserDropdown'
 import LanguageSwitcher from './LanguageSwitcher'
 import ThemeToggle from './ThemeToggle'
@@ -13,6 +14,7 @@ const Navbar = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 1024)
   const location = useLocation()
   const { isAuthenticated } = useAuth()
+  const { t } = useLanguage()
 
   useEffect(() => {
     const handleResize = () => {
@@ -39,10 +41,11 @@ const Navbar = () => {
   }, [isMenuOpen])
 
   const navigation = [
-    { name: 'Home', href: '/', icon: Home },
-    { name: 'Leegstand Melden', href: '/melden', icon: FileText },
-    { name: 'Over Ons', href: '/over-ons', icon: Users },
-    { name: 'Contact', href: '/contact', icon: Phone },
+    { name: t.home, href: '/', icon: Home },
+    { name: t.reportVacancy, href: '/melden', icon: FileText },
+    { name: t.services, href: '/diensten', icon: Star },
+    { name: t.about, href: '/over-ons', icon: Users },
+    { name: t.contact, href: '/contact', icon: Phone },
   ]
 
   return (
@@ -59,24 +62,24 @@ const Navbar = () => {
         <div style={{ 
           maxWidth: '1280px', 
           margin: '0 auto', 
-          padding: isMobile ? '0 1rem' : '0 2rem',
+          padding: isMobile ? '0 1rem' : '0 1.5rem',
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
           height: isMobile ? '64px' : '80px',
-          gap: isMobile ? '1rem' : '3rem'
+          gap: isMobile ? '1rem' : '1.5rem'
         }}>
           {/* Logo */}
           <Link to="/" style={{ 
             display: 'flex', 
             alignItems: 'center', 
-            gap: isMobile ? '0.5rem' : '1rem', 
+            gap: isMobile ? '0.5rem' : '0.75rem', 
             textDecoration: 'none', 
             flexShrink: 0 
           }}>
             <div style={{ 
-              width: isMobile ? '40px' : '48px', 
-              height: isMobile ? '40px' : '48px', 
+              width: isMobile ? '40px' : '44px', 
+              height: isMobile ? '40px' : '44px', 
               background: 'var(--accent-primary)', 
               borderRadius: '10px', 
               display: 'flex', 
@@ -85,10 +88,10 @@ const Navbar = () => {
               boxShadow: 'var(--shadow-sm)',
               flexShrink: 0
             }}>
-              <Home size={isMobile ? 24 : 28} style={{ color: 'white' }} />
+              <Home size={isMobile ? 24 : 26} style={{ color: 'white' }} />
             </div>
             <span style={{ 
-              fontSize: isMobile ? '1.1rem' : '1.5rem', 
+              fontSize: isMobile ? '1.1rem' : '1.3rem', 
               fontWeight: '700', 
               color: 'var(--text-primary)',
               whiteSpace: 'nowrap'
@@ -102,7 +105,7 @@ const Navbar = () => {
             <div style={{ 
               display: 'flex', 
               alignItems: 'center', 
-              gap: '1.5rem', 
+              gap: '0.75rem', 
               flex: 1, 
               justifyContent: 'center' 
             }}>
@@ -116,10 +119,10 @@ const Navbar = () => {
                     style={{
                       display: 'flex',
                       alignItems: 'center',
-                      gap: '0.5rem',
-                      padding: '0.75rem 1.25rem',
+                      gap: '0.4rem',
+                      padding: '0.5rem 0.75rem',
                       borderRadius: '8px',
-                      fontSize: '1rem',
+                      fontSize: '0.9rem',
                       fontWeight: '500',
                       color: isActive ? 'var(--accent-primary)' : 'var(--text-secondary)',
                       background: isActive ? 'var(--accent-primary-light)' : 'transparent',
@@ -129,7 +132,7 @@ const Navbar = () => {
                       whiteSpace: 'nowrap'
                     }}
                   >
-                    <Icon size={18} />
+                    <Icon size={16} />
                     {item.name}
                   </Link>
                 )
@@ -141,7 +144,7 @@ const Navbar = () => {
           <div style={{ 
             display: 'flex', 
             alignItems: 'center', 
-            gap: isMobile ? '0.5rem' : '1rem', 
+            gap: isMobile ? '0.5rem' : '0.75rem', 
             flexShrink: 0 
           }}>
             {!isMobile && <LanguageSwitcher />}
@@ -154,21 +157,21 @@ const Navbar = () => {
                 style={{
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '0.5rem',
-                  padding: '0.75rem 1.5rem',
+                  gap: '0.4rem',
+                  padding: '0.5rem 1rem',
                   background: 'var(--accent-primary)',
                   border: 'none',
                   borderRadius: '8px',
                   color: 'white',
                   fontWeight: '600',
                   cursor: 'pointer',
-                  fontSize: '1rem',
+                  fontSize: '0.9rem',
                   transition: 'all 0.2s',
                   whiteSpace: 'nowrap'
                 }}
               >
-                <LogIn size={20} />
-                Inloggen
+                <LogIn size={18} />
+                {t.login}
               </button>
             ))}
 
@@ -188,7 +191,7 @@ const Navbar = () => {
                   color: 'var(--text-primary)',
                   transition: 'all 0.2s ease'
                 }}
-                aria-label={isMenuOpen ? 'Menu sluiten' : 'Menu openen'}
+                aria-label={isMenuOpen ? t.closeMenu : t.openMenu}
               >
                 {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
               </button>
@@ -257,11 +260,11 @@ const Navbar = () => {
             marginBottom: '2rem'
           }}>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-              <span style={{ color: 'var(--text-secondary)', fontSize: '1rem' }}>Taal</span>
+              <span style={{ color: 'var(--text-secondary)', fontSize: '1rem' }}>{t.language}</span>
               <LanguageSwitcher />
             </div>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-              <span style={{ color: 'var(--text-secondary)', fontSize: '1rem' }}>Thema</span>
+              <span style={{ color: 'var(--text-secondary)', fontSize: '1rem' }}>{t.theme}</span>
               <ThemeToggle />
             </div>
           </div>
@@ -290,7 +293,7 @@ const Navbar = () => {
               }}
             >
               <LogIn size={24} />
-              Inloggen
+              {t.login}
             </button>
           )}
 

@@ -2,6 +2,7 @@ import { useAuth } from '../contexts/AuthContext'
 import { Shield, AlertTriangle, CheckCircle, Clock, MapPin, Building, Calculator, BarChart3, Mail, MessageSquare, Trash2, Reply } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 import { useEffect, useState } from 'react'
+import { useLanguage } from '../contexts/LanguageContext'
 import VastgoedCalculatorPage from './VastgoedCalculatorPage'
 import MailboxPage from './MailboxPage'
 
@@ -34,6 +35,7 @@ interface Melding {
 const PortaalPage = () => {
   const { isAdmin, user } = useAuth()
   const navigate = useNavigate()
+  const { t } = useLanguage()
   const [activeTab, setActiveTab] = useState<'dashboard' | 'calculator' | 'mailbox' | 'berichten'>('dashboard')
   const [meldingen, setMeldingen] = useState<Melding[]>([])
   const [selectedMelding, setSelectedMelding] = useState<Melding | null>(null)
@@ -118,15 +120,15 @@ const PortaalPage = () => {
   }
 
   const totalMeldingen = meldingen.length
-  const inBehandeling = meldingen.filter(m => m.status === 'In Behandeling').length
-  const afgehandeld = meldingen.filter(m => m.status === 'Afgehandeld').length
+  const inBehandeling = meldingen.filter(m => m.status === t.inProgress || m.status === 'In Behandeling').length
+  const afgehandeld = meldingen.filter(m => m.status === t.completed || m.status === 'Afgehandeld').length
   const urgent = meldingen.filter(m => m.urgent).length
 
   const stats = [
-    { label: 'Totaal Meldingen', value: String(totalMeldingen), icon: Building, color: 'var(--accent-primary)' },
-    { label: 'In Behandeling', value: String(inBehandeling), icon: Clock, color: 'var(--accent-secondary)' },
-    { label: 'Afgehandeld', value: String(afgehandeld), icon: CheckCircle, color: 'var(--accent-secondary)' },
-    { label: 'Urgent', value: String(urgent), icon: AlertTriangle, color: 'var(--accent-danger)' },
+    { label: t.totalReports || 'Totaal Meldingen', value: String(totalMeldingen), icon: Building, color: 'var(--accent-primary)' },
+    { label: t.inProgress || 'In Behandeling', value: String(inBehandeling), icon: Clock, color: 'var(--accent-secondary)' },
+    { label: t.completed || 'Afgehandeld', value: String(afgehandeld), icon: CheckCircle, color: 'var(--accent-secondary)' },
+    { label: t.urgent || 'Urgent', value: String(urgent), icon: AlertTriangle, color: 'var(--accent-danger)' },
   ]
 
   const getStatusColor = (status: string) => {
@@ -161,10 +163,10 @@ const PortaalPage = () => {
             </div>
             <div>
               <h1 style={{ fontSize: '2.5rem', fontWeight: '700', color: 'var(--text-primary)', marginBottom: '0.25rem' }}>
-                Admin Portaal
+                {t.adminPortal || 'Admin Portaal'}
               </h1>
               <p style={{ fontSize: '1rem', color: 'var(--text-secondary)' }}>
-                Welkom terug, {user.username}
+                {t.welcomeBack || 'Welkom terug'}, {user.username}
               </p>
             </div>
           </div>
@@ -216,7 +218,7 @@ const PortaalPage = () => {
               }}
             >
               <BarChart3 size={20} />
-              Dashboard
+              {t.dashboard}
             </button>
             <button
               onClick={() => setActiveTab('calculator')}
@@ -253,7 +255,7 @@ const PortaalPage = () => {
               }}
             >
               <Calculator size={20} />
-              Vastgoed Calculator
+              {t.propertyCalculator || 'Vastgoed Calculator'}
             </button>
             <button
               onClick={() => setActiveTab('mailbox')}
@@ -290,7 +292,7 @@ const PortaalPage = () => {
               }}
             >
               <Mail size={20} />
-              Mailbox
+              {t.mailbox || 'Mailbox'}
             </button>
             <button
               onClick={() => setActiveTab('berichten')}
@@ -327,7 +329,7 @@ const PortaalPage = () => {
               }}
             >
               <MessageSquare size={20} />
-              Berichten
+              {t.messages || 'Berichten'}
               {berichten.filter(b => !b.read).length > 0 && (
                 <span style={{ background: '#ef4444', color: 'white', fontSize: '0.7rem', fontWeight: '700', padding: '0.1rem 0.4rem', borderRadius: '10px', minWidth: '18px', textAlign: 'center' }}>
                   {berichten.filter(b => !b.read).length}
