@@ -23,10 +23,10 @@ const ServicesPage = () => {
     {
       id: 'juridisch',
       icon: Shield,
-      title: 'Juridische Expertise',
-      subtitle: 'Wij regelen alles juridisch, van A tot Z',
-      description: 'Onze juridische experts begeleiden u bij alle aspecten van leegstandswetgeving. Wij zorgen ervoor dat u geen zorgen heeft over juridische zaken.',
-      features: [
+      title: t.legalExpertise,
+      subtitle: t.legalExpertiseSubtitle,
+      description: t.legalExpertiseDesc,
+      features: t.legalExpertiseFull?.split('\n\n• ')?.slice(1) || [
         'Advies over de Leegstandswet en bestemmingsplannen',
         'Begeleiding bij het opstellen van huurovereenkomsten',
         'Ondersteuning bij geschillen met huurders of eigenaren',
@@ -42,10 +42,10 @@ const ServicesPage = () => {
     {
       id: 'fiscaal',
       icon: FileText,
-      title: 'Fiscale Kennis',
-      subtitle: 'Optimale fiscale voordelen voor uw situatie',
-      description: 'Onze fiscale specialisten adviseren over alle fiscale aspecten van leegstand. Wij zorgen dat u maximaal profiteert van beschikbare voordelen.',
-      features: [
+      title: t.fiscalKnowledge,
+      subtitle: t.fiscalKnowledgeSubtitle,
+      description: t.fiscalKnowledgeDesc,
+      features: t.fiscalKnowledgeFull?.split('\n\n• ')?.slice(1) || [
         'BTW-vrijstellingen bij herbestemming',
         'Fiscale voordelen van anti-kraak bewoning',
         'Belastingaftrek voor onderhoudskosten',
@@ -61,10 +61,10 @@ const ServicesPage = () => {
     {
       id: 'vastgoed',
       icon: Building,
-      title: 'Vastgoedbeheer',
-      subtitle: 'Professioneel beheer van uw pand',
-      description: 'Professioneel vastgoedbeheer voor leegstaande panden. Wij zorgen dat uw pand in topconditie blijft tot het weer bewoond wordt.',
-      features: [
+      title: t.propertyManagement,
+      subtitle: t.propertyManagementSubtitle,
+      description: t.propertyManagementDesc,
+      features: t.propertyManagementFull?.split('\n\n• ')?.slice(1) || [
         'Periodieke inspecties en onderhoud',
         'Coördinatie van reparaties en renovaties',
         'Verzekeringsbeheer en schadeafhandeling',
@@ -80,10 +80,10 @@ const ServicesPage = () => {
     {
       id: 'leegstandsbeheer',
       icon: Home,
-      title: 'Leegstandsbeheer',
-      subtitle: 'Veiligheid en bewaking van uw pand',
-      description: 'Compleet leegstandsbeheer om uw pand veilig te houden. Geen zorgen over kraken, vandalisme of verval.',
-      features: [
+      title: t.vacancyManagement,
+      subtitle: t.vacancyManagementSubtitle,
+      description: t.vacancyManagementDesc,
+      features: t.vacancyManagementFull?.split('\n\n• ')?.slice(1) || [
         '24/7 bewaking en alarmmonitoring',
         'Anti-kraak bewoning regeling',
         'Wekelijkse rondes en inspecties',
@@ -109,11 +109,10 @@ const ServicesPage = () => {
       }}>
         <div className="container">
           <h1 style={{ fontSize: '3rem', fontWeight: '800', marginBottom: '1rem' }}>
-            Onze Diensten
+            {t.ourServices}
           </h1>
           <p style={{ fontSize: '1.25rem', maxWidth: '600px', margin: '0 auto', opacity: 0.95 }}>
-            Van juridische ondersteuning tot volledig vastgoedbeheer. 
-            Wij regelen alles, zodat u zich geen zorgen hoeft te maken.
+            {t.servicesSubtitle}
           </p>
         </div>
       </section>
@@ -253,7 +252,7 @@ const ServicesPage = () => {
                         e.currentTarget.style.boxShadow = `0 4px 15px ${service.color}40`
                       }}
                     >
-                      Neem contact op voor {service.title.toLowerCase()}
+                      {t.contactFor} {service.title.toLowerCase()}
                       <ArrowRight size={20} />
                     </a>
                   </div>
@@ -283,7 +282,7 @@ const ServicesPage = () => {
                           animation: 'bounce 2s infinite',
                           boxShadow: '0 4px 15px rgba(59, 130, 246, 0.3)'
                         }}
-                        aria-label="Scroll naar volgende sectie"
+                        aria-label={t.scrollNext}
                       >
                         <ArrowRight size={24} style={{ color: '#3b82f6', transform: 'rotate(90deg)' }} />
                       </button>
@@ -305,11 +304,10 @@ const ServicesPage = () => {
       }}>
         <div className="container">
           <h2 style={{ fontSize: '2.5rem', fontWeight: '700', marginBottom: '1rem' }}>
-            Klaar om samen te werken?
+            {t.readyToWork}
           </h2>
           <p style={{ fontSize: '1.25rem', maxWidth: '600px', margin: '0 auto 2rem', opacity: 0.95 }}>
-            Wij regelen alles voor u. Van juridische zaken tot het beheer van uw pand.
-            Neem vandaag nog contact met ons op.
+            {t.servicesCTADesc}
           </p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
             <a
@@ -333,7 +331,7 @@ const ServicesPage = () => {
                 e.currentTarget.style.boxShadow = 'none'
               }}
             >
-              Neem Contact Op
+              {t.contactCTABtn}
             </a>
             <a
               href="/melden"
@@ -355,7 +353,7 @@ const ServicesPage = () => {
                 e.currentTarget.style.backgroundColor = 'transparent'
               }}
             >
-              Meld Leegstand
+              {t.reportVacancyCTABtn}
             </a>
           </div>
         </div>

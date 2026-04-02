@@ -1,7 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import { useState } from 'react'
 import { 
-  Home, 
   FileText, 
   Users, 
   Phone, 
@@ -18,6 +17,7 @@ import { LanguageProvider, useLanguage } from './contexts/LanguageContext'
 import { ThemeProvider } from './contexts/ThemeContext'
 import { AuthProvider } from './contexts/AuthContext'
 import Navbar from './components/Navbar'
+import Footer from './components/Footer'
 import ScrollReveal from './components/ScrollReveal'
 import ProfilePage from './pages/ProfilePage'
 import PortaalPage from './pages/PortaalPage'
@@ -1487,54 +1487,6 @@ const ContactPage = () => {
   )
 }
 
-const Footer = () => {
-  return (
-    <footer className="footer">
-      <div className="container">
-        <div className="footer-content">
-          <div>
-            <div className="footer-brand">
-              <div className="logo">
-                <Home size={16} />
-              </div>
-              Leegstandmeldpunt
-            </div>
-            <p className="footer-description">
-              Meld leegstand en verdien tot €100! Wij maken leegstaand vastgoed zichtbaar 
-              en activeren het voor bewoning. Samen lossen we het woningtekort op.
-            </p>
-          </div>
-          
-          <div className="footer-links">
-            <h3>Snelle Links</h3>
-            <ul>
-              <li>                  <Link to="/melden" style={{ color: 'var(--accent-primary)', textDecoration: 'underline' }}>Leegstand Melden</Link></li>
-              <li><Link to="/over-ons">Over Ons</Link></li>
-              <li><Link to="/contact">Contact</Link></li>
-            </ul>
-          </div>
-          
-          <div className="footer-links">
-            <h3>Diensten</h3>
-            <ul>
-              <li><span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><Shield size={16} /> Juridische Expertise</span></li>
-              <li><span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><FileText size={16} /> Fiscale Kennis</span></li>
-              <li><span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><Users size={16} /> Vastgoedbeheer</span></li>
-            </ul>
-          </div>
-        </div>
-        
-        <div className="footer-bottom">
-          <p>&copy; 2026 Leegstandmeldpunt. Alle rechten voorbehouden.</p>
-          <p style={{ fontSize: '0.75rem', opacity: 0.6, marginTop: '0.5rem' }}>
-            Medemogelijk gemaakt door <a href="https://www.varexo.nl" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'underline' }}>Varexo</a>
-          </p>
-        </div>
-      </div>
-    </footer>
-  )
-}
-
 const PrivacyPage = () => (
   <div style={{ minHeight: '100vh', backgroundColor: 'var(--bg-secondary)', padding: '4rem 0' }}>
     <div className="container" style={{ maxWidth: '800px' }}>
@@ -1620,6 +1572,79 @@ const TermsPage = () => (
   </div>
 )
 
+const AVGCompliancePage = () => (
+  <div style={{ minHeight: '100vh', backgroundColor: 'var(--bg-secondary)', padding: '4rem 0' }}>
+    <div className="container" style={{ maxWidth: '800px' }}>
+      <h1 style={{ fontSize: '2.5rem', fontWeight: '700', marginBottom: '2rem', color: 'var(--text-primary)' }}>
+        AVG Compliance
+      </h1>
+      <div style={{ background: 'var(--bg-primary)', padding: '3rem', borderRadius: '16px', boxShadow: 'var(--shadow-md)' }}>
+        <h2 style={{ fontSize: '1.5rem', fontWeight: '600', marginBottom: '1rem', color: 'var(--text-primary)' }}>
+          1. Algemene Verordening Gegevensbescherming (AVG)
+        </h2>
+        <p style={{ color: 'var(--text-secondary)', lineHeight: '1.6', marginBottom: '1.5rem' }}>
+          Leegstandmeldpunt voldoet aan de Algemene Verordening Gegevensbescherming (AVG/GDPR). 
+          Wij nemen de bescherming van uw persoonsgegevens zeer serieus en verwerken deze uitsluitend 
+          in overeenstemming met de geldende wet- en regelgeving.
+        </p>
+        
+        <h2 style={{ fontSize: '1.5rem', fontWeight: '600', marginBottom: '1rem', color: 'var(--text-primary)' }}>
+          2. Verwerkingsgrondslag
+        </h2>
+        <p style={{ color: 'var(--text-secondary)', lineHeight: '1.6', marginBottom: '1.5rem' }}>
+          Wij verwerken persoonsgegevens op basis van de volgende grondslagen:
+        </p>
+        <ul style={{ color: 'var(--text-secondary)', lineHeight: '1.8', marginBottom: '1.5rem', paddingLeft: '1.5rem' }}>
+          <li>Toestemming van de betrokkene</li>
+          <li>Uitvoering van een overeenkomst</li>
+          <li>Wettelijke verplichting</li>
+          <li>Gerechtvaardigd belang</li>
+        </ul>
+
+        <h2 style={{ fontSize: '1.5rem', fontWeight: '600', marginBottom: '1rem', color: 'var(--text-primary)' }}>
+          3. Rechten van Betrokkenen
+        </h2>
+        <p style={{ color: 'var(--text-secondary)', lineHeight: '1.6', marginBottom: '0.75rem' }}>
+          Op grond van de AVG heeft u de volgende rechten:
+        </p>
+        <ul style={{ color: 'var(--text-secondary)', lineHeight: '1.8', marginBottom: '1.5rem', paddingLeft: '1.5rem' }}>
+          <li><strong>Recht op inzage</strong> - U kunt opvragen welke gegevens wij van u verwerken</li>
+          <li><strong>Recht op rectificatie</strong> - U kunt onjuiste gegevens laten corrigeren</li>
+          <li><strong>Recht op vergetelheid</strong> - U kunt verzoeken uw gegevens te verwijderen</li>
+          <li><strong>Recht op beperking</strong> - U kunt de verwerking van uw gegevens laten beperken</li>
+          <li><strong>Recht op dataportabiliteit</strong> - U kunt uw gegevens in een gangbaar formaat ontvangen</li>
+          <li><strong>Recht van bezwaar</strong> - U kunt bezwaar maken tegen de verwerking van uw gegevens</li>
+        </ul>
+
+        <h2 style={{ fontSize: '1.5rem', fontWeight: '600', marginBottom: '1rem', color: 'var(--text-primary)' }}>
+          4. Beveiligingsmaatregelen
+        </h2>
+        <p style={{ color: 'var(--text-secondary)', lineHeight: '1.6', marginBottom: '1.5rem' }}>
+          Wij nemen passende technische en organisatorische maatregelen om uw persoonsgegevens te beschermen 
+          tegen verlies, misbruik en ongeautoriseerde toegang. Dit omvat onder andere SSL-encryptie, 
+          toegangscontrole, regelmatige beveiligingsaudits en training van medewerkers.
+        </p>
+
+        <h2 style={{ fontSize: '1.5rem', fontWeight: '600', marginBottom: '1rem', color: 'var(--text-primary)' }}>
+          5. Functionaris Gegevensbescherming
+        </h2>
+        <p style={{ color: 'var(--text-secondary)', lineHeight: '1.6', marginBottom: '1.5rem' }}>
+          Voor vragen over de verwerking van uw persoonsgegevens of het uitoefenen van uw rechten kunt u 
+          contact opnemen met onze Functionaris Gegevensbescherming via avg@leegstandmeldpunt.nl.
+        </p>
+
+        <h2 style={{ fontSize: '1.5rem', fontWeight: '600', marginBottom: '1rem', color: 'var(--text-primary)' }}>
+          6. Klachten
+        </h2>
+        <p style={{ color: 'var(--text-secondary)', lineHeight: '1.6' }}>
+          Indien u een klacht heeft over de verwerking van uw persoonsgegevens, kunt u deze indienen bij de 
+          Autoriteit Persoonsgegevens (AP). U kunt hiervoor terecht op <a href="https://autoriteitpersoonsgegevens.nl" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent-primary)' }}>autoriteitpersoonsgegevens.nl</a>.
+        </p>
+      </div>
+    </div>
+  </div>
+)
+
 function App() {
   const [showIncentivePopup, setShowIncentivePopup] = useState(true)
   
@@ -1642,6 +1667,7 @@ function App() {
                   <Route path="/diensten" element={<ServicesPage />} />
                   <Route path="/privacy" element={<PrivacyPage />} />
                   <Route path="/algemene-voorwaarden" element={<TermsPage />} />
+                  <Route path="/avg-compliance" element={<AVGCompliancePage />} />
                 </Routes>
               </main>
               <Footer />

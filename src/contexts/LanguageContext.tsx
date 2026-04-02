@@ -71,30 +71,25 @@ type Translations = {
     legalExpertise: string
     fiscalKnowledge: string
     propertyManagement: string
+    vacancyManagement: string
+    rights: string
     privacy: string
     cookies: string
-    rights: string
-    // Footer Services
     legalExpertiseShort: string
     legalExpertiseFull: string
     fiscalKnowledgeShort: string
     fiscalKnowledgeFull: string
     propertyManagementShort: string
     propertyManagementFull: string
-    vacancyManagement: string
     vacancyManagementShort: string
     vacancyManagementFull: string
     showMore: string
     showLess: string
-    
-    // Footer Links
     governmentLogin: string
     legalPolicy: string
     terms: string
     gdprCompliance: string
     policyDocs: string
-    
-    // Disclaimer
     disclaimerTitle: string
     disclaimerText: string
     
@@ -227,6 +222,7 @@ type Translations = {
     totalMessages: string
     unread: string
     reply: string
+    urgent: string
     
     // Navbar
     login: string
@@ -234,6 +230,24 @@ type Translations = {
     openMenu: string
     language: string
     theme: string
+    
+    // Services Page
+    ourServices: string
+    servicesSubtitle: string
+    legalExpertiseSubtitle: string
+    legalExpertiseDesc: string
+    fiscalKnowledgeSubtitle: string
+    fiscalKnowledgeDesc: string
+    propertyManagementSubtitle: string
+    propertyManagementDesc: string
+    vacancyManagementSubtitle: string
+    vacancyManagementDesc: string
+    contactFor: string
+    readyToWork: string
+    servicesCTADesc: string
+    contactCTABtn: string
+    reportVacancyCTABtn: string
+    scrollNext: string
   }
 }
 
@@ -455,6 +469,7 @@ const translations: Translations = {
     totalMessages: 'Totaal Berichten',
     unread: 'Ongelezen',
     reply: 'Beantwoorden',
+    urgent: 'Urgent',
     
     // Navbar
     login: 'Inloggen',
@@ -462,6 +477,24 @@ const translations: Translations = {
     openMenu: 'Menu openen',
     language: 'Taal',
     theme: 'Thema',
+    
+    // Services Page
+    ourServices: 'Onze Diensten',
+    servicesSubtitle: 'Van juridische ondersteuning tot volledig vastgoedbeheer. Wij regelen alles, zodat u zich geen zorgen hoeft te maken.',
+    legalExpertiseSubtitle: 'Wij regelen alles juridisch, van A tot Z',
+    legalExpertiseDesc: 'Onze juridische experts begeleiden u bij alle aspecten van leegstandswetgeving. Wij zorgen ervoor dat u geen zorgen heeft over juridische zaken.',
+    fiscalKnowledgeSubtitle: 'Optimale fiscale voordelen voor uw situatie',
+    fiscalKnowledgeDesc: 'Onze fiscale specialisten adviseren over alle fiscale aspecten van leegstand. Wij zorgen dat u maximaal profiteert van beschikbare voordelen.',
+    propertyManagementSubtitle: 'Professioneel beheer van uw pand',
+    propertyManagementDesc: 'Professioneel vastgoedbeheer voor leegstaande panden. Wij zorgen dat uw pand in topconditie blijft tot het weer bewoond wordt.',
+    vacancyManagementSubtitle: 'Veiligheid en bewaking van uw pand',
+    vacancyManagementDesc: 'Compleet leegstandsbeheer om uw pand veilig te houden. Geen zorgen over kraken, vandalisme of verval.',
+    contactFor: 'Neem contact op voor',
+    readyToWork: 'Klaar om samen te werken?',
+    servicesCTADesc: 'Wij regelen alles voor u. Van juridische zaken tot het beheer van uw pand. Neem vandaag nog contact met ons op.',
+    contactCTABtn: 'Neem Contact Op',
+    reportVacancyCTABtn: 'Meld Leegstand',
+    scrollNext: 'Scroll naar volgende sectie',
   },
   
   en: {
@@ -683,6 +716,7 @@ const translations: Translations = {
     totalMessages: 'Total Messages',
     unread: 'Unread',
     reply: 'Reply',
+    urgent: 'Urgent',
     
     // Navbar
     login: 'Login',
@@ -690,6 +724,24 @@ const translations: Translations = {
     openMenu: 'Open Menu',
     language: 'Language',
     theme: 'Theme',
+    
+    // Services Page
+    ourServices: 'Our Services',
+    servicesSubtitle: 'From legal support to full property management. We arrange everything, so you don\'t have to worry.',
+    legalExpertiseSubtitle: 'We arrange everything legally, from A to Z',
+    legalExpertiseDesc: 'Our legal experts guide you through all aspects of vacancy legislation. We ensure you have no worries about legal matters.',
+    fiscalKnowledgeSubtitle: 'Optimal tax benefits for your situation',
+    fiscalKnowledgeDesc: 'Our tax specialists advise on all fiscal aspects of vacancy. We ensure you maximize available benefits.',
+    propertyManagementSubtitle: 'Professional management of your property',
+    propertyManagementDesc: 'Professional property management for vacant buildings. We ensure your property stays in top condition until it is inhabited again.',
+    vacancyManagementSubtitle: 'Security and monitoring of your property',
+    vacancyManagementDesc: 'Complete vacancy management to keep your property safe. No worries about squatting, vandalism or decay.',
+    contactFor: 'Contact us for',
+    readyToWork: 'Ready to work together?',
+    servicesCTADesc: 'We arrange everything for you. From legal matters to the management of your property. Contact us today.',
+    contactCTABtn: 'Contact Us',
+    reportVacancyCTABtn: 'Report Vacancy',
+    scrollNext: 'Scroll to next section',
   },
   
   de: {
@@ -911,6 +963,7 @@ const translations: Translations = {
     totalMessages: 'Gesamtnachrichten',
     unread: 'Ungelesen',
     reply: 'Antworten',
+    urgent: 'Dringend',
     
     // Navbar
     login: 'Anmelden',
@@ -918,6 +971,24 @@ const translations: Translations = {
     openMenu: 'Menü öffnen',
     language: 'Sprache',
     theme: 'Thema',
+    
+    // Services Page
+    ourServices: 'Unsere Dienstleistungen',
+    servicesSubtitle: 'Von rechtlicher Unterstützung bis zur vollständigen Immobilienverwaltung. Wir regeln alles, damit Sie sich keine Sorgen machen müssen.',
+    legalExpertiseSubtitle: 'Wir regeln alles rechtlich, von A bis Z',
+    legalExpertiseDesc: 'Unsere Rechtsexperten begleiten Sie bei allen Aspekten des Leerstandsgesetzes. Wir sorgen dafür, dass Sie keine Sorgen über rechtliche Angelegenheiten haben.',
+    fiscalKnowledgeSubtitle: 'Optimale steuerliche Vorteile für Ihre Situation',
+    fiscalKnowledgeDesc: 'Unsere Steuerfachleute beraten zu allen steuerlichen Aspekten von Leerstand. Wir stellen sicher, dass Sie maximal von verfügbaren Vorteilen profitieren.',
+    propertyManagementSubtitle: 'Professionelle Verwaltung Ihrer Immobilie',
+    propertyManagementDesc: 'Professionelles Immobilienmanagement für leerstehende Gebäude. Wir stellen sicher, dass Ihre Immobilie in Top-Zustand bleibt, bis sie wieder bewohnt wird.',
+    vacancyManagementSubtitle: 'Sicherheit und Überwachung Ihrer Immobilie',
+    vacancyManagementDesc: 'Komplettes Leerstandsmanagement, um Ihre Immobilie sicher zu halten. Keine Sorgen über Hausbesetzung, Vandalismus oder Verfall.',
+    contactFor: 'Kontaktieren Sie uns für',
+    readyToWork: 'Bereit zusammenzuarbeiten?',
+    servicesCTADesc: 'Wir regeln alles für Sie. Von rechtlichen Angelegenheiten bis zur Verwaltung Ihrer Immobilie. Kontaktieren Sie uns noch heute.',
+    contactCTABtn: 'Kontaktieren Sie uns',
+    reportVacancyCTABtn: 'Leerstand melden',
+    scrollNext: 'Zum nächsten Abschnitt scrollen',
   }
 }
 

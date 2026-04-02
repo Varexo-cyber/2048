@@ -30,7 +30,7 @@ exports.handler = async (event, context) => {
     // Email opstellen
     const mailOptions = {
       from: '"Leegstandmeldpunt" <info@varexo.nl>',
-      to: ['mohammed81310@gmail.com', 'noemrawsingh@gmail.com'],
+      to: ['info@varexo.nl', 'info@nationaalbeheer.nl'],
       subject: 'Nieuwe Vastgoed Melding - Leegstandmeldpunt.nl',
       html: `<!DOCTYPE html>
 <html>
@@ -265,7 +265,7 @@ exports.handler = async (event, context) => {
       statusCode: 200,
       body: JSON.stringify({ 
         success: true, 
-        message: 'Email verstuurd naar mohammed81310@gmail.com',
+        message: 'Email verstuurd naar info@varexo.nl',
         messageId: result.messageId
       })
     }
