@@ -66,15 +66,15 @@ const Footer = () => {
             <h3 style={{ fontSize: '1rem', fontWeight: '600', marginBottom: '0.75rem', color: 'white' }}>{t.contactData}</h3>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
               <li style={{ marginBottom: '0.5rem' }}>
-                <a href="tel:+310XXXXXXXX" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#94a3b8', fontSize: '0.85rem', textDecoration: 'none' }}>
+                <a href="tel:+31641375900" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#94a3b8', fontSize: '0.85rem', textDecoration: 'none' }}>
                   <Phone size={14} style={{ color: 'var(--accent-primary)', flexShrink: 0 }} />
-                  +31 (0) XX XXX XXXX
+                  +31 6 413 759 00
                 </a>
               </li>
               <li style={{ marginBottom: '0.5rem' }}>
-                <a href="mailto:info@voorbeeld.nl" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#94a3b8', fontSize: '0.85rem', textDecoration: 'none' }}>
+                <a href="mailto:info@leegstandmeldpunt.nl" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#94a3b8', fontSize: '0.85rem', textDecoration: 'none' }}>
                   <Mail size={14} style={{ color: 'var(--accent-primary)', flexShrink: 0 }} />
-                  info@voorbeeld.nl
+                  info@leegstandmeldpunt.nl
                 </a>
               </li>
               <li style={{ marginBottom: '0.5rem' }}>
@@ -82,12 +82,6 @@ const Footer = () => {
                   <MapPin size={14} style={{ color: 'var(--accent-primary)', flexShrink: 0 }} />
                   Fultonstraat 2, 2562 XH 's-Gravenhage
                 </a>
-              </li>
-              <li style={{ color: '#64748b', fontSize: '0.75rem', marginTop: '0.5rem' }}>
-                KVK: XXXXXXXX
-              </li>
-              <li style={{ color: '#64748b', fontSize: '0.75rem' }}>
-                BTW: NLXXXXXXXXXXB01
               </li>
             </ul>
           </div>

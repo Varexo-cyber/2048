@@ -1434,7 +1434,7 @@ const ContactPage = () => {
                   </div>
                   <div>
                     <p style={{ margin: '0', fontWeight: '600', color: 'var(--text-primary)', fontSize: '1.125rem' }}>{t.phone}</p>
-                    <p style={{ margin: '0', color: 'var(--text-secondary)' }}>+31 85 XXX XXXX</p>
+                    <p style={{ margin: '0', color: 'var(--text-secondary)' }}>+31 6 413 759 00</p>
                   </div>
                 </div>
                 
