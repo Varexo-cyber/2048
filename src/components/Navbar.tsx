@@ -1,4 +1,4 @@
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { Menu, X, Home, FileText, Users, Phone, LogIn, Star } from 'lucide-react'
 import { useAuth } from '../contexts/AuthContext'
@@ -13,8 +13,17 @@ const Navbar = () => {
   const [showLogin, setShowLogin] = useState(false)
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 1024)
   const location = useLocation()
+  const navigate = useNavigate()
   const { isAuthenticated } = useAuth()
   const { t } = useLanguage()
+
+  const handleNavClick = (path: string) => {
+    navigate(path)
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+    if (isMobile) {
+      setIsMenuOpen(false)
+    }
+  }
 
   useEffect(() => {
     const handleResize = () => {
@@ -113,9 +122,9 @@ const Navbar = () => {
                 const Icon = item.icon
                 const isActive = location.pathname === item.href
                 return (
-                  <Link
+                  <button
                     key={item.name}
-                    to={item.href}
+                    onClick={() => handleNavClick(item.href)}
                     style={{
                       display: 'flex',
                       alignItems: 'center',
@@ -129,12 +138,13 @@ const Navbar = () => {
                       border: isActive ? '1px solid var(--accent-primary)' : '1px solid transparent',
                       transition: 'all 0.2s ease',
                       textDecoration: 'none',
-                      whiteSpace: 'nowrap'
+                      whiteSpace: 'nowrap',
+                      cursor: 'pointer'
                     }}
                   >
                     <Icon size={16} />
                     {item.name}
-                  </Link>
+                  </button>
                 )
               })}
             </div>
@@ -223,10 +233,9 @@ const Navbar = () => {
               const Icon = item.icon
               const isActive = location.pathname === item.href
               return (
-                <Link
+                <button
                   key={item.name}
-                  to={item.href}
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={() => handleNavClick(item.href)}
                   style={{
                     display: 'flex',
                     alignItems: 'center',
@@ -239,12 +248,15 @@ const Navbar = () => {
                     background: isActive ? 'var(--accent-primary-light)' : 'transparent',
                     border: isActive ? '2px solid var(--accent-primary)' : '2px solid transparent',
                     textDecoration: 'none',
-                    transition: 'all 0.2s ease'
+                    transition: 'all 0.2s ease',
+                    cursor: 'pointer',
+                    textAlign: 'left',
+                    width: '100%'
                   }}
                 >
                   <Icon size={24} />
                   {item.name}
-                </Link>
+                </button>
               )
             })}
           </div>

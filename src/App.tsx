@@ -1091,83 +1091,6 @@ const ReportVacancyPage = () => {
   )
 }
 
-const DashboardPage = () => {
-  return (
-    <div style={{ minHeight: '100vh', backgroundColor: 'var(--bg-secondary)', padding: '2rem 0' }}>
-      <div className="container">
-        <h1 style={{ fontSize: '2rem', fontWeight: '700', marginBottom: '1rem', color: 'var(--text-primary)' }}>
-          Dashboard
-        </h1>
-        <p style={{ color: 'var(--text-secondary)', marginBottom: '2rem' }}>
-          Overzicht van gemelde leegstand
-        </p>
-        
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1.5rem', marginBottom: '2rem' }}>
-          <div style={{ background: 'var(--bg-primary)', padding: '1.5rem', borderRadius: '8px', boxShadow: 'var(--shadow-md)' }}>
-            <div style={{ display: 'flex', alignItems: 'center', marginBottom: '1rem' }}>
-              <div style={{ width: '40px', height: '40px', background: 'var(--accent-primary-light)', borderRadius: '6px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginRight: '1rem' }}>
-                <Building size={20} style={{ color: 'var(--accent-primary)' }} />
-              </div>
-              <div>
-                <h3 style={{ margin: '0', color: 'var(--text-primary)', fontWeight: '600' }}>Totaal Meldingen</h3>
-                <p style={{ margin: '0', fontSize: '1.5rem', fontWeight: '700', color: 'var(--accent-primary)' }}>24</p>
-              </div>
-            </div>
-          </div>
-          
-          <div style={{ background: 'var(--bg-primary)', padding: '1.5rem', borderRadius: '8px', boxShadow: 'var(--shadow-md)' }}>
-            <div style={{ display: 'flex', alignItems: 'center', marginBottom: '1rem' }}>
-              <div style={{ width: '40px', height: '40px', background: '#d1fae5', borderRadius: '6px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginRight: '1rem' }}>
-                <CheckCircle size={20} style={{ color: '#10b981' }} />
-              </div>
-              <div>
-                <h3 style={{ margin: '0', color: 'var(--text-primary)', fontWeight: '600' }}>Afgehandeld</h3>
-                <p style={{ margin: '0', fontSize: '1.5rem', fontWeight: '700', color: '#10b981' }}>18</p>
-              </div>
-            </div>
-          </div>
-          
-          <div style={{ background: 'var(--bg-primary)', padding: '1.5rem', borderRadius: '8px', boxShadow: 'var(--shadow-md)' }}>
-            <div style={{ display: 'flex', alignItems: 'center', marginBottom: '1rem' }}>
-              <div style={{ width: '40px', height: '40px', background: '#fef3c7', borderRadius: '6px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginRight: '1rem' }}>
-                <Clock size={20} style={{ color: '#f59e0b' }} />
-              </div>
-              <div>
-                <h3 style={{ margin: '0', color: 'var(--text-primary)', fontWeight: '600' }}>In Behandeling</h3>
-                <p style={{ margin: '0', fontSize: '1.5rem', fontWeight: '700', color: '#f59e0b' }}>6</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div style={{ background: 'var(--bg-primary)', borderRadius: '8px', padding: '1.5rem', boxShadow: 'var(--shadow-md)' }}>
-          <h2 style={{ margin: '0 0 1rem 0', color: 'var(--text-primary)', fontWeight: '600' }}>Recente Meldingen</h2>
-          <div style={{ borderTop: '1px solid var(--border-color)', paddingTop: '1rem' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0.75rem 0', borderBottom: '1px solid var(--bg-tertiary)' }}>
-              <div>
-                <p style={{ margin: '0', fontWeight: '500', color: 'var(--text-primary)' }}>Hoofdstraat 12</p>
-                <p style={{ margin: '0', fontSize: '0.875rem', color: 'var(--text-secondary)' }}>Gemeente X</p>
-              </div>
-              <span style={{ padding: '0.25rem 0.75rem', backgroundColor: '#fef3c7', color: '#92400e', borderRadius: '999px', fontSize: '0.75rem', fontWeight: '500' }}>
-                In behandeling
-              </span>
-            </div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0.75rem 0' }}>
-              <div>
-                <p style={{ margin: '0', fontWeight: '500', color: 'var(--text-primary)' }}>Kerkstraat 5</p>
-                <p style={{ margin: '0', fontSize: '0.875rem', color: 'var(--text-secondary)' }}>Gemeente Y</p>
-              </div>
-              <span style={{ padding: '0.25rem 0.75rem', backgroundColor: '#d1fae5', color: '#065f46', borderRadius: '999px', fontSize: '0.75rem', fontWeight: '500' }}>
-                Afgehandeld
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  )
-}
-
 const AboutPage = () => {
   const { t } = useLanguage()
   return (
@@ -1659,7 +1582,6 @@ function App() {
                 <Routes>
                   <Route path="/" element={<HomePage />} />
                   <Route path="/melden" element={<ReportVacancyPage />} />
-                  <Route path="/dashboard" element={<DashboardPage />} />
                   <Route path="/over-ons" element={<AboutPage />} />
                   <Route path="/contact" element={<ContactPage />} />
                   <Route path="/profiel" element={<ProfilePage />} />

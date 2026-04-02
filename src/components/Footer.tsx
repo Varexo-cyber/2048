@@ -47,9 +47,6 @@ const Footer = () => {
                 <a onClick={() => handleNavClick('/melden')} style={{ color: '#94a3b8', textDecoration: 'none', fontSize: '0.85rem', cursor: 'pointer' }}>{t.reportVacancy}</a>
               </li>
               <li style={{ marginBottom: '0.4rem' }}>
-                <a onClick={() => handleNavClick('/dashboard')} style={{ color: '#94a3b8', textDecoration: 'none', fontSize: '0.85rem', cursor: 'pointer' }}>{t.dashboard}</a>
-              </li>
-              <li style={{ marginBottom: '0.4rem' }}>
                 <a onClick={() => handleNavClick('/over-ons')} style={{ color: '#94a3b8', textDecoration: 'none', fontSize: '0.85rem', cursor: 'pointer' }}>{t.about}</a>
               </li>
               <li style={{ marginBottom: '0.4rem' }}>
