@@ -336,8 +336,8 @@ const translations: Translations = {
     terms: 'Algemene Voorwaarden',
     gdprCompliance: 'AVG Compliance',
     policyDocs: 'Beleidsdocumenten',
-    disclaimerTitle: 'Disclaimer:',
-    disclaimerText: 'Leegstandmeldpunt is een onafhankelijk initiatief en geen onderdeel van de Nederlandse overheid. Wij werken wel samen met gemeenten en woningcorporaties om leegstand tegen te gaan. De informatie op deze website is met zorg samengesteld, maar we kunnen geen garantie geven over de volledigheid of juistheid. Voor juridisch bindende informatie verwijzen wij u naar de officiële overheidsinstanties.',
+    disclaimerTitle: 'Disclaimer en Aansprakelijkheidsbeperking:',
+    disclaimerText: 'Leegstandmeldpunt is een onafhankelijk platform en geen onderdeel van de Nederlandse overheid. Wij faciliteren meldingen van leegstaand vastgoed, maar zijn niet verantwoordelijk voor de gevolgen of resultaten van meldingen. De verstrekte informatie is met zorg samengesteld, maar we geven geen garantie over volledigheid, juistheid of actualiteit. Gebruikers zijn zelf verantwoordelijk voor de juistheid van hun meldingen. Wij zijn niet aansprakelijk voor directe of indirecte schade voortvloeiend uit het gebruik van onze diensten. Voor juridisch bindende informatie verwijzen wij u naar officiële overheidsinstanties. Aanmelding voor de €100 vergoeding geschiedt onder de voorwaarden zoals vermeld in onze Algemene Voorwaarden. We behouden ons het recht voor om meldingen te weigeren of verwijderen die in strijd zijn met wetgeving of onze voorwaarden.',
     rights: 'Alle rechten voorbehouden.',
     
     // Contact
@@ -584,8 +584,8 @@ const translations: Translations = {
     terms: 'Terms of Service',
     gdprCompliance: 'GDPR Compliance',
     policyDocs: 'Policy Documents',
-    disclaimerTitle: 'Disclaimer:',
-    disclaimerText: 'Leegstandmeldpunt is an independent initiative and not part of the Dutch government. We do work with municipalities and housing associations to combat vacancy. The information on this website has been compiled with care, but we cannot guarantee its completeness or accuracy. For legally binding information, please refer to official government agencies.',
+    disclaimerTitle: 'Disclaimer and Limitation of Liability:',
+    disclaimerText: 'Leegstandmeldpunt is an independent platform and not part of the Dutch government. We facilitate reports of vacant real estate but are not responsible for the consequences or results of such reports. The information provided has been compiled with care, but we provide no guarantee regarding completeness, accuracy, or timeliness. Users are solely responsible for the accuracy of their reports. We are not liable for any direct or indirect damages arising from the use of our services. For legally binding information, please consult official government agencies. Applications for the €100 compensation are subject to the conditions set forth in our Terms of Service. We reserve the right to refuse or remove reports that violate applicable laws or our terms.',
     
     // Contact
     contactTitle: 'Contact Us',
@@ -831,8 +831,8 @@ const translations: Translations = {
     terms: 'Allgemeine Geschäftsbedingungen',
     gdprCompliance: 'DSGVO Compliance',
     policyDocs: 'Richtlinien',
-    disclaimerTitle: 'Haftungsausschluss:',
-    disclaimerText: 'Leegstandmeldpunt ist eine unabhängige Initiative und kein Teil der niederländischen Regierung. Wir arbeiten jedoch mit Gemeinden und Wohnungsbaugesellschaften zusammen, um Leerstand zu bekämpfen. Die Informationen auf dieser Website wurden mit Sorgfalt zusammengestellt, aber wir können keine Garantie für ihre Vollständigkeit oder Richtigkeit übernehmen. Für rechtlich bindende Informationen verweisen wir auf die offiziellen Regierungsstellen.',
+    disclaimerTitle: 'Haftungsausschluss und Haftungsbeschränkung:',
+    disclaimerText: 'Leegstandmeldpunt ist eine unabhängige Plattform und kein Teil der niederländischen Regierung. Wir erleichtern Meldungen von leerstehenden Immobilien, sind jedoch nicht verantwortlich für die Konsequenzen oder Ergebnisse solcher Meldungen. Die bereitgestellten Informationen wurden mit Sorgfalt zusammengestellt, jedoch übernehmen wir keine Gewährleistung hinsichtlich Vollständigkeit, Richtigkeit oder Aktualität. Die Benutzer sind allein verantwortlich für die Richtigkeit ihrer Meldungen. Wir haften nicht für direkte oder indirekte Schäden, die aus der Nutzung unserer Dienste entstehen. Für rechtlich bindende Informationen konsultieren Sie bitte offizielle Regierungsstellen. Anträge für die €100-Vergütung unterliegen den Bedingungen, die in unseren Allgemeinen Geschäftsbedingungen festgelegt sind. Wir behalten uns das Recht vor, Meldungen abzulehnen oder zu entfernen, die geltende Gesetze oder unsere Bedingungen verletzen.',
     
     // Contact
     contactTitle: 'Kontakt',
