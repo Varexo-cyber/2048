@@ -337,7 +337,7 @@ const translations: Translations = {
     vacancyManagementFull: 'Compleet leegstandsbeheer om uw pand veilig te houden:\n\n• 24/7 bewaking en alarmmonitoring\n• Anti-kraak bewoning regeling\n• Wekelijkse rondes en inspecties\n• Directe melding bij calamiteiten\n• Onderhoud van tuin en buitenruimtes\n• Voorbereiding op herverhuur of verkoop',
     showMore: '▶ Meer info',
     showLess: '▼ Minder info',
-    governmentLogin: 'Inloggen voor overheid',
+    governmentLogin: 'inloggen voor overheid',
     legalPolicy: 'Wetgeving & Beleid',
     terms: 'Algemene Voorwaarden',
     gdprCompliance: 'AVG Compliance',
