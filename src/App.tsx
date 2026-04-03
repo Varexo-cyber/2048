@@ -25,6 +25,7 @@ import ServicesPage from './pages/ServicesPage'
 import Toast from './components/Toast'
 import HelpWidget from './components/HelpWidget'
 import IncentivePopup from './components/IncentivePopup'
+import CookieConsent from './components/CookieConsent'
 
 const HomePage = () => {
   const { t } = useLanguage()
@@ -1433,7 +1434,7 @@ const PrivacyPage = () => (
         <ul style={{ color: 'var(--text-secondary)', lineHeight: '1.8', marginBottom: '1.5rem', paddingLeft: '1.5rem' }}>
           <li><strong>Persoonsgegevens:</strong> Alle informatie over een geïdentificeerde of identificeerbare natuurlijke persoon.</li>
           <li><strong>Verwerking:</strong> Elke handeling met betrekking tot persoonsgegevens, inclusief verzamelen, opslaan, wijzigen, raadplegen en verwijderen.</li>
-          <li><strong>Verwerkingsverantwoordelijke:</strong> Nationaal Beheer B.V., Fultonstraat 2, 2562 XH Den Haag, KvK: 89926696.</li>
+          <li><strong>Verwerkingsverantwoordelijke:</strong> Leegstandmeldpunt, Fultonstraat 2, 2562 XH Den Haag.</li>
           <li><strong>Betrokkene:</strong> De natuurlijke persoon wiens persoonsgegevens worden verwerkt (u als gebruiker).</li>
         </ul>
 
@@ -1442,16 +1443,15 @@ const PrivacyPage = () => (
         </h2>
         <p style={{ color: 'var(--text-secondary)', lineHeight: '1.7', marginBottom: '1rem' }}>
           <strong>Verwerkingsverantwoordelijke:</strong><br />
-          Nationaal Beheer B.V.<br />
+          Leegstandmeldpunt<br />
           Fultonstraat 2<br />
           2562 XH 's-Gravenhage<br />
           Nederland
         </p>
         <p style={{ color: 'var(--text-secondary)', lineHeight: '1.7', marginBottom: '1rem' }}>
           <strong>Contact privacyzaken:</strong><br />
-          E-mail: privacy@leegstandmeldpunt.nl<br />
-          Telefoon: +31 6 413 759 00<br />
-          Functionaris Gegevensbescherming (FG): avg@leegstandmeldpunt.nl
+          E-mail: info@leegstandmeldpunt.nl<br />
+          Telefoon: +31 6 413 759 00
         </p>
 
         <h2 style={{ fontSize: '1.5rem', fontWeight: '600', marginBottom: '1rem', marginTop: '2rem', color: 'var(--text-primary)' }}>
@@ -1482,14 +1482,16 @@ const PrivacyPage = () => (
           <li>Volledige naam (voornaam + achternaam)</li>
           <li>E-mailadres</li>
           <li>Telefoonnummer (optioneel maar aanbevolen)</li>
-          <li>Rekeningnummer (IBAN) voor uitbetaling vergoeding</li>
           <li>Alle gegevens uit paragraaf 3.1</li>
         </ul>
+        <p style={{ color: 'var(--text-secondary)', lineHeight: '1.7', marginBottom: '1rem' }}>
+          <strong>Opmerking:</strong> Wij nemen contact met u op via e-mail wanneer u in aanmerking komt voor de vergoeding. U hoeft geen IBAN vooraf in te vullen; wij vragen deze pas wanneer de uitbetaling daadwerkelijk plaatsvindt.
+        </p>
         <p style={{ color: 'var(--text-secondary)', lineHeight: '1.7', marginBottom: '1rem' }}>
           <strong>Doel:</strong> Verwerking van €100 vergoeding na succesvolle verificatie van melding en daadwerkelijke bewoning/herbestemming.
         </p>
         <p style={{ color: 'var(--text-secondary)', lineHeight: '1.7', marginBottom: '1rem' }}>
-          <strong>Rechtsgrondslag:</strong> Uitvoering overeenkomst (art. 6 lid 1 sub b AVG) - vergoedingsafspraak tussen melder en Nationaal Beheer B.V.
+          <strong>Rechtsgrondslag:</strong> Uitvoering overeenkomst (art. 6 lid 1 sub b AVG) - vergoedingsafspraak tussen melder en Leegstandmeldpunt.
         </p>
 
         <h3 style={{ fontSize: '1.2rem', fontWeight: '600', marginBottom: '0.75rem', marginTop: '1.5rem', color: 'var(--text-primary)' }}>
@@ -1601,7 +1603,7 @@ const PrivacyPage = () => (
           6. Uw Rechten als Betrokkene (AVG Rechten)
         </h2>
         <p style={{ color: 'var(--text-secondary)', lineHeight: '1.7', marginBottom: '1rem' }}>
-          Op grond van de AVG heeft u de volgende rechten. U kunt deze rechten uitoefenen door een verzoek te sturen naar privacy@leegstandmeldpunt.nl:
+          Op grond van de AVG heeft u de volgende rechten. U kunt deze rechten uitoefenen door een verzoek te sturen naar info@leegstandmeldpunt.nl:
         </p>
 
         <h3 style={{ fontSize: '1.1rem', fontWeight: '600', marginBottom: '0.5rem', marginTop: '1rem', color: 'var(--text-primary)' }}>
@@ -1724,8 +1726,8 @@ const PrivacyPage = () => (
         <div style={{ marginTop: '2rem', padding: '1.5rem', background: 'var(--bg-secondary)', borderRadius: '8px', borderLeft: '4px solid var(--accent-primary)' }}>
           <p style={{ color: 'var(--text-secondary)', lineHeight: '1.7', margin: 0, fontSize: '0.9rem' }}>
             <strong>Contact voor privacyvragen:</strong><br />
-            E-mail: privacy@leegstandmeldpunt.nl<br />
-            Post: Nationaal Beheer B.V., t.a.v. Privacy Officer, Fultonstraat 2, 2562 XH Den Haag
+            E-mail: info@leegstandmeldpunt.nl<br />
+            Post: Leegstandmeldpunt, Fultonstraat 2, 2562 XH Den Haag
           </p>
         </div>
       </div>
@@ -1754,7 +1756,7 @@ const TermsPage = () => (
           <li><strong>Platform:</strong> De website Leegstandmeldpunt.nl en alle bijbehorende diensten, functionaliteiten en subdomeinen.</li>
           <li><strong>Gebruiker:</strong> Iedere natuurlijke of rechtspersoon die gebruik maakt van het Platform, inclusief melders, bezoekers, en geregistreerde gebruikers.</li>
           <li><strong>Melding:</strong> Een registratie van een vermoeden van leegstaand vastgoed via het Platform.</li>
-          <li><strong>Aanbieder:</strong> Nationaal Beheer B.V., statutair gevestigd te Den Haag, KvK-nummer 89926696, hierna te noemen "wij", "ons" of "Leegstandmeldpunt".</li>
+          <li><strong>Aanbieder:</strong> Leegstandmeldpunt, statutair gevestigd te Den Haag, hierna te noemen "wij", "ons" of "Leegstandmeldpunt".</li>
           <li><strong>Vergoeding:</strong> De financiële beloning van €100 (exclusief BTW indien van toepassing) die onder bepaalde voorwaarden wordt uitgekeerd aan een melder.</li>
           <li><strong>Beheerder:</strong> Een Gebruiker met een geregistreerd account voor het Admin Portaal, waaronder gemeenten, woningcorporaties en vastgoedeigenaren.</li>
         </ul>
@@ -1855,7 +1857,7 @@ const TermsPage = () => (
           Artikel 5 - Intellectuele Eigendomsrechten
         </h2>
         <p style={{ color: 'var(--text-secondary)', lineHeight: '1.7', marginBottom: '1rem' }}>
-          <strong>5.1 Eigendom:</strong> Alle intellectuele eigendomsrechten met betrekking tot het Platform, waaronder maar niet beperkt tot auteursrechten, merkenrechten, databaserechten en rechten op knowhow, zijn en blijven eigendom van Nationaal Beheer B.V. of haar licentiegevers.
+          <strong>5.1 Eigendom:</strong> Alle intellectuele eigendomsrechten met betrekking tot het Platform, waaronder maar niet beperkt tot auteursrechten, merkenrechten, databaserechten en rechten op knowhow, zijn en blijven eigendom van Leegstandmeldpunt of haar licentiegevers.
         </p>
         <p style={{ color: 'var(--text-secondary)', lineHeight: '1.7', marginBottom: '1rem' }}>
           <strong>5.2 Licentie Gebruiker:</strong> De Gebruiker verkrijgt een beperkte, niet-exclusieve, niet-overdraagbare licentie om het Platform te gebruiken overeenkomstig deze voorwaarden. Deze licentie eindigt automatisch bij beëindiging van het gebruik.
@@ -1950,7 +1952,7 @@ const TermsPage = () => (
         <div style={{ marginTop: '2rem', padding: '1.5rem', background: 'var(--bg-secondary)', borderRadius: '8px', borderLeft: '4px solid var(--accent-primary)' }}>
           <p style={{ color: 'var(--text-secondary)', lineHeight: '1.7', margin: 0 }}>
             <strong>Contact:</strong><br />
-            Nationaal Beheer B.V.<br />
+            Leegstandmeldpunt<br />
             Fultonstraat 2, 2562 XH Den Haag<br />
             E-mail: info@leegstandmeldpunt.nl<br />
             Telefoon: +31 6 413 759 00
@@ -2015,15 +2017,7 @@ const AVGCompliancePage = () => (
         </p>
 
         <h2 style={{ fontSize: '1.5rem', fontWeight: '600', marginBottom: '1rem', color: 'var(--text-primary)' }}>
-          5. Functionaris Gegevensbescherming
-        </h2>
-        <p style={{ color: 'var(--text-secondary)', lineHeight: '1.6', marginBottom: '1.5rem' }}>
-          Voor vragen over de verwerking van uw persoonsgegevens of het uitoefenen van uw rechten kunt u 
-          contact opnemen met onze Functionaris Gegevensbescherming via avg@leegstandmeldpunt.nl.
-        </p>
-
-        <h2 style={{ fontSize: '1.5rem', fontWeight: '600', marginBottom: '1rem', color: 'var(--text-primary)' }}>
-          6. Klachten
+          5. Klachten
         </h2>
         <p style={{ color: 'var(--text-secondary)', lineHeight: '1.6' }}>
           Indien u een klacht heeft over de verwerking van uw persoonsgegevens, kunt u deze indienen bij de 
@@ -2059,6 +2053,7 @@ function App() {
                 </Routes>
               </main>
               <Footer />
+              <CookieConsent />
               <HelpWidget />
               {/* Only show popup on homepage for non-logged users */}
               <Routes>

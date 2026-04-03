@@ -248,6 +248,12 @@ type Translations = {
     contactCTABtn: string
     reportVacancyCTABtn: string
     scrollNext: string
+    
+    // Cookie Consent
+    cookieTitle: string
+    cookieText: string
+    cookieAccept: string
+    cookieDecline: string
   }
 }
 
@@ -331,13 +337,13 @@ const translations: Translations = {
     vacancyManagementFull: 'Compleet leegstandsbeheer om uw pand veilig te houden:\n\n• 24/7 bewaking en alarmmonitoring\n• Anti-kraak bewoning regeling\n• Wekelijkse rondes en inspecties\n• Directe melding bij calamiteiten\n• Onderhoud van tuin en buitenruimtes\n• Voorbereiding op herverhuur of verkoop',
     showMore: '▶ Meer info',
     showLess: '▼ Minder info',
-    governmentLogin: 'Inloggen Overheden',
+    governmentLogin: 'Inloggen voor overheid',
     legalPolicy: 'Wetgeving & Beleid',
     terms: 'Algemene Voorwaarden',
     gdprCompliance: 'AVG Compliance',
     policyDocs: 'Beleidsdocumenten',
     disclaimerTitle: 'Disclaimer en Aansprakelijkheidsbeperking:',
-    disclaimerText: 'Leegstandmeldpunt is een onafhankelijk platform en geen onderdeel van de Nederlandse overheid. Wij faciliteren meldingen van leegstaand vastgoed, maar zijn niet verantwoordelijk voor de gevolgen of resultaten van meldingen. De verstrekte informatie is met zorg samengesteld, maar we geven geen garantie over volledigheid, juistheid of actualiteit. Gebruikers zijn zelf verantwoordelijk voor de juistheid van hun meldingen. Wij zijn niet aansprakelijk voor directe of indirecte schade voortvloeiend uit het gebruik van onze diensten. Voor juridisch bindende informatie verwijzen wij u naar officiële overheidsinstanties. Aanmelding voor de €100 vergoeding geschiedt onder de voorwaarden zoals vermeld in onze Algemene Voorwaarden. We behouden ons het recht voor om meldingen te weigeren of verwijderen die in strijd zijn met wetgeving of onze voorwaarden.',
+    disclaimerText: 'Leegstandmeldpunt is een onafhankelijk platform. Wij faciliteren meldingen van leegstaand vastgoed, maar zijn niet verantwoordelijk voor de gevolgen of resultaten van meldingen. De verstrekte informatie is met zorg samengesteld, maar we geven geen garantie over volledigheid, juistheid of actualiteit. Gebruikers zijn zelf verantwoordelijk voor de juistheid van hun meldingen. Wij zijn niet aansprakelijk voor directe of indirecte schade voortvloeiend uit het gebruik van onze diensten. Voor juridisch bindende informatie verwijzen wij u naar officiële overheidsinstanties. Aanmelding voor de €100 vergoeding geschiedt onder de voorwaarden zoals vermeld in onze Algemene Voorwaarden. We behouden ons het recht voor om meldingen te weigeren of verwijderen die in strijd zijn met wetgeving of onze voorwaarden.',
     rights: 'Alle rechten voorbehouden.',
     
     // Contact
@@ -495,6 +501,12 @@ const translations: Translations = {
     contactCTABtn: 'Neem Contact Op',
     reportVacancyCTABtn: 'Meld Leegstand',
     scrollNext: 'Scroll naar volgende sectie',
+    
+    // Cookie Consent
+    cookieTitle: 'Cookies',
+    cookieText: 'Wij gebruiken cookies om uw ervaring op onze website te verbeteren. Door op "Accepteren" te klikken, gaat u akkoord met ons gebruik van cookies.',
+    cookieAccept: 'Accepteren',
+    cookieDecline: 'Weigeren',
   },
   
   en: {
@@ -579,13 +591,13 @@ const translations: Translations = {
     vacancyManagementFull: 'Complete vacancy management to keep your property safe:\n\n• 24/7 security and alarm monitoring\n• Anti-squatting occupancy arrangement\n• Weekly rounds and inspections\n• Immediate notification in case of emergencies\n• Maintenance of garden and outdoor spaces\n• Preparation for re-rental or sale',
     showMore: '▶ More info',
     showLess: '▼ Less info',
-    governmentLogin: 'Government Login',
+    governmentLogin: 'Login for Government',
     legalPolicy: 'Legislation & Policy',
     terms: 'Terms of Service',
     gdprCompliance: 'GDPR Compliance',
     policyDocs: 'Policy Documents',
     disclaimerTitle: 'Disclaimer and Limitation of Liability:',
-    disclaimerText: 'Leegstandmeldpunt is an independent platform and not part of the Dutch government. We facilitate reports of vacant real estate but are not responsible for the consequences or results of such reports. The information provided has been compiled with care, but we provide no guarantee regarding completeness, accuracy, or timeliness. Users are solely responsible for the accuracy of their reports. We are not liable for any direct or indirect damages arising from the use of our services. For legally binding information, please consult official government agencies. Applications for the €100 compensation are subject to the conditions set forth in our Terms of Service. We reserve the right to refuse or remove reports that violate applicable laws or our terms.',
+    disclaimerText: 'Leegstandmeldpunt is an independent platform. We facilitate reports of vacant real estate but are not responsible for the consequences or results of such reports. The information provided has been compiled with care, but we provide no guarantee regarding completeness, accuracy, or timeliness. Users are solely responsible for the accuracy of their reports. We are not liable for any direct or indirect damages arising from the use of our services. For legally binding information, please consult official government agencies. Applications for the €100 compensation are subject to the conditions set forth in our Terms of Service. We reserve the right to refuse or remove reports that violate applicable laws or our terms.',
     
     // Contact
     contactTitle: 'Contact Us',
@@ -742,6 +754,12 @@ const translations: Translations = {
     contactCTABtn: 'Contact Us',
     reportVacancyCTABtn: 'Report Vacancy',
     scrollNext: 'Scroll to next section',
+    
+    // Cookie Consent
+    cookieTitle: 'Cookies',
+    cookieText: 'We use cookies to enhance your experience on our website. By clicking "Accept", you agree to our use of cookies.',
+    cookieAccept: 'Accept',
+    cookieDecline: 'Decline',
   },
   
   de: {
@@ -826,13 +844,13 @@ const translations: Translations = {
     vacancyManagementFull: 'Komplettes Leerstandsmanagement, um Ihre Immobilie sicher zu halten:\n\n• 24/7 Überwachung und Alarmüberwachung\n• Anti-Squatting-Nutzungsregelung\n• Wöchentliche Runden und Inspektionen\n• Sofortige Benachrichtigung bei Notfällen\n• Wartung von Garten und Außenbereichen\n• Vorbereitung auf Neuvermietung oder Verkauf',
     showMore: '▶ Mehr Infos',
     showLess: '▼ Weniger Infos',
-    governmentLogin: 'Behörden Login',
+    governmentLogin: 'Anmeldung für Behörden',
     legalPolicy: 'Gesetzgebung & Politik',
     terms: 'Allgemeine Geschäftsbedingungen',
     gdprCompliance: 'DSGVO Compliance',
     policyDocs: 'Richtlinien',
     disclaimerTitle: 'Haftungsausschluss und Haftungsbeschränkung:',
-    disclaimerText: 'Leegstandmeldpunt ist eine unabhängige Plattform und kein Teil der niederländischen Regierung. Wir erleichtern Meldungen von leerstehenden Immobilien, sind jedoch nicht verantwortlich für die Konsequenzen oder Ergebnisse solcher Meldungen. Die bereitgestellten Informationen wurden mit Sorgfalt zusammengestellt, jedoch übernehmen wir keine Gewährleistung hinsichtlich Vollständigkeit, Richtigkeit oder Aktualität. Die Benutzer sind allein verantwortlich für die Richtigkeit ihrer Meldungen. Wir haften nicht für direkte oder indirekte Schäden, die aus der Nutzung unserer Dienste entstehen. Für rechtlich bindende Informationen konsultieren Sie bitte offizielle Regierungsstellen. Anträge für die €100-Vergütung unterliegen den Bedingungen, die in unseren Allgemeinen Geschäftsbedingungen festgelegt sind. Wir behalten uns das Recht vor, Meldungen abzulehnen oder zu entfernen, die geltende Gesetze oder unsere Bedingungen verletzen.',
+    disclaimerText: 'Leegstandmeldpunt ist eine unabhängige Plattform. Wir erleichtern Meldungen von leerstehenden Immobilien, sind jedoch nicht verantwortlich für die Konsequenzen oder Ergebnisse solcher Meldungen. Die bereitgestellten Informationen wurden mit Sorgfalt zusammengestellt, jedoch übernehmen wir keine Gewährleistung hinsichtlich Vollständigkeit, Richtigkeit oder Aktualität. Die Benutzer sind allein verantwortlich für die Richtigkeit ihrer Meldungen. Wir haften nicht für direkte oder indirekte Schäden, die aus der Nutzung unserer Dienste entstehen. Für rechtlich bindende Informationen konsultieren Sie bitte offizielle Regierungsstellen. Anträge für die €100-Vergütung unterliegen den Bedingungen, die in unseren Allgemeinen Geschäftsbedingungen festgelegt sind. Wir behalten uns das Recht vor, Meldungen abzulehnen oder zu entfernen, die geltende Gesetze oder unsere Bedingungen verletzen.',
     
     // Contact
     contactTitle: 'Kontakt',
@@ -989,7 +1007,13 @@ const translations: Translations = {
     contactCTABtn: 'Kontaktieren Sie uns',
     reportVacancyCTABtn: 'Leerstand melden',
     scrollNext: 'Zum nächsten Abschnitt scrollen',
-  }
+    
+    // Cookie Consent
+    cookieTitle: 'Cookies',
+    cookieText: 'Wir verwenden Cookies, um Ihre Erfahrung auf unserer Website zu verbessern. Durch Klicken auf "Akzeptieren" stimmen Sie der Verwendung von Cookies zu.',
+    cookieAccept: 'Akzeptieren',
+    cookieDecline: 'Ablehnen',
+  },
 }
 
 const LanguageContext = createContext<{
