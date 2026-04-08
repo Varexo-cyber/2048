@@ -26,6 +26,7 @@ import Toast from './components/Toast'
 import HelpWidget from './components/HelpWidget'
 import IncentivePopup from './components/IncentivePopup'
 import CookieConsent from './components/CookieConsent'
+import { addMelding, initDatabase } from './services/neonDatabase'
 
 const HomePage = () => {
   const { t } = useLanguage()
@@ -265,6 +266,7 @@ const HomePage = () => {
 const ReportVacancyPage = () => {
   const { t } = useLanguage()
   const [toast, setToast] = useState<{ message: string; type: 'success' | 'error' | 'warning' | 'info' } | null>(null)
+  const [errors, setErrors] = useState<{[key: string]: string}>({})
   const [formData, setFormData] = useState({
     // Property details
     address: '',
@@ -294,6 +296,10 @@ const ReportVacancyPage = () => {
   
   const handleInputChange = (field: string, value: any) => {
     setFormData(prev => ({ ...prev, [field]: value }))
+    // Clear error when user starts typing
+    if (errors[field]) {
+      setErrors(prev => ({ ...prev, [field]: '' }))
+    }
   }
   
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -315,39 +321,100 @@ const ReportVacancyPage = () => {
     })
   }
 
+  const validateForm = () => {
+    const newErrors: {[key: string]: string} = {}
+    
+    // Required field validations
+    if (!formData.address.trim()) {
+      newErrors.address = 'Adres is verplicht'
+    }
+    if (!formData.vacancyDuration) {
+      newErrors.vacancyDuration = 'Selecteer hoe lang het pand leegstaat'
+    }
+    if (!formData.postalCode.trim()) {
+      newErrors.postalCode = 'Postcode is verplicht'
+    }
+    if (!formData.city.trim()) {
+      newErrors.city = 'Plaats is verplicht'
+    }
+    
+    // For named reports, require contact info
+    if (formData.reportType === 'named') {
+      if (!formData.reporterName.trim()) {
+        newErrors.reporterName = 'Naam is verplicht voor een melding met contactgegevens'
+      }
+      if (!formData.reporterEmail.trim()) {
+        newErrors.reporterEmail = 'E-mail is verplicht voor een melding met contactgegevens'
+      }
+    }
+    
+    // Privacy checkbox validation
+    if (!formData.privacyAgreed) {
+      newErrors.privacyAgreed = 'Je moet akkoord gaan met de privacyverklaring om door te gaan'
+    }
+    
+    setErrors(newErrors)
+    return Object.keys(newErrors).length === 0
+  }
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    
+    // Validate form first
+    if (!validateForm()) {
+      // Scroll to first error
+      const firstError = document.querySelector('[data-error="true"]')
+      if (firstError) {
+        firstError.scrollIntoView({ behavior: 'smooth', block: 'center' })
+      }
+      return
+    }
+    
+    // Initialize database on first use
+    try {
+      await initDatabase()
+    } catch (e) {
+      console.log('Database already initialized or error:', e)
+    }
     
     // Convert attachments to base64
     const attachmentData = await Promise.all(
       formData.attachments.map(file => fileToBase64(file))
     )
     
-    // Create melding object
+    // Create melding object for database
     const melding = {
-      id: Date.now(),
       address: formData.address,
-      type: formData.propertyType,
-      status: 'Nieuw',
-      date: new Date().toLocaleDateString('nl-NL', { day: '2-digit', month: '2-digit', year: 'numeric' }),
-      urgent: false,
-      reportType: formData.reportType,
+      city: formData.city,
+      postalCode: formData.postalCode,
+      propertyType: formData.propertyType,
+      vacancyDuration: formData.vacancyDuration,
+      description: formData.description,
       reporterName: formData.reporterName || 'Anoniem',
       reporterEmail: formData.reporterEmail || '',
       reporterPhone: formData.reporterPhone || '',
-      vacancyDuration: formData.vacancyDuration,
-      postalCode: formData.postalCode,
-      city: formData.city,
-      description: formData.description,
-      gpsLocation: formData.gpsLocation,
-      attachments: attachmentData,
-      createdAt: new Date().toISOString()
+      reportType: formData.reportType,
+      status: 'Nieuw',
+      urgent: false
     }
     
-    // Save to localStorage
-    const existing = JSON.parse(localStorage.getItem('leegstand_meldingen') || '[]')
-    existing.unshift(melding)
-    localStorage.setItem('leegstand_meldingen', JSON.stringify(existing))
+    // Save to Neon database
+    try {
+      await addMelding(melding)
+    } catch (error) {
+      console.error('Error saving to database:', error)
+      // Fallback to localStorage if database fails
+      const fallbackMelding = {
+        id: Date.now(),
+        ...melding,
+        date: new Date().toLocaleDateString('nl-NL', { day: '2-digit', month: '2-digit', year: 'numeric' }),
+        attachments: attachmentData,
+        gpsLocation: formData.gpsLocation
+      }
+      const existing = JSON.parse(localStorage.getItem('leegstand_meldingen') || '[]')
+      existing.unshift(fallbackMelding)
+      localStorage.setItem('leegstand_meldingen', JSON.stringify(existing))
+    }
     
     // Send email via Netlify Function (background - no popup!)
     try {
@@ -417,16 +484,16 @@ const ReportVacancyPage = () => {
                 </h3>
                 
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem' }}>
-                  <div>
+                  <div data-error={errors.address ? 'true' : 'false'}>
                     <label style={{ 
                       display: 'flex', 
                       alignItems: 'center', 
                       marginBottom: '0.75rem', 
                       fontWeight: '600', 
-                      color: 'var(--text-primary)',
+                      color: errors.address ? '#dc2626' : 'var(--text-primary)',
                       fontSize: '0.95rem'
                     }}>
-                      <MapPin size={16} style={{ marginRight: '6px', color: 'var(--accent-primary)' }} />
+                      <MapPin size={16} style={{ marginRight: '6px', color: errors.address ? '#dc2626' : 'var(--accent-primary)' }} />
                       {t.addressLabel} *
                     </label>
                     <input 
@@ -434,18 +501,22 @@ const ReportVacancyPage = () => {
                       placeholder={t.addressPlaceholder}
                       value={formData.address}
                       onChange={(e) => handleInputChange('address', e.target.value)}
-                      required
                       style={{ 
                         width: '100%', 
                         padding: '0.875rem', 
-                        border: '2px solid var(--border-color)', 
+                        border: errors.address ? '2px solid #dc2626' : '2px solid var(--border-color)', 
                         borderRadius: '8px',
                         fontSize: '0.95rem',
-                        backgroundColor: 'var(--bg-primary)',
+                        backgroundColor: errors.address ? '#fef2f2' : 'var(--bg-primary)',
                         color: 'var(--text-primary)',
                         transition: 'all 0.2s'
                       }}
                     />
+                    {errors.address && (
+                      <p style={{ color: '#dc2626', fontSize: '0.8rem', marginTop: '0.5rem', display: 'flex', alignItems: 'center' }}>
+                        <span style={{ marginRight: '4px' }}>⚠️</span> {errors.address}
+                      </p>
+                    )}
                   </div>
                   <div>
                     <label style={{ 
@@ -485,53 +556,60 @@ const ReportVacancyPage = () => {
                 </div>
 
                 <div style={{ marginTop: '1.5rem' }}>
-                  <label style={{ 
-                    display: 'flex', 
-                    alignItems: 'center', 
-                    marginBottom: '0.75rem', 
-                    fontWeight: '600', 
-                    color: 'var(--text-primary)',
-                    fontSize: '0.95rem'
-                  }}>
-                    <Clock size={16} style={{ marginRight: '6px', color: 'var(--accent-primary)' }} />
-                    {t.vacancyDurationLabel} *
-                  </label>
-                  <select 
-                    value={formData.vacancyDuration}
-                    onChange={(e) => handleInputChange('vacancyDuration', e.target.value)}
-                    required
-                    style={{ 
-                      width: '100%', 
-                      padding: '0.875rem', 
-                      border: '2px solid var(--border-color)', 
-                      borderRadius: '8px',
-                      fontSize: '0.95rem',
-                      backgroundColor: 'var(--bg-primary)',
-                      color: 'var(--text-primary)',
-                      cursor: 'pointer'
-                    }}
-                  >
-                    <option value="">{t.selectDuration}</option>
-                    <option value="0-3 maanden">{t.duration0to3}</option>
-                    <option value="3-6 maanden">{t.duration3to6}</option>
-                    <option value="6-12 maanden">{t.duration6to12}</option>
-                    <option value="1-2 jaar">{t.duration1to2y}</option>
-                    <option value="Meer dan 2 jaar">{t.durationOver2y}</option>
-                    <option value="Ik weet het niet">{t.durationUnknown}</option>
-                  </select>
+                  <div data-error={errors.vacancyDuration ? 'true' : 'false'}>
+                    <label style={{ 
+                      display: 'flex', 
+                      alignItems: 'center', 
+                      marginBottom: '0.75rem', 
+                      fontWeight: '600', 
+                      color: errors.vacancyDuration ? '#dc2626' : 'var(--text-primary)',
+                      fontSize: '0.95rem'
+                    }}>
+                      <Clock size={16} style={{ marginRight: '6px', color: errors.vacancyDuration ? '#dc2626' : 'var(--accent-primary)' }} />
+                      {t.vacancyDurationLabel} *
+                    </label>
+                    <select 
+                      value={formData.vacancyDuration}
+                      onChange={(e) => handleInputChange('vacancyDuration', e.target.value)}
+                      required
+                      style={{ 
+                        width: '100%', 
+                        padding: '0.875rem', 
+                        border: errors.vacancyDuration ? '2px solid #dc2626' : '2px solid var(--border-color)', 
+                        borderRadius: '8px',
+                        fontSize: '0.95rem',
+                        backgroundColor: errors.vacancyDuration ? '#fef2f2' : 'var(--bg-primary)',
+                        color: 'var(--text-primary)',
+                        cursor: 'pointer'
+                      }}
+                    >
+                      <option value="">{t.selectDuration}</option>
+                      <option value="0-3 maanden">{t.duration0to3}</option>
+                      <option value="3-6 maanden">{t.duration3to6}</option>
+                      <option value="6-12 maanden">{t.duration6to12}</option>
+                      <option value="1-2 jaar">{t.duration1to2y}</option>
+                      <option value="Meer dan 2 jaar">{t.durationOver2y}</option>
+                      <option value="Ik weet het niet">{t.durationUnknown}</option>
+                    </select>
+                    {errors.vacancyDuration && (
+                      <p style={{ color: '#dc2626', fontSize: '0.8rem', marginTop: '0.5rem', display: 'flex', alignItems: 'center' }}>
+                        <span style={{ marginRight: '4px' }}>⚠️</span> {errors.vacancyDuration}
+                      </p>
+                    )}
+                  </div>
                 </div>
 
-                <div>
+                <div data-error={errors.postalCode ? 'true' : 'false'} style={{ marginTop: '1.5rem' }}>
                   <label style={{ 
                     display: 'flex', 
                     alignItems: 'center', 
                     marginBottom: '0.75rem', 
                     fontWeight: '600', 
-                    color: 'var(--text-primary)',
+                    color: errors.postalCode ? '#dc2626' : 'var(--text-primary)',
                     fontSize: '0.95rem'
                   }}>
-                    <MapPin size={16} style={{ marginRight: '6px', color: 'var(--accent-primary)' }} />
-                    {t.postalCodeLabel}
+                    <MapPin size={16} style={{ marginRight: '6px', color: errors.postalCode ? '#dc2626' : 'var(--accent-primary)' }} />
+                    {t.postalCodeLabel} *
                   </label>
                   <input 
                     type="text" 
@@ -541,27 +619,32 @@ const ReportVacancyPage = () => {
                     style={{ 
                       width: '100%', 
                       padding: '0.875rem', 
-                      border: '2px solid var(--border-color)', 
+                      border: errors.postalCode ? '2px solid #dc2626' : '2px solid var(--border-color)', 
                       borderRadius: '8px',
                       fontSize: '0.95rem',
-                      backgroundColor: 'var(--bg-primary)',
+                      backgroundColor: errors.postalCode ? '#fef2f2' : 'var(--bg-primary)',
                       color: 'var(--text-primary)',
                       transition: 'all 0.2s'
                     }}
                   />
+                  {errors.postalCode && (
+                    <p style={{ color: '#dc2626', fontSize: '0.8rem', marginTop: '0.5rem', display: 'flex', alignItems: 'center' }}>
+                      <span style={{ marginRight: '4px' }}>⚠️</span> {errors.postalCode}
+                    </p>
+                  )}
                 </div>
 
-                <div>
+                <div data-error={errors.city ? 'true' : 'false'} style={{ marginTop: '1.5rem' }}>
                   <label style={{ 
                     display: 'flex', 
                     alignItems: 'center', 
                     marginBottom: '0.75rem', 
                     fontWeight: '600', 
-                    color: 'var(--text-primary)',
+                    color: errors.city ? '#dc2626' : 'var(--text-primary)',
                     fontSize: '0.95rem'
                   }}>
-                    <Building size={16} style={{ marginRight: '6px', color: 'var(--accent-primary)' }} />
-                    {t.cityLabel}
+                    <Building size={16} style={{ marginRight: '6px', color: errors.city ? '#dc2626' : 'var(--accent-primary)' }} />
+                    {t.cityLabel} *
                   </label>
                   <input 
                     type="text" 
@@ -571,14 +654,19 @@ const ReportVacancyPage = () => {
                     style={{ 
                       width: '100%', 
                       padding: '0.875rem', 
-                      border: '2px solid var(--border-color)', 
+                      border: errors.city ? '2px solid #dc2626' : '2px solid var(--border-color)', 
                       borderRadius: '8px',
                       fontSize: '0.95rem',
-                      backgroundColor: 'var(--bg-primary)',
+                      backgroundColor: errors.city ? '#fef2f2' : 'var(--bg-primary)',
                       color: 'var(--text-primary)',
                       transition: 'all 0.2s'
                     }}
                   />
+                  {errors.city && (
+                    <p style={{ color: '#dc2626', fontSize: '0.8rem', marginTop: '0.5rem', display: 'flex', alignItems: 'center' }}>
+                      <span style={{ marginRight: '4px' }}>⚠️</span> {errors.city}
+                    </p>
+                  )}
                 </div>
 
                 <div style={{ marginTop: '1.5rem' }}>
@@ -1010,31 +1098,31 @@ const ReportVacancyPage = () => {
               </div>
 
               {/* Privacy Agreement */}
-              <div>
-                <h3 style={{ fontSize: '1.25rem', fontWeight: '600', color: '#1f2937', marginBottom: '1.5rem', display: 'flex', alignItems: 'center' }}>
-                  <Shield size={20} style={{ marginRight: '8px', color: '#3b82f6' }} />
+              <div data-error={errors.privacyAgreed ? 'true' : 'false'}>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: '600', color: errors.privacyAgreed ? '#dc2626' : '#1f2937', marginBottom: '1.5rem', display: 'flex', alignItems: 'center' }}>
+                  <Shield size={20} style={{ marginRight: '8px', color: errors.privacyAgreed ? '#dc2626' : '#3b82f6' }} />
                   {t.privacyTitle}
                 </h3>
                 
                 <div style={{ 
-                  backgroundColor: '#f0f9ff', 
-                  border: '1px solid #bae6fd', 
+                  backgroundColor: errors.privacyAgreed ? '#fef2f2' : '#f0f9ff', 
+                  border: errors.privacyAgreed ? '2px solid #dc2626' : '1px solid #bae6fd', 
                   borderRadius: '8px', 
                   padding: '1.5rem',
                   marginBottom: '1rem'
                 }}>
-                  <h4 style={{ color: '#0369a1', fontWeight: '600', marginBottom: '0.75rem' }}>
+                  <h4 style={{ color: errors.privacyAgreed ? '#dc2626' : '#0369a1', fontWeight: '600', marginBottom: '0.75rem' }}>
                     {t.privacyStatementTitle}
                   </h4>
-                  <p style={{ color: '#0c4a6e', lineHeight: '1.6', fontSize: '0.875rem', marginBottom: '1rem' }}>
+                  <p style={{ color: errors.privacyAgreed ? '#7f1d1d' : '#0c4a6e', lineHeight: '1.6', fontSize: '0.875rem', marginBottom: '1rem' }}>
                     {t.privacyText1}
                   </p>
-                  <p style={{ color: '#0c4a6e', lineHeight: '1.6', fontSize: '0.875rem', marginBottom: '1rem', whiteSpace: 'pre-line' }}>
+                  <p style={{ color: errors.privacyAgreed ? '#7f1d1d' : '#0c4a6e', lineHeight: '1.6', fontSize: '0.875rem', marginBottom: '1rem', whiteSpace: 'pre-line' }}>
                     {t.privacyText2}
                   </p>
-                  <p style={{ color: '#0c4a6e', fontSize: '0.875rem' }}>
-                    {t.privacyText3} <Link to="/privacy" style={{ color: '#0369a1', textDecoration: 'underline' }}>privacybeleid</Link> & 
-                    <Link to="/algemene-voorwaarden" style={{ color: '#0369a1', textDecoration: 'underline', marginLeft: '0.25rem' }}>algemene voorwaarden</Link>.
+                  <p style={{ color: errors.privacyAgreed ? '#7f1d1d' : '#0c4a6e', fontSize: '0.875rem' }}>
+                    {t.privacyText3} <Link to="/privacy" style={{ color: errors.privacyAgreed ? '#dc2626' : '#0369a1', textDecoration: 'underline' }}>privacybeleid</Link> & 
+                    <Link to="/algemene-voorwaarden" style={{ color: errors.privacyAgreed ? '#dc2626' : '#0369a1', textDecoration: 'underline', marginLeft: '0.25rem' }}>algemene voorwaarden</Link>.
                   </p>
                 </div>
                 
@@ -1044,24 +1132,32 @@ const ReportVacancyPage = () => {
                   cursor: 'pointer',
                   padding: '0.75rem',
                   borderRadius: '6px',
-                  transition: 'background-color 0.2s'
+                  transition: 'background-color 0.2s',
+                  backgroundColor: errors.privacyAgreed ? '#fef2f2' : 'transparent',
+                  border: errors.privacyAgreed ? '2px solid #dc2626' : '2px solid transparent'
                 }}>
                   <input 
                     type="checkbox" 
                     checked={formData.privacyAgreed}
                     onChange={(e) => handleInputChange('privacyAgreed', e.target.checked)}
-                    required
                     style={{ 
                       marginRight: '0.75rem', 
                       marginTop: '2px',
                       width: '16px',
-                      height: '16px'
+                      height: '16px',
+                      accentColor: errors.privacyAgreed ? '#dc2626' : undefined
                     }}
                   />
-                  <span style={{ color: '#374151', fontSize: '0.875rem', lineHeight: '1.5' }}>
+                  <span style={{ color: errors.privacyAgreed ? '#dc2626' : '#374151', fontSize: '0.875rem', lineHeight: '1.5', fontWeight: errors.privacyAgreed ? '600' : 'normal' }}>
                     {t.privacyAgree}
                   </span>
                 </label>
+                
+                {errors.privacyAgreed && (
+                  <p style={{ color: '#dc2626', fontSize: '0.85rem', marginTop: '0.75rem', display: 'flex', alignItems: 'center', padding: '0.5rem 0.75rem', backgroundColor: '#fef2f2', borderRadius: '6px', fontWeight: '600' }}>
+                    <span style={{ marginRight: '6px', fontSize: '1rem' }}>⚠️</span> {errors.privacyAgreed}
+                  </p>
+                )}
               </div>
 
               {/* Submit Button */}
@@ -1074,7 +1170,6 @@ const ReportVacancyPage = () => {
                     padding: '1rem 3rem',
                     minWidth: '200px'
                   }}
-                  disabled={!formData.privacyAgreed}
                 >
                   <FileText size={20} style={{ marginRight: '8px' }} />
                   {t.reportBtn}

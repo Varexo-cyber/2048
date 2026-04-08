@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react'
 import { useLanguage } from '../contexts/LanguageContext'
 import VastgoedCalculatorPage from './VastgoedCalculatorPage'
 import MailboxPage from './MailboxPage'
+import { getMeldingen, getBerichten, updateMeldingStatus, toggleMeldingUrgent, deleteMelding } from '../services/neonDatabase'
 
 interface Attachment {
   name: string
@@ -57,40 +58,95 @@ const PortaalPage = () => {
     }
   }, [isAdmin, isLoading, navigate])
 
-  // Load meldingen and berichten from localStorage
+  // Load meldingen and berichten from Neon database
   useEffect(() => {
-    const loadData = () => {
-      setMeldingen(JSON.parse(localStorage.getItem('leegstand_meldingen') || '[]'))
-      setBerichten(JSON.parse(localStorage.getItem('contact_berichten') || '[]'))
+    const loadData = async () => {
+      try {
+        const [meldingenData, berichtenData] = await Promise.all([
+          getMeldingen(),
+          getBerichten()
+        ])
+        // Transform database format to component format
+        const transformedMeldingen = meldingenData.map((m: any) => ({
+          id: m.id,
+          address: m.address,
+          city: m.city,
+          postalCode: m.postal_code,
+          type: m.property_type,
+          status: m.status,
+          date: new Date(m.created_at).toLocaleDateString('nl-NL'),
+          urgent: m.urgent,
+          reportType: m.report_type,
+          reporterName: m.reporter_name,
+          reporterEmail: m.reporter_email,
+          reporterPhone: m.reporter_phone,
+          vacancyDuration: m.vacancy_duration,
+          description: m.description
+        }))
+        setMeldingen(transformedMeldingen)
+        setBerichten(berichtenData)
+      } catch (error) {
+        console.error('Error loading data from database:', error)
+        // Fallback to localStorage
+        setMeldingen(JSON.parse(localStorage.getItem('leegstand_meldingen') || '[]'))
+        setBerichten(JSON.parse(localStorage.getItem('contact_berichten') || '[]'))
+      }
     }
     loadData()
-    const interval = setInterval(loadData, 2000)
+    // Refresh every 5 seconds from database
+    const interval = setInterval(loadData, 5000)
     return () => clearInterval(interval)
   }, [])
 
   // Update melding status
-  const updateStatus = (id: number, newStatus: string) => {
-    const updated = meldingen.map(m => m.id === id ? { ...m, status: newStatus } : m)
-    setMeldingen(updated)
-    localStorage.setItem('leegstand_meldingen', JSON.stringify(updated))
-    if (selectedMelding?.id === id) setSelectedMelding({ ...selectedMelding, status: newStatus })
+  const handleUpdateStatus = async (id: number, newStatus: string) => {
+    try {
+      await updateMeldingStatus(id, newStatus)
+      const updated = meldingen.map(m => m.id === id ? { ...m, status: newStatus } : m)
+      setMeldingen(updated)
+      if (selectedMelding?.id === id) setSelectedMelding({ ...selectedMelding, status: newStatus })
+    } catch (error) {
+      console.error('Error updating status:', error)
+      // Fallback to localStorage
+      const updated = meldingen.map(m => m.id === id ? { ...m, status: newStatus } : m)
+      setMeldingen(updated)
+      localStorage.setItem('leegstand_meldingen', JSON.stringify(updated))
+    }
   }
 
   // Toggle urgent
-  const toggleUrgent = (id: number) => {
-    const updated = meldingen.map(m => m.id === id ? { ...m, urgent: !m.urgent } : m)
-    setMeldingen(updated)
-    localStorage.setItem('leegstand_meldingen', JSON.stringify(updated))
-    const m = updated.find(m => m.id === id)
-    if (selectedMelding?.id === id && m) setSelectedMelding(m)
+  const handleToggleUrgent = async (id: number) => {
+    try {
+      const currentMelding = meldingen.find(m => m.id === id)
+      const newUrgent = !currentMelding?.urgent
+      await toggleMeldingUrgent(id, newUrgent)
+      const updated = meldingen.map(m => m.id === id ? { ...m, urgent: newUrgent } : m)
+      setMeldingen(updated)
+      const m = updated.find(m => m.id === id)
+      if (selectedMelding?.id === id && m) setSelectedMelding(m)
+    } catch (error) {
+      console.error('Error toggling urgent:', error)
+      // Fallback to localStorage
+      const updated = meldingen.map(m => m.id === id ? { ...m, urgent: !m.urgent } : m)
+      setMeldingen(updated)
+      localStorage.setItem('leegstand_meldingen', JSON.stringify(updated))
+    }
   }
 
   // Delete melding
-  const deleteMelding = (id: number) => {
-    const updated = meldingen.filter(m => m.id !== id)
-    setMeldingen(updated)
-    localStorage.setItem('leegstand_meldingen', JSON.stringify(updated))
-    if (selectedMelding?.id === id) setSelectedMelding(null)
+  const handleDeleteMelding = async (id: number) => {
+    try {
+      await deleteMelding(id)
+      const updated = meldingen.filter(m => m.id !== id)
+      setMeldingen(updated)
+      if (selectedMelding?.id === id) setSelectedMelding(null)
+    } catch (error) {
+      console.error('Error deleting melding:', error)
+      // Fallback to localStorage
+      const updated = meldingen.filter(m => m.id !== id)
+      setMeldingen(updated)
+      localStorage.setItem('leegstand_meldingen', JSON.stringify(updated))
+    }
   }
 
   // Mark bericht as read
@@ -480,18 +536,18 @@ const PortaalPage = () => {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
               <select
                 value={selectedMelding.status}
-                onChange={(e) => updateStatus(selectedMelding.id, e.target.value)}
+                onChange={(e) => handleUpdateStatus(selectedMelding.id, e.target.value)}
                 style={{ padding: '0.5rem 1rem', borderRadius: '8px', border: '1px solid var(--border-color)', background: 'var(--bg-primary)', color: 'var(--text-primary)', cursor: 'pointer', fontSize: '0.85rem' }}
               >
                 <option value="Nieuw">Nieuw</option>
                 <option value="In Behandeling">In Behandeling</option>
                 <option value="Afgehandeld">Afgehandeld</option>
               </select>
-              <button onClick={() => toggleUrgent(selectedMelding.id)} style={{ padding: '0.5rem 1rem', background: selectedMelding.urgent ? 'var(--accent-danger)' : 'var(--bg-secondary)', color: selectedMelding.urgent ? 'white' : 'var(--text-secondary)', border: '1px solid var(--border-color)', borderRadius: '8px', cursor: 'pointer', fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
+              <button onClick={() => handleToggleUrgent(selectedMelding.id)} style={{ padding: '0.5rem 1rem', background: selectedMelding.urgent ? 'var(--accent-danger)' : 'var(--bg-secondary)', color: selectedMelding.urgent ? 'white' : 'var(--text-secondary)', border: '1px solid var(--border-color)', borderRadius: '8px', cursor: 'pointer', fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
                 <AlertTriangle size={14} />
                 {selectedMelding.urgent ? 'Urgent' : 'Markeer Urgent'}
               </button>
-              <button onClick={() => deleteMelding(selectedMelding.id)} style={{ padding: '0.5rem 1rem', background: '#ef444420', color: '#ef4444', border: '1px solid #ef444440', borderRadius: '8px', cursor: 'pointer', fontSize: '0.85rem' }}>
+              <button onClick={() => handleDeleteMelding(selectedMelding.id)} style={{ padding: '0.5rem 1rem', background: '#ef444420', color: '#ef4444', border: '1px solid #ef444440', borderRadius: '8px', cursor: 'pointer', fontSize: '0.85rem' }}>
                 Verwijderen
               </button>
             </div>
