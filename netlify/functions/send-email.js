@@ -588,7 +588,7 @@ exports.handler = async (event, context) => {
       <div class="contact-section">
         <h4>Vragen of opmerkingen?</h4>
         <p>Bij vragen kunt u contact opnemen met<br>
-        <a href="mailto:info.a.staartjeleegstandmeld.leegstandmeldpunt.nl" class="contact-email">info.a.staartjeleegstandmeld.leegstandmeldpunt.nl</a></p>
+        <a href="mailto:info@leegstandmeldpunt.nl" class="contact-email">info@leegstandmeldpunt.nl</a></p>
       </div>
     </div>
     
