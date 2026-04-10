@@ -398,14 +398,18 @@ const ReportVacancyPage = () => {
       urgent: false
     }
     
-    // Save to Neon database
+    // Save to Neon database and get the ID
+    let savedMeldingId = null
     try {
-      await addMelding(melding)
+      const savedMelding = await addMelding(melding)
+      savedMeldingId = savedMelding?.id || null
+      console.log('Melding saved to database with ID:', savedMeldingId)
     } catch (error) {
       console.error('Error saving to database:', error)
       // Fallback to localStorage if database fails
+      savedMeldingId = Date.now()
       const fallbackMelding = {
-        id: Date.now(),
+        id: savedMeldingId,
         ...melding,
         date: new Date().toLocaleDateString('nl-NL', { day: '2-digit', month: '2-digit', year: 'numeric' }),
         attachments: attachmentData,
@@ -417,11 +421,17 @@ const ReportVacancyPage = () => {
     }
     
     // Send email via Netlify Function (background - no popup!)
+    // Include the ID so the confirmation email can show the reference number
     try {
+      const meldingWithId = {
+        ...melding,
+        id: savedMeldingId,
+        date: new Date().toLocaleDateString('nl-NL', { day: '2-digit', month: '2-digit', year: 'numeric' })
+      }
       await fetch('/.netlify/functions/send-email', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(melding)
+        body: JSON.stringify(meldingWithId)
       })
     } catch (error) {
       console.log('Email not sent, but melding saved:', error)
