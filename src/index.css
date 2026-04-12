@@ -951,6 +951,12 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Spinner animation for submit button */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
 /* Fix for mobile menu animation */
 @media (max-width: 1024px) {
   .mobile-menu {

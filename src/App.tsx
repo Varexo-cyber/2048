@@ -267,6 +267,7 @@ const ReportVacancyPage = () => {
   const { t } = useLanguage()
   const [toast, setToast] = useState<{ message: string; type: 'success' | 'error' | 'warning' | 'info' } | null>(null)
   const [errors, setErrors] = useState<{[key: string]: string}>({})
+  const [isSubmitting, setIsSubmitting] = useState(false)
   const [formData, setFormData] = useState({
     // Property details
     address: '',
@@ -360,6 +361,9 @@ const ReportVacancyPage = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     
+    // Prevent double submission
+    if (isSubmitting) return
+    
     // Validate form first
     if (!validateForm()) {
       // Scroll to first error
@@ -369,6 +373,9 @@ const ReportVacancyPage = () => {
       }
       return
     }
+    
+    // Lock the form
+    setIsSubmitting(true)
     
     // Initialize database on first use
     try {
@@ -437,6 +444,7 @@ const ReportVacancyPage = () => {
       console.log('Email not sent, but melding saved:', error)
     }
     
+    setIsSubmitting(false)
     setToast({ message: t.submitSuccess, type: 'success' })
     
     // Reset form
@@ -1175,14 +1183,36 @@ const ReportVacancyPage = () => {
                 <button 
                   type="submit" 
                   className="btn btn-primary" 
+                  disabled={isSubmitting}
                   style={{ 
                     fontSize: '1.125rem', 
                     padding: '1rem 3rem',
-                    minWidth: '200px'
+                    minWidth: '200px',
+                    opacity: isSubmitting ? 0.7 : 1,
+                    cursor: isSubmitting ? 'not-allowed' : 'pointer',
+                    position: 'relative'
                   }}
                 >
-                  <FileText size={20} style={{ marginRight: '8px' }} />
-                  {t.reportBtn}
+                  {isSubmitting ? (
+                    <>
+                      <span style={{
+                        display: 'inline-block',
+                        width: '20px',
+                        height: '20px',
+                        border: '3px solid rgba(255,255,255,0.3)',
+                        borderTop: '3px solid white',
+                        borderRadius: '50%',
+                        animation: 'spin 0.8s linear infinite',
+                        marginRight: '8px'
+                      }} />
+                      Melding verzenden...
+                    </>
+                  ) : (
+                    <>
+                      <FileText size={20} style={{ marginRight: '8px' }} />
+                      {t.reportBtn}
+                    </>
+                  )}
                 </button>
                 <p style={{ color: '#6b7280', fontSize: '0.875rem', marginTop: '1rem' }}>
                   {t.requiredFields}
